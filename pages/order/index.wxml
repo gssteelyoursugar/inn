@@ -1,0 +1,14 @@
+<!--pages/order/index.wxml-->
+
+<view class="order-container">
+  <view class="order-tabs">
+    <view class="tab-item" wx:for="{{tabs}}" wx:key="{{item.id}}" catchtap="clickTab" data-index="{{index}}">
+      <text class="{{index === curIndex? 'active':''}}">{{item.name}}</text>
+    </view>
+  </view>
+  <view class="tabs-content">
+    <block wx:for="{{tabs}}" wx:key="{{item.id}}" wx:if="{{curIndex === index}}">
+      <list orderList="{{orderList}}"></list>
+    </block>
+  </view>
+</view>

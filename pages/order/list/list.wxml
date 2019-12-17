@@ -1,0 +1,26 @@
+<!--pages/order/list/list.wxml-->
+
+<view class="content-wrap" wx:for="{{orderList}}" wx:key="{{item.id}}">
+      <view class="img-item">
+        <image src="{{item.images_url}}"></image>
+      </view>
+      <view class="info-item">
+        <view class="info-title">
+          <text>{{item.name}}</text>
+          <text>¥{{item.price}}</text>
+        </view>
+        <view class="info-locate">
+          <van-icon name="location-o" class="locate-icon"/>
+          <text>{{item.locate}}</text>
+        </view>
+        <view class="info-stay">共住{{item.days}}晚 宜住{{item.people}}人</view>
+        <view class="info-rate">
+          <van-rate value="{{ item.rate }}" size="{{ 16 }}" allow-half readonly color="#fed875" void-color="#eee" void-icon="star" bind:change="onChange" />
+          <text>{{item.rate}}</text>
+          <view class="status-btn" wx:if="{{item.status === 1}}">已完成</view>
+          <view class="status-btn not-over" wx:if="{{item.status === 2}}">待支付</view>
+          <view class="status-btn not-over" wx:if="{{item.status === 3}}">进行中</view>
+          <view class="status-btn not-over" wx:if="{{item.status === 4}}">待评价</view>
+        </view>
+      </view>
+    </view>

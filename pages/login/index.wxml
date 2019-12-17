@@ -1,0 +1,36 @@
+<!--pages/login/index.wxml-->
+
+<view class="login-container">
+  <view class="inn-logo">
+    <image src="../../static/img/logo.png"></image>
+  </view>
+  <block wx:if="{{isLogin}}">
+    <view class="inn-login-wrap">
+      <van-cell-group>
+        <van-field value="{{ phone }}" type="number" clearable placeholder="请输入手机号码" border="{{ true }}" />
+        <van-field border="{{ true }}" type="number" value="{{ valicode }}" clearable placeholder="请输入验证码" border="{{ true }}" />
+      </van-cell-group>
+    </view>
+    <view class="login-btn">
+      <button open-type="getUserInfo">登录</button>
+    </view>
+    <view class="has-account">还没有账号？去
+      <text catchtap="toggleSign">注册</text>
+    </view>
+  </block>
+  <block wx:else>
+  <view class="inn-login-wrap">
+      <van-cell-group>
+        <van-field value="{{ username }}"  clearable placeholder="请输入用户名" border="{{ true }}" />
+        <van-field border="{{ true }}" type="password" value="{{ password }}" clearable placeholder="请输入密码" border="{{ true }}" />
+        <van-field border="{{ true }}" type="password" value="{{ re_password }}" clearable placeholder="请再次输入密码" border="{{ true }}" />
+      </van-cell-group>
+    </view>
+    <view class="login-btn">
+      <button open-type="getUserInfo">注册</button>
+    </view>
+    <view class="has-account">已有账号？去
+      <text catchtap="toggleSign">登录</text>
+    </view>
+  </block>
+</view>

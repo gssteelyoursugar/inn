@@ -1,0 +1,29 @@
+/* pages/order/index.wxss */
+
+page {
+  background: #f0f3f5;
+}
+
+.order-tabs {
+  padding: 20rpx 10rpx 0rpx;
+  display: flex;
+  background: #fff;
+}
+
+.tab-item {
+  width: 25%;
+  text-align: center;
+  font-size: 26rpx;
+}
+
+.tab-item text {
+  display: inline-block;
+  padding: 2rpx 4rpx 16rpx;
+  border-bottom: 4rpx solid transparent;
+  transition: all 0.3s;
+}
+
+.active {
+  color: #fed875;
+  border-bottom: 4rpx solid #fed875 !important;
+}

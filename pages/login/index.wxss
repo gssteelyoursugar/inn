@@ -1,0 +1,42 @@
+/* pages/login/index.wxss */
+
+.inn-logo {
+  width: 80%;
+  margin: 80rpx auto 40rpx;
+  text-align: center;
+}
+
+.inn-logo image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.inn-login-wrap {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.inn-login-wrap  .van-cell {
+  margin: 40rpx 0;
+}
+
+.login-btn {
+  margin: 60rpx 0 20rpx;
+}
+.login-btn  button{
+  background: #fec865;
+  color: #333;
+  font-weight: 400;
+  width: 74%;
+  border-radius: 50rpx;
+}
+
+.has-account {
+  text-align: center;
+  color: #636363;
+  font-size: 24rpx;
+}
+
+.has-account text {
+  color: #ed5675;
+}

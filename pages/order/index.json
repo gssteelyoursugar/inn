@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-icon": "../../../vant-weapp/dist/icon/index",
+    "van-rate": "../../../vant-weapp/dist/rate/index",
+    "list": "../list/list"
+  }
+}

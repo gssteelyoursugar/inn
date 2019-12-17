@@ -1,0 +1,27 @@
+<!--pages/my/index.wxml-->
+
+<view class="my-container">
+  <view class="header-bg" style="background:url(../../../static/img/header-bg.png);background-size: contain;background-position: 0 0;background-repeat: no-repeat;">
+    <view class="header-icon">
+      <view class="icon">
+        <image src="../../static/img/bell.png"></image>
+      </view>
+      <view class="icon">
+        <image src="../../static/img/setting.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="header-avatar">
+    <image src="../../static/img/avatar.jpg"></image>
+  </view>
+  <view class="user-name">狗剩哥哥</view>
+  <view class="real-name">已实名认证</view>
+  <view class="my-category">
+    <view class="cate-item" wx:for="{{iconList}}" wx:key="{{item.id}}">
+      <image src="{{item.url}}"></image>
+      <view class="cate-name">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="join">我想成为房东</view>
