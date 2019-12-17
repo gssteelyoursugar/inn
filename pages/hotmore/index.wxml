@@ -1,0 +1,57 @@
+<!--pages/hotmore/index.wxml-->
+<!-- 房源信息  更多  -->
+<view class="hotmore">
+    <!--  顶部内容  -->
+    <view class="hotbar">
+      <view class="hotbar-sou">
+        <view class="hotsou-inpus">
+          <view class="inpus-name">
+            <view class="name-citi">广州</view>
+            <image src="../../static/img/downward-icon.png"></image>
+          </view>
+          <view class="inpus-frame">
+            <image src="../../static/img/seek-icon.png"></image>
+            <input class="weui-input"  maxlength="20" bindinput="bindKeyInput" placeholder="位置、地标、房源标题"/>
+          </view>
+        </view>
+        <view class="hotsou-icon">
+          <image wx:if="{{showMenu}}" bindtap="btnShowmenu" src="../../static/img/location2-icon.png"></image>
+          <image wx:else bindtap="btnShowmenu" src="../../static/img/menu-icon.png"></image>
+        </view>
+      </view>
+      <!-- 条件筛选   -->
+      <view class="hotbar-screen">
+        <view class="screenbao">
+          <view class="screenbao-time">
+            <image src="../../static/img/time-icon.png"></image>
+            <view class="screenbao-time-name">日期</view>
+          </view>
+          <view class="screenbao-time">
+            <image src="../../static/img/sort-icon.png"></image>
+            <view class="screenbao-time-name">排序</view>
+          </view>
+          <view class="screenbao-time">
+            <image src="../../static/img/location-icon.png"></image>
+            <view class="screenbao-time-name">位置</view>
+          </view>
+          <view class="screenbao-time">
+            <image src="../../static/img/screen-icon.png"></image>
+            <view class="screenbao-time-name">筛选</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--  内容区域  -->
+    <view class="res-hot">
+        <!--  房源列表 -->
+        <view class="resource" wx:if="{{resource.length > 0}}"></view>
+        <!--   没有房源的情况 -->
+        <view class="resource-not" wx:else>
+          <view class="resource-not-box">
+            <view class="not-box-img"><image src="../../static/img/empty.png"></image></view>
+            <view class="not-box-title">暂无房源哦~</view>
+          </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,36 @@
+<!--pages/hotsearch /index.wxml-->
+<!--  首页热门搜索  -->
+<view class="hot">
+  <!--  顶部搜索   -->
+  <view class="search">
+    <view class="search-warp" bindtap="hotSearch">
+      <image src="../../static/img/seek-icon.png"></image>
+      <input class="weui-input"  maxlength="20" bindinput="bindKeyInput" placeholder="位置、地标、房源标题"/>
+    </view>
+  </view>
+
+  <!--  主体  -->
+  <view class="main">
+    <view class="hot-heng"></view>
+
+    <!-- 热门搜索 -->
+    <view class="main-hot">
+        <view class="maht-title">热门搜索</view>
+        <view class="maht-btns">
+          <text class="btns-text" bindtap="btnHontvalue" data-name="{{item}}" wx:for="{{btns}}" wx:key="*this">{{item}}</text>
+        </view>
+    </view>
+
+    <!--  历史记录  -->
+    <view class="main-history">
+      <view class="his-bar">
+        <view class="history-title">历史记录</view>
+        <image  bindtap="btnDelete" wx:if="{{history.length > 0}}" src="../../static/img/delete-icon.png"></image>
+      </view>
+      <view class="history-btns">
+          <text class="btns-text" bindtap="btnHontvalue" data-name="{{item}}" wx:for="{{history}}" wx:key="*this">{{item}}</text>
+        </view>
+    </view>
+  </view>
+  
+</view>

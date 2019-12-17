@@ -1,11 +1,19 @@
-// pages/message/index.js
+// pages/hotmore/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    showMenu:true,
+    resource:[]
+  },
 
+  btnShowmenu: function () {
+    var showMenu = !this.data.showMenu
+    this.setData({
+      showMenu
+    })
   },
 
   /**

@@ -1,13 +1,95 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!--pages/index/index.wxml-->
+<view>
+  <!--  顶部搜索   -->
+  <view class="search">
+    <view class="search-warp" bindtap="hotSearch">
+      <image src="../../static/img/seek-icon.png"></image>
+      <view class="warp-title">位置、地标、房源标题</view>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <!--  轮播图  -->
+  <view class="swiper">
+    <swiper 
+      autoplay="{{autoplay}}" previous-margin="{{previousMargin}}" next-margin="{{nextMargin}}"  circular="true" interval="{{interval}}" duration="{{duration}}" bindchange="handleChange">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item class="swiper-items">
+          <view class="swiper-item {{currentIndex !== index ? 'active':''}}"><image src="{{item}}"></image></view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
+
+  <!--  主体  -->
+  <view class="index-main">
+    <!--  预定   -->
+    <view class="over">
+      <view class="over-want">
+        <view class="want-icon">
+          <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=294789278,2608121812&fm=26&gp=0.jpg"></image>
+        </view>
+        <view class="want-name">
+          <view class="name-title">我要预定</view>
+          <view class="name-desc">查找房源</view>
+          <view class="name-desc">预定满意民宿</view>
+        </view>
+      </view>
+      <view class="over-already">
+        <view class="already-icon">
+          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577188567&di=abafb669f598cb2718a4f566da8a1a4b&imgtype=jpg&er=1&src=http%3A%2F%2Fimgcdn.gz01.bdysite.com%2Fupfile%2Ft0149d05343c429e855.jpg"></image>
+        </view>
+        <view class="already-name">
+          <view class="name-title">我已预定</view>
+          <view class="name-desc">房源房源</view>
+          <view class="name-desc">入住满意民宿</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 本地房源  -->
+    <view class="housing">
+      <view class="housing-bar">
+        <view class="bar-title">本地房源</view>
+        <view class="bar-more" bindtap="toggleHotmore">
+          <view class="more-title">更多</view>
+          <image src="../../static/img/more-icon.png"></image>
+        </view>
+      </view>
+
+      <!--  房源列表轮播  -->
+      <view class="swiper2">
+        <swiper 
+           previous-margin="{{previousMargin2}}" next-margin="{{nextMargin2}}"  circular="true" interval="{{interval2}}" duration="{{duration2}}">
+          <block wx:for="{{housing}}" wx:key="*this">
+            <swiper-item>
+              <view class="swiper-item2">
+                <view class="item2-imgs">
+                  <image class="item2-imgs-url" src="{{item.img_Url}}"></image>
+                  <image wx:if="{{item.showCollect === 2}}" bindtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
+                  <image wx:else class="item2-imgs-sc" bindtap="btnCancel" src="../../static/img/collect.png"></image>
+                </view>
+                <view class="item2-desc">
+                  <view class="desc-warp">
+                    <view class="warp-title">
+                      <view class="title-cont">{{item.title}}</view>
+                      <view class="title-detals">
+                        <image src="../../static/img/location-icon.png"></image>
+                        <view class="detals-location">{{item.loading}}</view>
+                      </view>
+                    </view>
+                    <view class="item2-price">
+                      <text class="item2-price-un">¥</text>
+                      <text>{{item.price}}</text>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
+  </view>
+  
+
 </view>

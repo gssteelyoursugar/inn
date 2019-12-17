@@ -1,21 +1,258 @@
-/**index.wxss**/
-.userinfo {
+/* pages/index/index.wxss */
+page{
+  background: #f0f3f5;
+}
+/*顶部搜索*/
+.search{
+  position: fixed;
+  background: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 80rpx;
+  z-index: 10;
+}
+.search .search-warp{
+  width: 700rpx;
+  height: 70rpx;
+  background: #f0f3f5;
+  margin: 0 auto;
+  border-radius: 40rpx;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  color: #999999;
+  font-size: 27rpx;
+}
+.search-warp image{
+  margin-left: 30rpx;
+  margin-right: 10rpx;
+  width: 48rpx;
+  height: 48rpx;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+/*轮播图*/
+.swiper{
+  margin-top: 90rpx;
+  
+}
+.swiper swiper{
+  height: 400rpx !important;
+}
+.swiper-items{
+  height: 400rpx !important;
+}
+.swiper .swiper-item{
+  height: 400rpx;
+  margin: 0 10rpx !important;
+  border-radius: 15rpx;
+}
+.swiper .active{
+  height: 370rpx;
+  margin: 20rpx 10rpx 0 !important;
+  border-radius: 10rpx;
+  transition: all 0.2s ease-in 0s;
+}
+.swiper .swiper-item image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.swiper .active image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+
+.index-main{
+  margin-top: 10rpx;
+  background: #ffffff;
+  width: 750rpx;
+}
+/*预定*/
+.over{
+  width: 700rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+.over .over-want{
+  margin-top: 10rpx;
+  width: 350rpx;
+  height: 160rpx;
+  border-right: 1rpx solid #f0f3f5;
+  box-sizing: border-box;
+  display: flex;
+}
+.over-want .want-icon{
+    margin-top: 10rpx;
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+.want-icon image{
+  width: 140rpx;
+  height: 140rpx;
+}
+.want-name{
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+}
+.want-name .name-title{
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+.want-name .name-desc{
+  color: #999999;
+  font-size: 24rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.over .over-already{
+  margin-top: 10rpx;
+  width: 350rpx;
+  height: 160rpx;
+  border-left: 1rpx solid #f0f3f5;
+  box-sizing: border-box;
+  display: flex;
+}
+.over-already .already-icon{
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+.already-icon image{
+  width: 140rpx;
+  height: 140rpx;
+}
+.already-name{
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+}
+.already-name .name-title{
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: 500;
+  margin-bottom: 10rpx;
+}
+.already-name .name-desc{
+  color: #999999;
+  font-size: 24rpx;
+}
+
+/*本地房源*/
+.housing{
+  background: #ffffff;
+  padding-bottom: 20rpx;
+}
+.housing-bar{
+  width: 700rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.bar-title{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+.bar-more{
+  display: flex;
+}
+.bar-more .more-title{
+  color: #999999;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+.bar-more image{
+  margin: auto 0;
+  width: 25rpx;
+  height: 25rpx;
+}
+
+/*轮播图*/
+.swiper2 swiper{
+  height: 380rpx !important;
+}
+.swiper-items2{
+  height: 380rpx !important;
+}
+.swiper2 .swiper-item2{
+  height: 380rpx;
+  margin: 0 15rpx !important;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.item2-imgs{
+  height: 280rpx;
+  position: relative;
+}
+.item2-imgs .item2-imgs-url{
+  width: 100%;
+  height: 100%;
+}
+.item2-imgs .item2-imgs-sc{
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.item2-desc{
+  height: 90rpx;
+  overflow: hidden;
+}
+.item2-desc .desc-warp{
+  width: 95%;
+  height: 90rpx;
+  margin: 10rpx auto;
+  display: flex;
+  justify-content: space-between;
+}
+.desc-warp .warp-title{
+  margin-top: 5rpx;
+  width: 79%;
+}
+.desc-warp .warp-title .title-cont{
+  font-size: 27rpx;
+  color: #333333;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.desc-warp .warp-title .title-detals{
+  display: flex;
+}
+.title-detals image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.detals-location{
+  width: 90%;
+  font-size: 25rpx;
+  color: #999999;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.item2-price{
+  font-size: 32rpx;
+  color: #ef5473;
+}
+.item2-price .item2-price-un{
+  font-size: 24rpx;
 }
