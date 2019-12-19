@@ -5,7 +5,8 @@
     "pages/order/index",
     "pages/my/index",
     "pages/hotsearch/index",
-    "pages/hotmore/index"
+    "pages/hotmore/index",
+    "pages/login/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
