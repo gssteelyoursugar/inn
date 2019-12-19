@@ -57,12 +57,12 @@
 
     <!--  预定   -->
     <view class="over">
-      <view class="over-want">
+      <view class="over-want" bindtap="ToOrder">
         <view class="want-icon">
           <image src="https://dimg04.c-ctrip.com/images/2B0d0g000000895w85D34_R_750_600_Q80.jpg"></image>
         </view>
         <view class="want-name">
-          <view class="name-title" bindtap="ToOrder">我要预定</view>
+          <view class="name-title" >已有预定</view>
           <view class="name-desc">预定满意民宿</view>
         </view>
       </view>

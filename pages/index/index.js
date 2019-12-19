@@ -161,12 +161,12 @@ Page({
   },
 
   ToOrder(){
-    console.log('进来了')
-    if(!this.data.is_realname){
+    if(this.data.is_realname===false){
       wx.navigateTo({
         url: '/pages/login/index',
       })
     }else{
+      console.log('333')
       wx.switchTab({
         url: '/pages/order/index',
       })
