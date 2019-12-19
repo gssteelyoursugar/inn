@@ -1,0 +1,202 @@
+/* pages/hotmore/datatime/index.wxss */
+.data_time{
+  
+}
+.reserve-time {
+  display: flex;
+  color: black;
+  font-size: 35rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #eee;
+}
+.reserve-time-left{
+  width: 40%;
+  text-align: center;
+}
+.time-left-ruzhu{
+  padding-top: 30rpx;
+  margin: 15rpx 10rpx 0 0;
+  color: #b4b4b4;
+  font-size: 30rpx;
+}
+.time-left-name{
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-bottom: 30rpx;
+  font-size: 35rpx;
+}
+.wanNum{
+  width: 20%;
+  text-align: center;
+  height: 40rpx;
+  line-height: 40rpx;
+  border:1rpx solid #ccc;
+  margin-top: 60rpx;
+  color: #b4b4b4;
+  font-size: 25rpx;
+  border-radius: 10rpx;
+}
+.wanNum text{
+  color: #009dbd;
+  margin: 0 10rpx;
+}
+.reserve-time-right{
+  width: 40%;
+  text-align: center;
+}
+.time-right-likai{
+  padding-top: 30rpx;
+  margin: 15rpx 10rpx 0 0;
+  color: #b4b4b4;
+  font-size: 30rpx;
+}
+/*左右点击开始*/
+.Orse{
+  display: flex;
+  padding: 30rpx 0;
+  align-items: center;
+  background: #fff;
+}
+.Orse-left{
+  width: 15%;
+}
+.Orse-left-image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+.Orse-left-image image{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.Orse-time{
+  width: 70%;
+  text-align: center;
+}
+.Orse-right{
+  width: 15%;
+}
+.Orse-right-image{
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 auto;
+}
+.Orse-right-image image{
+  width: 100%;
+  height: 100%;
+   text-align: center;
+}
+/*左右点击结束*/
+.header{
+  background: #eee;
+}
+.header>view{
+	display: inline-block;
+	width: 14.285%;
+	color: black;
+	font-size: 25rpx;
+	text-align: center;
+}
+.header .weekMark{
+  color: #009dbd;
+  padding: 10rpx 0;
+}
+.yearMonth {
+  font-size: 30rpx;
+  line-height: 35px;
+  color: #333;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
+.content {
+  width: 100%;
+  background: #fff;
+}
+.date-content {
+  padding: 0 1%;
+  box-sizing: border-box;
+}
+.title {
+  line-height: 35px;
+  font-size: 35rpx;
+  color: black;
+}
+.days {
+  width: 14.28%;
+  text-align: center;
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  
+}
+.day-select {
+  color: #fff;
+  background: #009dbd;
+}
+.day-sect{
+  color: #fff;
+  background: #009dbd;
+}
+.not-select {
+  color: #999;
+}
+.dateNum{
+  position: relative;
+  width: 100%;
+}
+.jintian{
+  position: absolute;
+  width: 100%;
+  top: 30rpx;
+  font-size: 25rpx;
+  text-align: center;
+  color: #009dbd;
+}
+.lanse{
+  color: #009dbd;
+}
+.baise{
+  color: #fff;
+}
+.ruzhu{
+  position: absolute;
+  width: 100%;
+  top: 30rpx;
+  font-size: 25rpx;
+  text-align: center;
+}
+.likai{
+  position: absolute;
+  width: 100%;
+  top: 30rpx;
+  font-size: 25rpx;
+  text-align: center;
+}
+.huise{
+  color: #b4b4b4;
+}
+
+/*清空确定*/
+.determine{
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  background: #009dbd;
+  display: flex;
+  color: #fff;
+  font-size: 35rpx;
+}
+.determine-empty{
+  width: 50%;
+  background: #dcf0f4;
+  color: #009dbd;
+  text-align: center;
+}
+.determine-save{
+  width: 50%;
+  text-align: center;
+}

@@ -13,7 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    curIndex: ''
   },
 
   /**
@@ -21,7 +21,15 @@ Component({
    */
   methods: {
     //收藏房源成功
-    btnSucceed: function () {
+    btnSucceed(e) {
+      let room_id = e.currentTarget.dataset.show_id
+      let temp = {
+        room_id,
+        user_id: 1
+      }
+      console.log(temp);
+      // 回调函数
+      // this.setData({ show: res.data.status})
       wx.showToast({
         title: '收藏成功',
         icon: 'success',
@@ -29,7 +37,12 @@ Component({
       })
     },
     //收藏房源成功
-    btnCancel: function () {
+    btnCancel: function() {
+      let room_id = e.currentTarget.dataset.show_id
+      let temp = {
+        room_id,
+        user_id: 1
+      }
       wx.showToast({
         title: '收藏取消',
         icon: 'success',

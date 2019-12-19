@@ -22,7 +22,7 @@
       <!-- 条件筛选   -->
       <view class="hotbar-screen">
         <view class="screenbao">
-          <view class="screenbao-time">
+          <view class="screenbao-time" bindtap="showData">
             <!-- <image src="../../static/img/time-icon.png"></image> -->
             <view class="screenbao-time-name">日期</view>
           </view>
@@ -46,7 +46,7 @@
     <view class="res-hot">
         <!--  房源列表 -->
         <view class="resource" wx:if="{{resource.length > 0}}">
-          <hotlist></hotlist>
+          <hotlist hotlist="{{hotlist}}"></hotlist>
         </view>
         <!--   没有房源的情况 -->
         <view class="resource-not" wx:else>
@@ -55,5 +55,10 @@
             <view class="not-box-title">暂无房源哦~</view>
           </view>
         </view>
+    </view>
+
+    <!--  弹出时间选择  -->
+    <view wx:if="{{dataTime}}" class="dataTimeShow" catchtouchmove="return">
+      <datatime />
     </view>
 </view>

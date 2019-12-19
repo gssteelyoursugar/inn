@@ -1,5 +1,11 @@
 //app.js
 App({
+
+  globalData:{
+    day: '',//日期
+    intimestamps: '',//入住时间参数
+    outtimestamps: '',//离开时间参数
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -34,6 +40,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    homeruzhuTime: '',//入住时间
+    homelikaiTime: ''//离店时间
   }
 })

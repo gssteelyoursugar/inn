@@ -2,6 +2,16 @@
 page{
   background: #f4f4f5;
 }
+.dataTimeShow{
+  z-index: 30;
+  background: #ffffff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 /*顶部内容*/
 .hotbar{
   background: #fff;
