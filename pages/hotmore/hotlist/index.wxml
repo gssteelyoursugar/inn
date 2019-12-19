@@ -5,8 +5,8 @@
     <view class="list-shows">
       <image class="shows-master" src="https://z1.muscache.cn/im/pictures/3e23e9e5-339d-44cf-b63f-f81d1c47a0ed.jpg?aki_policy=xx_large"></image>
       <view class="shows-collect">
-        <image src="../../../static/img/collect-not.png"></image>
-        <!-- <image src="../../../static/img/collect.png"></image> -->
+        <image src="../../../static/img/collect-not.png" bindtap="btnSucceed"></image>
+        <!-- <image src="../../../static/img/collect.png" bindtap="btnCancel"></image> -->
       </view>
       <view class="shows-price">
         <view class="price-money">¥<span>789</span></view>
@@ -19,6 +19,13 @@
         <view class="list-content-num">
           <span>整套</span>/<span>2</span>床/宜住<span>3</span>人
         </view>
+        <view class="list-content-location">
+          <image src="../../../static/img/location-icon.png"></image>
+          <view class="list-content-location-title">海珠区宜宾东路1024-1028号</view>
+        </view>
+      </view>
+      <view class="list-content-head">
+        <image src=""></image>
       </view>
     </view>
   </view>

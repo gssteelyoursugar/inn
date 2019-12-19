@@ -427,5 +427,18 @@ page{
   font-size: 24rpx;
 }
 
+/*广告投放*/
+.advertising{
+  width: 650rpx;
+  height: 100rpx;
+  margin: 30rpx auto;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.advertising image{
+  width: 100%;
+  height: 100%;
+}
+
 
 

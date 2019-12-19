@@ -48,6 +48,10 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+.centnt-box-wrap{
+  display: flex;
+  /* justify-content: space-between; */
+}
 .centnt-box-name {
   height: 65rpx;
   line-height: 65rpx;
@@ -62,9 +66,25 @@
 }
 .centnt-box-name-title{
   color: #333333;
+  width: 110rpx;
   font-size: 25rpx;
   margin-left: 15rpx;
   overflow: hidden;
 text-overflow:ellipsis;
 white-space: nowrap;
+}
+.centnt-box-browse{
+  color: #999999;
+  font-size: 20rpx;
+  display: flex;
+}
+.centnt-box-browse image{
+  margin-top: 40rpx;
+  margin-left: 20rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.centnt-box-browse-nums {
+  margin-top: 40rpx;
+  margin-left: 10rpx;
 }

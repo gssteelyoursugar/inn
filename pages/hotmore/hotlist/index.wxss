@@ -3,9 +3,9 @@
   margin: 0 auto;
   width: 700rpx;
   height: 550rpx;
-  background: orange;
   border-radius: 10rpx;
   overflow: hidden;
+  background: #ffffff;
 }
 .list-shows{
   position: relative;
@@ -13,6 +13,7 @@
 .shows-master{
   width: 100%;
   height: 400rpx;
+  vertical-align:top;
 }
 .shows-collect{
   position: absolute;
@@ -50,12 +51,58 @@
 }
 
 .list-content{
-  overflow: hidden;
+  position: relative;
 }
 .list-content-warp{
   width: 95%;
   margin: 10rpx auto;
 }
 .list-content-title{
-
+  color: #000;
+  font-size: 500;
+  width: 500rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list-content-num{
+  margin-top: 5rpx;
+  color: #999999;
+  font-size: 26rpx;
+  width: 500rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list-content-location{
+  display: flex;
+  font-size: 26rpx;
+  margin-top: 5rpx;
+  color: #99999979;
+}
+.list-content-location image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 2rpx;
+  margin-right: 2rpx;
+}
+.list-content-location-title{
+  width: 465rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list-content-head{
+  position: absolute;
+  right: 30rpx;
+  top: -60rpx;
+  background: orange;
+  width: 100rpx;
+  height: 100rpx;
+  border: 6rpx solid #ffffff;
+  border-radius: 50%;
+}
+.list-content-head image{
+  width: 100rpx;
+  height: 100rpx;
 }

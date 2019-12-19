@@ -47,42 +47,49 @@ Page({
         imgUrl:'http://k.zol-img.com.cn/dcbbs/24715/a24714279_01000.jpg',
         desc:'【小院有露台，可以看看星星，门前有泉水，很甜的哦】',
         headUrl:'../../../static/img/avatar.jpg',
-        name:'途途梦想家'
+        name:'途途梦想家',
+        browse:1000
       },
       {
         imgUrl: 'http://hbimg.b0.upaiyun.com/264af979a0a6192883a463d85b0373a628aec0d338358-NtFaOZ_fw658',
         desc: '【小院有露台，可以看看星星，门前有泉水，很甜的哦】',
         headUrl: '../../../static/img/avatar.jpg',
-        name: '李大宝'
+        name: '李大宝',
+        browse: 130
       },
       {
         imgUrl: 'http://img.pconline.com.cn/images/upload/upc/tx/wallpaper/1509/30/c2/13354908_1443558561264_320x480.jpg',
         desc: '【小院有露台，可以看看星星，门前有泉水，很甜的哦】',
         headUrl: '../../../static/img/avatar.jpg',
-        name: '张无忌家'
+        name: '张无忌家',
+        browse: 394
       }, {
         imgUrl: 'http://pic1.win4000.com/wallpaper/2017-12-13/5a3095f874824.jpg',
         desc: '【小院有露台，可以看看星星，门前有泉水，很甜的哦】',
         headUrl: '../../../static/img/avatar.jpg',
-        name: 'Angell'
+        name: 'Angell',
+        browse: 569
       },
       {
         imgUrl: 'http://pic1.win4000.com/wallpaper/2018-01-03/5a4c4270d8799.jpg',
         desc: '【小院有露台，可以看看星星，门前有泉水，很甜的哦】',
         headUrl: '../../../static/img/avatar.jpg',
-        name: '香梨'
+        name: '香梨',
+        browse: 2666
       },
       {
         imgUrl: 'http://pic1.win4000.com/mobile/0/53b511fca2128_200_300.jpg',
         desc: '【小院有露台，可以看看星星，门前有泉水，很甜的哦】',
         headUrl: '../../../static/img/avatar.jpg',
-        name: '香梨'
+        name: '香梨',
+        browse: 395
       },
       {
         imgUrl: 'http://pic1.win4000.com/wallpaper/e/5603566d66a7c.jpg',
         desc: '【小院有露台，可以看看星星，门前有泉水，很甜的哦】',
         headUrl: '../../../static/img/avatar.jpg',
-        name: '香梨'
+        name: '香梨',
+        browse: 683
       }
     ]
   },

@@ -1,0 +1,40 @@
+var filter = {
+  getOneStr:function (value) {
+    if(value<1000){
+      return value
+    }
+    if (value >= 1000 && value<2000){
+      return '1k'
+    }
+    if (value >= 2000 && value < 3000) {
+      return '2k'
+    }
+    if (value >= 3000 && value < 4000) {
+      return '3k'
+    }
+    if (value >= 4000 && value < 5000) {
+      return '4k'
+    }
+    if (value >= 5000 && value < 6000) {
+      return '5k'
+    }
+    if (value >= 6000 && value < 7000) {
+      return '6k'
+    }
+    if (value >= 7000 && value < 8000) {
+      return '7k'
+    }
+    if (value >= 8000 && value < 9000) {
+      return '8k'
+    }
+    if (value >= 9000 && value < 10000) {
+      return '9k'
+    }
+    if (value >= 10000 && value < 11000) {
+      return '10k'
+    }
+  }
+}
+module.exports = {
+  getOneStr: filter.getOneStr
+}

@@ -1,6 +1,7 @@
 <!--pages/index/evaluate/index.wxml-->
 <!-- 热门评价  -->
 <view class="evas">
+<wxs src="../../../utils/common/filter.wxs" module="filter" />
   <view class="evas-title">热门评价</view>
   <!-- 数据  -->
   <view class="list">
@@ -12,9 +13,16 @@
         <view class="wrap-centnt">
           <view class="wrap-centnt-box">
             <view class="centnt-box-title">{{item.desc}}</view>
-            <view class="centnt-box-name">
-              <image src="{{item.headUrl}}"></image>
-              <view class="centnt-box-name-title">{{item.name}}</view>
+            <!-- 内容区域  -->
+            <view class="centnt-box-wrap">
+              <view class="centnt-box-name">
+                <image src="{{item.headUrl}}"></image>
+                <view class="centnt-box-name-title">{{item.name}}</view>
+              </view>
+              <view class="centnt-box-browse">
+                <image src="../../../static/img/browse.png"></image>
+                <view  class="centnt-box-browse-nums">{{filter.getOneStr(item.browse)}}</view>
+              </view>
             </view>
           </view>
         </view>
@@ -28,10 +36,18 @@
         <view class="wrap-centnt">
           <view class="wrap-centnt-box">
             <view class="centnt-box-title">{{item.desc}}</view>
-            <view class="centnt-box-name">
-              <image src="{{item.headUrl}}"></image>
-              <view class="centnt-box-name-title">{{item.name}}</view>
+            <!-- 内容区域  -->
+            <view class="centnt-box-wrap">
+              <view class="centnt-box-name">
+                <image src="{{item.headUrl}}"></image>
+                <view class="centnt-box-name-title">{{item.name}}</view>
+              </view>
+              <view class="centnt-box-browse">
+                <image src="../../../static/img/browse.png"></image>
+                <view class="centnt-box-browse-nums">{{filter.getOneStr(item.browse)}}</view>
+              </view>
             </view>
+            
           </view>
         </view>
       </view>
