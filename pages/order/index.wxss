@@ -4,26 +4,129 @@ page {
   background: #f0f3f5;
 }
 
-.order-tabs {
-  padding: 20rpx 10rpx 0rpx;
-  display: flex;
+.order-wrap {
+  padding: 20rpx 30rpx;
   background: #fff;
+  margin-bottom: 20rpx;
 }
 
-.tab-item {
-  width: 25%;
-  text-align: center;
+.order-title {
+  display: flex;
+}
+
+.order-title {
+  padding: 0 0 20rpx;
+}
+
+.title-name {
+  width: 82%;
+  color: #333;
+  font-size: 24rpx;
+  line-height: 44rpx;
+  overflow: hidden;
+  text-overflow: ellipis;
+  white-space: nowrap;
+}
+
+.title-status {
+  width: 18%;
+  color: #909395;
+  font-size: 32rpx;
+  text-align: right;
+  padding-right: 10rpx;
+}
+
+.on-status {
+  color: #f39557;
+}
+
+.order-info {
+  border-radius: 14rpx;
+  overflow: hidden;
+  position: relative;
+  max-height: 480rpx;
+}
+
+.order-info image {
+  width: 100%;
+}
+
+.info-item {
+  position: absolute;
+  display: flex;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10rpx 0;
+}
+
+.left-date-box {
+  display: flex;
+  width: 65%;
+  border-right: 1px solid #f3f5f7;
+}
+
+.start-date, .end-date {
+  width: 40%;
   font-size: 26rpx;
+  text-align: center;
 }
 
-.tab-item text {
-  display: inline-block;
-  padding: 2rpx 4rpx 16rpx;
-  border-bottom: 4rpx solid transparent;
-  transition: all 0.3s;
+.start-date view:last-child, .end-date view:last-child {
+  font-size: 22rpx;
+  color: #a9a9a9;
 }
 
-.active {
-  color: #fed875;
-  border-bottom: 4rpx solid #fed875 !important;
+.arrow-logo {
+  width: 20%;
+  text-align: center;
+}
+
+.arrow-logo  image {
+  width: 32rpx;
+  height: 26rpx;
+  text-align: center;
+  margin-top: 22rpx;
+}
+
+.right-price-box {
+  width: 35%;
+  font-size: 24rpx;
+  text-align: right;
+  padding-right: 26rpx;
+}
+
+.right-price-box view:first-child {
+  font-size: 20rpx;
+  line-height: 34rpx;
+}
+
+.right-price-box view:last-child {
+  font-size: 24rpx;
+  color: #f39557;
+  line-height: 34rpx;
+}
+
+.btn-group {
+  display: flex;
+  text-align: right;
+  flex-direction: row-reverse;
+  margin: 20rpx 0 10rpx;
+}
+
+.btn-group view {
+  border: 1px solid #bbb;
+  font-size: 24rpx;
+  color: #bbb;
+  min-width: 112rpx;
+  border-radius: 4rpx;
+  text-align: center;
+  margin: 0 10rpx;
+}
+
+.btn-group view.again {
+  border: 1px solid #f39557;
+  color: #f39557;
 }

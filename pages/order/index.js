@@ -5,78 +5,71 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: [
-      {
-        id: 1,
-        name: '全部'
-      },
-      {
-        id: 2,
-        name: '待支付'
-      },
-      {
-        id: 3,
-        name: '进行中'
-      },
-      {
-        id: 4,
-        name: '待评价'
-      }
+    img: [
+      'https://image.xiaozhustatic3.com/00,800,533/51,0,59,48397,1800,1201,28c427c6.jpg',
+      'https://image.xiaozhustatic3.com/00,800,533/9,0,3,5096,1800,1200,25afc714.jpg'
     ],
-    curIndex: 0,
-    orderList: [{
+    orderList: [
+      {
         id: 1,
-        images_url: 'https://pic.tujia.com/upload/qualifiedpics/day_170309/thumb/201703091559599852_370_232.jpg',
-        name: '田涧小苑度假别墅',
-        price: '939',
-        locate: '北观世界侨商中心',
-        days: '3',
-        people: '5',
-        rate: '4.8',
-        status: 1
+        name: '【木离】侨港银滩海景中式简约风格一居室',
+        start_date: '11月03日',
+        start_time: '周日 14:00',
+        end_date: '11月04日',
+        end_time: '周一 12:00',
+        price: '316.00',
+        images_url: 'https://image.xiaozhustatic3.com/00,800,533/9,0,3,5096,1800,1200,25afc714.jpg',
+        status: '1'
       },
       {
         id: 2,
-        images_url: 'https://pic.tujia.com/upload/landlordunit/day_180715/thumb/201807152038196550_370_232.jpg',
-        name: '五角场时尚小公馆',
-        price: '367',
-        locate: '北观世界侨商中心',
-        days: '1',
-        people: '2',
-        rate: '',
-        status: 2
-      },
-      {
-        id: 3,
-        images_url: 'https://pic.tujia.com/upload/qualifiedpics/day_170311/thumb/201703110854137386_580_358.jpg',
-        name: '大梅沙海景房',
-        price: '269',
-        locate: '北观世界侨商中心',
-        days: '3',
-        people: '5',
-        rate: '',
-        status: 3
-      },
-      {
-        id: 4,
-        images_url: 'https://pic.tujia.com/upload/qualifiedpics/day_170310/thumb/20170310104005324_370_232.jpg',
-        name: '同济 五角场精装一房',
-        price: '239',
-        locate: '北观世界侨商中心',
-        days: '3',
-        people: '5',
-        rate: '',
-        status: 4
+        name: '【木离】侨港银滩海景中式简约风格一居室',
+        start_date: '11月03日',
+        start_time: '周日 14:00',
+        end_date: '11月04日',
+        end_time: '周一 12:00',
+        price: '316.00',
+        images_url: 'https://image.xiaozhustatic3.com/00,800,533/51,0,59,48397,1800,1201,28c427c6.jpg',
+        status: '2'
       },
     ]
   },
-  clickTab(e) {
-    let {
-      index
-    } = e.currentTarget.dataset
-    this.setData({
-      curIndex: index
-    })
+  // 再次预订
+  clickToOrderAgain (e) {
+    let {id} = e.currentTarget.dataset
+    let temp = {
+      order_id: id,
+      user_id: 1
+    }
+    console.log(temp)
+  },
+  // 查看评论 
+  clickToCheckComment(e) {
+    let { id } = e.currentTarget.dataset
+    let temp = {
+      order_id: id,
+      user_id: 1
+    }
+    console.log(temp)
+  },
+  // 删除订单
+  clickToDelOrder(e) {
+    let { id } = e.currentTarget.dataset
+    let temp = {
+      order_id: id,
+      user_id: 1
+    }
+    console.log(temp)
+
+  },
+  // 查看订单
+  clickToCheckOrder(e) {
+    let { id } = e.currentTarget.dataset
+    let temp = {
+      order_id: id,
+      user_id: 1
+    }
+    console.log(temp)
   },
 
   /**

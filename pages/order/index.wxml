@@ -1,14 +1,44 @@
 <!--pages/order/index.wxml-->
 
 <view class="order-container">
-  <view class="order-tabs">
-    <view class="tab-item" wx:for="{{tabs}}" wx:key="{{item.id}}" catchtap="clickTab" data-index="{{index}}">
-      <text class="{{index === curIndex? 'active':''}}">{{item.name}}</text>
+  <view class="order-wrap" wx:for="{{orderList}}" wx:key="{{item.id}}">
+    <view class="order-title">
+      <view class="title-name">{{item.name}}</view>
+      <view class="title-status" wx:if="{{item.status=== '1'}}">已离店</view>
+      <view class="title-status on-status" wx:if="{{item.status === '2'}}">进行中</view>
     </view>
-  </view>
-  <view class="tabs-content">
-    <block wx:for="{{tabs}}" wx:key="{{item.id}}" wx:if="{{curIndex === index}}">
-      <list orderList="{{orderList}}"></list>
-    </block>
+    <view class="order-info">
+      <image src="{{item.images_url}}"></image>
+      <view class="info-item">
+        <view class="left-date-box">
+          <view class="start-date">
+            <view>{{item.start_date}}</view>
+            <view>{{item.start_time}}</view>
+          </view>
+          <view class="arrow-logo">
+            <image src="../../static/img/arrow.png"></image>
+          </view>
+          <view class="end-date">
+            <view>{{item.end_date}}</view>
+            <view>{{item.end_time}}</view>
+          </view>
+        </view>
+        <view class="right-price-box">
+          <view>支付总价</view>
+          <view>¥ {{item.price}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="btn-group">
+      <block wx:if="{{item.status === '1'}}">
+        <view class="again" catchtap="clickToOrderAgain" data-id="{{item.id}}">再次预订</view>
+        <view class="comment" catchtap="clickToCheckComment" data-id="{{item.id}}">查看点评</view>
+        <view class="del" catchtap="clickToDelOrder" data-id="{{item.id}}">删除</view>
+      </block>
+      <block wx:if="{{item.status === '2'}}">
+        <view class="again" catchtap="clickToCheckOrder" data-id="{{item.id}}">查看订单</view>
+        <view class="del" catchtap="clickToDelOrder" data-id="{{item.id}}">删除</view>
+      </block>
+    </view>
   </view>
 </view>
