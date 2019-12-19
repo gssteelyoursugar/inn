@@ -17,7 +17,7 @@
   <view class="index-main">
     
 
-    <!-- 预定框  -->
+    <!-- 搜索房源  -->
     <view class="reserve">
       <view class="reservebox">
         <view class="reserve-city">
@@ -55,7 +55,7 @@
       </view>
     </view>
 
-    <!--  预定   -->
+    <!--  我要预定，我已预定   -->
     <view class="over">
       <view class="over-want" bindtap="ToOrder">
         <view class="want-icon">
@@ -78,14 +78,14 @@
     </view>
 
 
-    <!-- 本地房源  -->
+    <!-- 特价折扣  -->
     <view class="housing">
       <view class="housing-bar">
         <view class="bar-title">特价折扣</view>
-        <view class="bar-more" bindtap="toggleHotmore">
+        <!-- <view class="bar-more">
           <view class="more-title">更多</view>
           <image src="../../static/img/more-icon.png"></image>
-        </view>
+        </view> -->
       </view>
 
       <!--  房源列表轮播  -->
@@ -105,7 +105,7 @@
                     <view class="warp-title">
                       <view class="title-cont">{{item.title}}</view>
                       <view class="title-detals">
-                        <image src="../../static/img/location-icon.png"></image>
+                        <image src="../../static/img/index-location.png"></image>
                         <view class="detals-location">{{item.loading}}</view>
                       </view>
                     </view>
@@ -122,10 +122,13 @@
       </view>
     </view>
 
+    <!--  更多特价清单  -->
+    <view class="inventory" bindtap="toggleHotmore">更多特价清单</view>
+
 
     <!-- 广告投放  -->
     <view class="advertising">
-      <image mode="aspectFill" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=413453052,2602347248&fm=15&gp=0.jpg"></image>
+      <image  src="https://img.zcool.cn/community/013e755b46f0eea8012036be27b21f.jpg@1280w_1l_2o_100sh.jpg"></image>
     </view>
 
 
