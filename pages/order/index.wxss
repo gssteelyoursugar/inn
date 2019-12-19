@@ -118,15 +118,24 @@ page {
 
 .btn-group view {
   border: 1px solid #bbb;
-  font-size: 24rpx;
+  font-size: 26rpx;
   color: #bbb;
   min-width: 112rpx;
   border-radius: 4rpx;
   text-align: center;
   margin: 0 10rpx;
+  padding: 8rpx 6rpx;
+}
+
+.btn-group view.comment {
+  border-color: #a1a1a1;
+  color: #606365;
 }
 
 .btn-group view.again {
   border: 1px solid #f39557;
   color: #f39557;
+}
+.btn-group view.del {
+  color: #606365;
 }
