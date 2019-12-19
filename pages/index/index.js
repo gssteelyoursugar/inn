@@ -1,10 +1,16 @@
 // pages/index/index.js
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     is_realname:false,//是否实名注册
+    homeruzhuTime: '',//入住时间
+    homelikaiTime: '',//离店时间
+    wan: 0,// 默认0晚
+    str: '', //用来判断页面数据
+    // dataTime: false, //时间弹出框
     background: [
        'https://z1.muscache.cn/im/pictures/38d92da5-8971-432a-83c6-43964e608fa4.jpg?aki_policy=xx_large',
        'https://z1.muscache.cn/im/pictures/47a08be7-d55d-4017-aeb4-a6f60cbac664.jpg?aki_policy=xx_large'
@@ -15,26 +21,47 @@ Page({
     duration: 500,
     housing:[
       {
+        id:1,
         img_Url:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576581601820&di=1829c356b00b0b9bd63121e2dddca558&imgtype=0&src=http%3A%2F%2F7q5evw.com1.z0.glb.clouddn.com%2Fimages%2Farticle%2FFupRisSnP5NcI6L4SKBeIUiLH3KK.jpg%3FimageView2%2F1%2Fw%2F1556%2Fh%2F914',
         title:'客村广州塔珠江边琵琶洲',
         price:789,
         loading:'珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        showCollect:2
+        status:1
       },
       {
+        id: 2,
         img_Url: 'https://z1.muscache.cn/im/pictures/5ba5fe12-8369-4ea3-9fd4-f837b6dcc6e9.jpg?aki_policy=xx_large',
         title: '客村广州塔珠江边琵琶洲',
         price: 589,
         loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        showCollect: 1
+        status: 1
 
       },
       {
+        id: 3,
         img_Url: 'https://z1.muscache.cn/im/pictures/35018640-889e-42b7-9810-7a753a0b31d0.jpg?aki_policy=xx_large',
         title: '客村广州塔珠江边琵琶洲',
         price: 1029,
         loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        showCollect: 2
+        status: 1
+
+      },
+      {
+        id: 4,
+        img_Url: 'https://z1.muscache.cn/im/pictures/e279f149-a4e3-44e7-b6ef-a66e8572e461.jpg?aki_policy=xx_large',
+        title: '客村广州塔珠江边琵琶洲',
+        price: 1029,
+        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
+        status: 1
+
+      },
+      {
+        id: 5,
+        img_Url: 'https://z1.muscache.cn/im/pictures/e60ffd61-2e27-4688-80be-d32e0457fbe0.jpg?aki_policy=xx_large',
+        title: '客村广州塔珠江边琵琶洲',
+        price: 1029,
+        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
+        status: 1
 
       }
     ],
@@ -94,12 +121,19 @@ Page({
     ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  showData() {
+    wx.navigateTo({
+      url: "/pages/component/datatime/index"
+    })
   },
+  //获取日期组件传递的值，关闭日期弹出层
+  // getDatatime(e) {
+  //   console.log(e.detail)
+  //   let { show } = e.detail
+  //   this.setData({
+  //     dataTime: show
+  //   })
+  // },
   //跳转热门搜索
   hotSearch: function() {
     wx.navigateTo({
@@ -107,7 +141,25 @@ Page({
     })
   },
   //收藏房源成功
-  btnSucceed: function () {
+  btnSucceed: function (e) {
+    console.log(e.currentTarget.dataset.show_id)
+    let { show_id,index } = e.currentTarget.dataset
+    //data中获取列表
+    let housing = this.data.housing
+    for (let i in housing){
+      //遍历列表数据      
+      if (i == index) {
+        //根据下标找到目标,改变状态  
+        if (housing[i].status === 1) {
+          housing[i].status = parseInt(housing[i].status) + 1
+        }
+      }
+    }
+    console.log(housing);
+    //数组重新赋值
+    this.setData({
+      housing
+    })
     wx.showToast({
       title: '收藏成功',
       icon: 'success',
@@ -115,7 +167,24 @@ Page({
     })
   },
   //收藏房源成功
-  btnCancel: function () {
+  btnCancel: function (e) {
+    let { show_id, index } = e.currentTarget.dataset
+    //data中获取列表
+    let housing = this.data.housing
+    for (let i in housing) {
+      //遍历列表数据      
+      if (i == index) {
+        //根据下标找到目标,改变状态  
+        if (housing[i].status === 2) {
+          housing[i].status = parseInt(housing[i].status) - 1
+        }
+      }
+    }
+    console.log(housing);
+    //数组重新赋值
+    this.setData({
+      housing
+    })
     wx.showToast({
       title: '收藏取消',
       icon: 'success',
@@ -150,14 +219,22 @@ Page({
         is_realname: true
       })
     }
-    // console.log('进入页面检测')
-    // var is_login=wx.getStorageSync('is_login');
-    // console.log(is_login)
-    // if(!is_login){
-    //   wx.navigateTo({
-    //     url: '/pages/login/index',
-    //   })
-    // }
+    var that = this;
+    var homeruzhuTime = wx.getStorageSync('homeruzhuTime')
+    var homelikaiTime = wx.getStorageSync('homelikaiTime')
+    var wan = wx.getStorageSync('wan')
+    console.log(homeruzhuTime,"11111")
+    if (homeruzhuTime !== that.str || homelikaiTime !== that.str ) {
+      that.setData({
+        homeruzhuTime,
+        homelikaiTime,
+        wan
+      });
+      console.log(typeof (homeruzhuTime));
+      console.log(wan, "晚")
+      console.log(homeruzhuTime, "打印入住时间")
+      console.log(homelikaiTime, "打印离开时间")
+    }
   },
 
   ToOrder(){

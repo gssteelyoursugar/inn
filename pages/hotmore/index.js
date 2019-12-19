@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataTime: false, //时间弹出框
+    // dataTime: false, //时间弹出框
     showMenu:true,
     resource:['1'],
     hotlist: [
@@ -61,9 +61,32 @@ Page({
   },
 
   showData() {
-    this.setData({
-      dataTime: !this.data.dataTime
+    wx.navigateTo({
+      url: "/pages/component/datatime/index"
     })
+  },
+  //获取子组件的值，更改收藏状态
+  getAddInfo(e) {
+    let { index} = e.detail
+    //data中获取列表
+    let hotlist = this.data.hotlist
+    for (let i in hotlist) {
+      //遍历列表数据      
+      if (i == index) {
+        //根据下标找到目标,改变状态  
+        if (hotlist[i].status === 1) {
+          hotlist[i].status = parseInt(hotlist[i].status) + 1
+        }
+        else{
+          hotlist[i].status = parseInt(hotlist[i].status) - 1
+        }
+      }
+    }
+    console.log(hotlist);
+      //数组重新赋值
+      this.setData({
+        hotlist
+      })
   },
 
   btnShowmenu: function () {

@@ -37,7 +37,7 @@
   border-radius: 10rpx;
 }
 .wanNum text{
-  color: #009dbd;
+  color: #ff9645;
   margin: 0 10rpx;
 }
 .reserve-time-right{
@@ -99,7 +99,7 @@
 	text-align: center;
 }
 .header .weekMark{
-  color: #009dbd;
+  color: #ff9645;
   padding: 10rpx 0;
 }
 .yearMonth {
@@ -133,11 +133,11 @@
 }
 .day-select {
   color: #fff;
-  background: #009dbd;
+  background: #ff9645;
 }
 .day-sect{
   color: #fff;
-  background: #009dbd;
+  background: #ff9645;
 }
 .not-select {
   color: #999;
@@ -152,10 +152,10 @@
   top: 30rpx;
   font-size: 25rpx;
   text-align: center;
-  color: #009dbd;
+  color:#ff9645;
 }
 .lanse{
-  color: #009dbd;
+  color: #ff9645;
 }
 .baise{
   color: #fff;
@@ -185,15 +185,15 @@
   height: 100rpx;
   line-height: 100rpx;
   width: 100%;
-  background: #009dbd;
+  background: #ff9645;
   display: flex;
   color: #fff;
   font-size: 35rpx;
 }
 .determine-empty{
   width: 50%;
-  background: #dcf0f4;
-  color: #009dbd;
+  background: #dadada;
+  color: #fff;
   text-align: center;
 }
 .determine-save{

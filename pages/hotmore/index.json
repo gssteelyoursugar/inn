@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "hotlist": "../hotlist/index",
-    "datatime":"../datatime/index"
+    "datatime":"../../component/datatime/index"
   }
 }

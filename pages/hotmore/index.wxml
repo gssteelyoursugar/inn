@@ -46,7 +46,7 @@
     <view class="res-hot">
         <!--  房源列表 -->
         <view class="resource" wx:if="{{resource.length > 0}}">
-          <hotlist hotlist="{{hotlist}}"></hotlist>
+          <hotlist hotlist="{{hotlist}}" bind:addInfo="getAddInfo"></hotlist>
         </view>
         <!--   没有房源的情况 -->
         <view class="resource-not" wx:else>
@@ -58,7 +58,7 @@
     </view>
 
     <!--  弹出时间选择  -->
-    <view wx:if="{{dataTime}}" class="dataTimeShow" catchtouchmove="return">
-      <datatime />
-    </view>
+    <!-- <view wx:if="{{dataTime}}" class="dataTimeShow"  catchtouchmove="return">
+      <datatime bind:addtime="getDatatime" />
+    </view> -->
 </view>

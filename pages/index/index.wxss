@@ -1,4 +1,15 @@
 /* pages/index/index.wxss */
+/*时间弹出层*/
+.dataTimeShow{
+  z-index: 100;
+  background: #ffffff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 /*顶部搜索*/
 .search{
   background: #ffffff;
