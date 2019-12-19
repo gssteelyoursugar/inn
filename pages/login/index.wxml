@@ -21,16 +21,16 @@
   <block wx:else>
   <view class="inn-login-wrap">
       <van-cell-group>
-        <van-field value="{{ username }}"  clearable placeholder="请输入用户名" border="{{ true }}" />
-        <van-field border="{{ true }}" type="password" value="{{ password }}" clearable placeholder="请输入密码" border="{{ true }}" />
-        <van-field border="{{ true }}" type="password" value="{{ re_password }}" clearable placeholder="请再次输入密码" border="{{ true }}" />
+        <van-field value="{{ username }}"  clearable placeholder="请输入真实姓名"   bind:change="onName"  border="{{ true }}" />
+        <van-field border="{{ true }}"  bind:change="onNameId"  value="{{ password }}" clearable placeholder="输入身份证号码" border="{{ true }}" />
+        <van-field border="{{ true }}" value="{{ re_password }}" clearable placeholder="输入订单手机号码" bind:change="onPhone" border="{{ true }}" />
       </van-cell-group>
     </view>
     <view class="login-btn">
-      <button open-type="getUserInfo">注册</button>
+      <button  open-type="getUserInfo" bindgetuserinfo="getUserInfo">绑定</button>
     </view>
-    <view class="has-account">已有账号？去
+    <!-- <view class="has-account">已有账号？去
       <text catchtap="toggleSign">登录</text>
-    </view>
+    </view> -->
   </block>
 </view>

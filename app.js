@@ -1,14 +1,38 @@
 //app.js
+
+import { UserModel } from '/api/user.js';
+let usermodel = new UserModel();
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
+        var that = this;
+        var code = res.code; //返回code
+        // console.log(code);
+        //获取openid唯一标识
+        var appid = 'wxff4be0de0b89016e';
+        var secret = '8de87ebbf2080a6f3979b1c7485b3091';
+        var temp = {
+          appid,
+          secret,
+          code
+        }
+        usermodel.GetUserByOenid(temp, res => {
+          var openid = res.openid //返回openid
+          that.globalData.openid = res.openid
+          var temp = {
+            openid: openid,
+          }
+          usermodel.postRegistered(temp, res => {
+            that.globalData.user_id = res.id
+            wx.setStorage({
+              key: 'userInfo',
+              data: res,
+            })
+          })
+
+        })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })

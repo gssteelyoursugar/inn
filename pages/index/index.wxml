@@ -1,12 +1,5 @@
 <!--pages/index/index.wxml-->
 <view>
-  <!--  顶部搜索   -->
-  <!-- <view class="search">
-    <view class="search-warp" bindtap="hotSearch">
-      <image src="../../static/img/seek-icon.png"></image>
-      <view class="warp-title">位置、地标、房源标题</view>
-    </view>
-  </view> -->
 
   <!--  轮播图  -->
   <view class="swiper">
@@ -69,7 +62,7 @@
           <image src="https://dimg04.c-ctrip.com/images/2B0d0g000000895w85D34_R_750_600_Q80.jpg"></image>
         </view>
         <view class="want-name">
-          <view class="name-title">我要预定</view>
+          <view class="name-title" bindtap="ToOrder">我要预定</view>
           <view class="name-desc">预定满意民宿</view>
         </view>
       </view>
@@ -78,21 +71,12 @@
           <image src="https://dimg04.c-ctrip.com/images/2B0q10000000ob5jy4B54_R_750_600_Q80.jpg"></image>
         </view>
         <view class="want-name">
-          <view class="name-title">我已预定</view>
-          <view class="name-desc">预定满意民宿</view>
+          <view class="name-title">缴纳押金</view>
+          <view class="name-desc">退房后原路返回</view>
         </view>
       </view>
-      
     </view>
 
-    <!--我已有订单  -->
-    <!-- <view class="existing">
-      <view class="existingbox">
-        <image class="existing-order" src="../../static/img/index-order.png"></image>
-        <view>我已有订单</view>
-        <image class="existing-arrows" src=""></image>
-      </view>
-    </view> -->
 
     <!-- 本地房源  -->
     <view class="housing">

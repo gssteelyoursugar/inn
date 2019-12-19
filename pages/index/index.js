@@ -4,8 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    is_realname:false,//是否实名注册
     background: [
-      'https://z1.muscache.cn/im/pictures/7e7d0225-535a-42d2-95fe-c04b73311dd0.jpg?aki_policy=xx_large',
        'https://z1.muscache.cn/im/pictures/38d92da5-8971-432a-83c6-43964e608fa4.jpg?aki_policy=xx_large',
        'https://z1.muscache.cn/im/pictures/47a08be7-d55d-4017-aeb4-a6f60cbac664.jpg?aki_policy=xx_large'
       ],
@@ -140,9 +140,39 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var userInfo=wx.getStorageSync('userInfo')
+    if (userInfo.realname===null){
+      this.setData({
+        is_realname:false
+      })
+    }else{
+      this.setData({
+        is_realname: true
+      })
+    }
+    // console.log('进入页面检测')
+    // var is_login=wx.getStorageSync('is_login');
+    // console.log(is_login)
+    // if(!is_login){
+    //   wx.navigateTo({
+    //     url: '/pages/login/index',
+    //   })
+    // }
   },
 
+  ToOrder(){
+    console.log('进来了')
+    if(!this.data.is_realname){
+      wx.navigateTo({
+        url: '/pages/login/index',
+      })
+    }else{
+      wx.switchTab({
+        url: '/pages/order/index',
+      })
+
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
