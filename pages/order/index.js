@@ -1,6 +1,7 @@
 // pages/order/index.js
-Page({
 
+import Toast from '../../vant-weapp/dist/toast/toast';
+Page({
   /**
    * 页面的初始数据
    */
@@ -54,13 +55,15 @@ Page({
   },
   // 删除订单
   clickToDelOrder(e) {
-    let { id } = e.currentTarget.dataset
+    let { id,index } = e.currentTarget.dataset
     let temp = {
       order_id: id,
       user_id: 1
     }
-    console.log(temp)
-
+    let list = this.data.orderList
+    list.splice(index, 1)
+    this.setData({ orderList: list })
+    Toast('删除成功')
   },
   // 查看订单
   clickToCheckOrder(e) {
@@ -70,61 +73,5 @@ Page({
       user_id: 1
     }
     console.log(temp)
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
 })

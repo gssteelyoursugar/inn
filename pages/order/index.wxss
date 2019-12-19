@@ -4,6 +4,37 @@ page {
   background: #f0f3f5;
 }
 
+.no-order {
+  padding-top: 200rpx;
+}
+
+.no-order-img {
+  text-align: center;
+}
+
+.no-order-img  image {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.no-order-text {
+  text-align: center;
+}
+
+.no-order-text view:first-child {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.no-order-text view:last-child {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  text-decoration: underline;
+  color: #f39557;
+  font-weight: 500;
+}
+
+
 .order-wrap {
   padding: 20rpx 30rpx;
   background: #fff;
@@ -136,6 +167,7 @@ page {
   border: 1px solid #f39557;
   color: #f39557;
 }
+
 .btn-group view.del {
   color: #606365;
 }
