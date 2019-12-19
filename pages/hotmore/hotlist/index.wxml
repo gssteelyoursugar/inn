@@ -1,0 +1,26 @@
+<!--pages/hotmore/hotlist/index.wxml-->
+<!-- 房源列表  -->
+<view>
+  <view class="list">
+    <view class="list-shows">
+      <image class="shows-master" src="https://z1.muscache.cn/im/pictures/3e23e9e5-339d-44cf-b63f-f81d1c47a0ed.jpg?aki_policy=xx_large"></image>
+      <view class="shows-collect">
+        <image src="../../../static/img/collect-not.png"></image>
+        <!-- <image src="../../../static/img/collect.png"></image> -->
+      </view>
+      <view class="shows-price">
+        <view class="price-money">¥<span>789</span></view>
+        <view class="price-title">每晚</view>
+      </view>
+    </view>
+    <view class="list-content">
+      <view class="list-content-warp">
+        <view class="list-content-title">客村广州塔珠江边琵琶洲</view>
+        <view class="list-content-num">
+          <span>整套</span>/<span>2</span>床/宜住<span>3</span>人
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

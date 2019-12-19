@@ -1,18 +1,13 @@
 /* pages/index/index.wxss */
 page{
-  background: #f0f3f5;
+  /* background: #f0f3f5; */
 }
 /*顶部搜索*/
 .search{
-  position: fixed;
   background: #ffffff;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   width: 750rpx;
   height: 80rpx;
-  z-index: 10;
+  padding-top: 10rpx;
 }
 .search .search-warp{
   width: 700rpx;
@@ -34,125 +29,217 @@ page{
 
 /*轮播图*/
 .swiper{
-  margin-top: 90rpx;
-  
+  position: relative;
 }
 .swiper swiper{
-  height: 400rpx !important;
+  height: 700rpx !important;
 }
 .swiper-items{
-  height: 400rpx !important;
+  height:700rpx !important;
 }
 .swiper .swiper-item{
-  height: 400rpx;
-  margin: 0 10rpx !important;
-  border-radius: 15rpx;
-}
-.swiper .active{
-  height: 370rpx;
-  margin: 20rpx 10rpx 0 !important;
-  border-radius: 10rpx;
-  transition: all 0.2s ease-in 0s;
+  height: 700rpx;
 }
 .swiper .swiper-item image{
   width: 100%;
   height: 100%;
-  border-radius: 10rpx;
 }
-.swiper .active image{
-  width: 100%;
-  height: 100%;
-  border-radius: 10rpx;
-}
-
-
 .index-main{
   margin-top: 10rpx;
   background: #ffffff;
   width: 750rpx;
 }
-/*预定*/
+/*我要预定*/
 .over{
   width: 700rpx;
-  height: 200rpx;
-  margin: 0 auto;
+  margin: 230rpx auto 30rpx;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
 }
 .over .over-want{
-  margin-top: 10rpx;
-  width: 350rpx;
-  height: 160rpx;
-  border-right: 1rpx solid #f0f3f5;
+  width: 330rpx;
+  /* margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  margin-left: 10rpx; */
+  margin: 10rpx;
+  height: 150rpx;
+  align-items: center;
   box-sizing: border-box;
   display: flex;
+  /* background: #fa24ef59; */
+  border-radius: 15rpx;
+  /* border: 1rpx solid #cccccc; */
+  box-shadow: 0rpx 0rpx 20rpx 0rpx #f5f5f5;
 }
 .over-want .want-icon{
-    margin-top: 10rpx;
-    width: 140rpx;
-    height: 140rpx;
-    border-radius: 30rpx;
+   margin-left: 20rpx;
+    width: 80rpx;
+    height: 80rpx;
     overflow: hidden;
+    border-radius: 15rpx;
 }
 .want-icon image{
-  width: 140rpx;
-  height: 140rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 .want-name{
-  margin-top: 15rpx;
-  margin-left: 30rpx;
+  margin-left: 15rpx;
 }
 .want-name .name-title{
   font-size: 30rpx;
+  /* color: #ffffff; */
   color: #333333;
   font-weight: 500;
-  margin-bottom: 10rpx;
 }
 .want-name .name-desc{
+  /* color: #ffffffe1; */
   color: #999999;
   font-size: 24rpx;
+}
+/*预定框*/
+.reserve{
+  width: 680rpx;
+  height: 420rpx;
+  padding-bottom: 30rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 430rpx;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0rpx 0rpx 8rpx 0rpx #cccccc;
+  border-radius: 20rpx;
+}
+.reserve .reservebox{
+  width: 600rpx;
+  height: 420rpx;
+  margin: 0 auto;
+}
+.reserve-city{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #cccccc96;
+  align-items: center;
+  height: 100rpx;
+}
+.reserve-city .city-title{
+  color: #333333;
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 50%;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.reserve-city .city-select{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+.reserve-city .city-select .name{
+  color: #999999;
+  font-size: 25rpx;
+  margin-right: 10rpx;
+}
+.reserve-city .city-select image{
+  width: 30rpx;
+  height: 30rpx;
 }
 
-.over .over-already{
-  margin-top: 10rpx;
-  width: 350rpx;
-  height: 160rpx;
-  border-left: 1rpx solid #f0f3f5;
-  box-sizing: border-box;
+.checkin-time{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120rpx;
+  border-bottom: 1rpx solid #cccccc96;
 }
-.over-already .already-icon{
-    margin-left: 20rpx;
-    margin-top: 10rpx;
-    width: 140rpx;
-    height: 140rpx;
-    border-radius: 30rpx;
-    overflow: hidden;
-}
-.already-icon image{
-  width: 140rpx;
-  height: 140rpx;
-}
-.already-name{
-  margin-top: 15rpx;
-  margin-left: 30rpx;
-}
-.already-name .name-title{
-  font-size: 30rpx;
-  color: #333333;
-  font-weight: 500;
-  margin-bottom: 10rpx;
-}
-.already-name .name-desc{
+.checkin-time .begin-title{
+  text-align: center;
+  margin-bottom: 5rpx;
   color: #999999;
-  font-size: 24rpx;
+  font-size: 25rpx;
 }
+.checkin-time .begin-time{
+  font-size: 30rpx;
+  text-align: center;
+  color: #333333;
+  font-weight: bold;
+}
+.chtime-num{
+  color: #999999;
+  font-size: 27rpx;
+}
+.chtime-num span{
+  display: inline-block;
+  min-width: 40rpx;
+  text-align: center;
+}
+
+.res-give{
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #cccccc96;
+  color: #999999;
+  font-size: 26rpx;
+}
+.res-give image{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.res-button{
+  margin: 30rpx auto 0;
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 20rpx;
+  background-image: linear-gradient(45deg,  #ffc95c,#ffd37b);
+  color: #ffffff;
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+/*我已有订单*/
+.existing{
+  width: 700rpx;
+  height: 108rpx;
+  line-height: 108rpx;
+  color: #333333;
+  text-align: center;
+  font-weight: 500;
+  font-size: 30rpx;
+  margin: 250rpx auto 30rpx;
+  background:#fff3f3;
+  border-radius: 25rpx;
+}
+.existingbox{
+  width: 600rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.existing .existing-order{
+  margin-left: 30rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.existing .existing-arrows{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 30rpx;
+}
+
+
 
 /*本地房源*/
 .housing{
   background: #ffffff;
-  padding-bottom: 20rpx;
 }
 .housing-bar{
   width: 700rpx;
@@ -181,18 +268,22 @@ page{
   height: 25rpx;
 }
 
-/*轮播图*/
+/*本地房源轮播图*/
+/* .swiper2{
+  margin-left: 10rpx;
+}
 .swiper2 swiper{
-  height: 380rpx !important;
+  height: 390rpx !important;
 }
 .swiper-items2{
   height: 380rpx !important;
 }
 .swiper2 .swiper-item2{
   height: 380rpx;
-  margin: 0 15rpx !important;
+  margin: 0 15rpx 10rpx !important;
   border-radius: 10rpx;
   overflow: hidden;
+  border: 2rpx solid #f5f5f5;
 }
 .item2-imgs{
   height: 280rpx;
@@ -255,4 +346,86 @@ page{
 }
 .item2-price .item2-price-un{
   font-size: 24rpx;
+} */
+.swiper2{
+  margin-left: 10rpx;
+  margin-bottom: 40rpx;
 }
+.swiper2 swiper{
+  height: 450rpx !important;
+}
+.swiper-items2{
+  height: 450rpx !important;
+}
+.swiper2 .swiper-item2{
+  height: 440rpx;
+  margin: 0 15rpx 10rpx !important;
+  border-radius: 10rpx;
+  overflow: hidden;
+  border: 2rpx solid #f5f5f5;
+}
+.item2-imgs{
+  height: 350rpx;
+  position: relative;
+}
+.item2-imgs .item2-imgs-url{
+  width: 100%;
+  height: 100%;
+}
+.item2-imgs .item2-imgs-sc{
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  width: 55rpx;
+  height: 55rpx;
+}
+.item2-desc{
+  height: 90rpx;
+  overflow: hidden;
+}
+.item2-desc .desc-warp{
+  width: 95%;
+  height: 90rpx;
+  margin: 10rpx auto;
+  display: flex;
+  justify-content: space-between;
+}
+.desc-warp .warp-title{
+  margin-top: 5rpx;
+  width: 79%;
+}
+.desc-warp .warp-title .title-cont{
+  font-size: 27rpx;
+  color: #333333;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.desc-warp .warp-title .title-detals{
+  display: flex;
+}
+.title-detals image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.detals-location{
+  width: 90%;
+  font-size: 25rpx;
+  color: #999999;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.item2-price{
+  font-size: 32rpx;
+  color: #ef5473;
+}
+.item2-price .item2-price-un{
+  font-size: 24rpx;
+}
+
+
+

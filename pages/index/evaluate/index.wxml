@@ -1,0 +1,40 @@
+<!--pages/index/evaluate/index.wxml-->
+<!-- 热门评价  -->
+<view class="evas">
+  <view class="evas-title">热门评价</view>
+  <!-- 数据  -->
+  <view class="list">
+    <view class="list-data">
+      <view class="data-wrap" wx:for="{{evaluateList}}" wx:if="{{index%2==0}}"  wx:key="item.id">
+        <view>
+          <image class="wrap-imgs" mode="widthFix" src="{{item.imgUrl}}"></image>
+        </view>
+        <view class="wrap-centnt">
+          <view class="wrap-centnt-box">
+            <view class="centnt-box-title">{{item.desc}}</view>
+            <view class="centnt-box-name">
+              <image src="{{item.headUrl}}"></image>
+              <view class="centnt-box-name-title">{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="list-data">
+      <view class="data-wrap" wx:for="{{evaluateList}}" wx:if="{{index%2==1}}" wx:key="item.id">
+        <view>
+          <image class="wrap-imgs" mode="widthFix" src="{{item.imgUrl}}"></image>
+        </view>
+        <view class="wrap-centnt">
+          <view class="wrap-centnt-box">
+            <view class="centnt-box-title">{{item.desc}}</view>
+            <view class="centnt-box-name">
+              <image src="{{item.headUrl}}"></image>
+              <view class="centnt-box-name-title">{{item.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>

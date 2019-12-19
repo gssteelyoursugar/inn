@@ -6,7 +6,7 @@ Page({
    */
   data: {
     showMenu:true,
-    resource:[]
+    resource:['1']
   },
 
   btnShowmenu: function () {

@@ -1,20 +1,20 @@
 <!--pages/index/index.wxml-->
 <view>
   <!--  顶部搜索   -->
-  <view class="search">
+  <!-- <view class="search">
     <view class="search-warp" bindtap="hotSearch">
       <image src="../../static/img/seek-icon.png"></image>
       <view class="warp-title">位置、地标、房源标题</view>
     </view>
-  </view>
+  </view> -->
 
   <!--  轮播图  -->
   <view class="swiper">
     <swiper 
-      autoplay="{{autoplay}}" previous-margin="{{previousMargin}}" next-margin="{{nextMargin}}"  circular="true" interval="{{interval}}" duration="{{duration}}" bindchange="handleChange">
+      autoplay="{{autoplay}}"  circular="true" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{background}}" wx:key="*this">
         <swiper-item class="swiper-items">
-          <view class="swiper-item {{currentIndex !== index ? 'active':''}}"><image src="{{item}}"></image></view>
+          <view class="swiper-item"><image src="{{item}}"></image></view>
         </swiper-item>
       </block>
     </swiper>
@@ -22,34 +22,82 @@
 
   <!--  主体  -->
   <view class="index-main">
-    <!--  预定   -->
-    <view class="over">
-      <view class="over-want">
-        <view class="want-icon">
-          <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=294789278,2608121812&fm=26&gp=0.jpg"></image>
+    
+
+    <!-- 预定框  -->
+    <view class="reserve">
+      <view class="reservebox">
+        <view class="reserve-city">
+          <view class="city-title">南宁</view>
+          <view class="city-select">
+            <view class="name">选择城市</view>
+            <image src="../../static/img/index-location.png"></image>
+          </view>
         </view>
-        <view class="want-name">
-          <view class="name-title">我要预定</view>
-          <view class="name-desc">查找房源</view>
-          <view class="name-desc">预定满意民宿</view>
+        <!-- 入住时间  -->
+        <view class="checkin-time">
+          <view class="chtime-begin">
+            <view class="begin-title">入住时间</view>
+            <view class="begin-time">12月18日</view>
+          </view>
+          <view class="chtime-num">
+            共<span>1</span>晚
+          </view>
+          <view class="chtime-begin">
+            <view class="begin-title">离开时间</view>
+            <view class="begin-time">12月19日</view>
+          </view>
         </view>
-      </view>
-      <view class="over-already">
-        <view class="already-icon">
-          <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577188567&di=abafb669f598cb2718a4f566da8a1a4b&imgtype=jpg&er=1&src=http%3A%2F%2Fimgcdn.gz01.bdysite.com%2Fupfile%2Ft0149d05343c429e855.jpg"></image>
+
+        <!--  试试搜索  -->
+        <view class="res-give" bindtap="hotSearch">
+          <view>试试搜: 朝阳广场</view>
+          <image src="../../static/img/more-icon.png"></image>
         </view>
-        <view class="already-name">
-          <view class="name-title">我已预定</view>
-          <view class="name-desc">房源房源</view>
-          <view class="name-desc">入住满意民宿</view>
+
+        <!--  预定框按钮   -->
+        <view class="res-button">
+          搜索房源
         </view>
       </view>
     </view>
 
+    <!--  预定   -->
+    <view class="over">
+      <view class="over-want">
+        <view class="want-icon">
+          <image src="https://dimg04.c-ctrip.com/images/2B0d0g000000895w85D34_R_750_600_Q80.jpg"></image>
+        </view>
+        <view class="want-name">
+          <view class="name-title">我要预定</view>
+          <view class="name-desc">预定满意民宿</view>
+        </view>
+      </view>
+      <view class="over-want">
+        <view class="want-icon">
+          <image src="https://dimg04.c-ctrip.com/images/2B0q10000000ob5jy4B54_R_750_600_Q80.jpg"></image>
+        </view>
+        <view class="want-name">
+          <view class="name-title">我已预定</view>
+          <view class="name-desc">预定满意民宿</view>
+        </view>
+      </view>
+      
+    </view>
+
+    <!--我已有订单  -->
+    <!-- <view class="existing">
+      <view class="existingbox">
+        <image class="existing-order" src="../../static/img/index-order.png"></image>
+        <view>我已有订单</view>
+        <image class="existing-arrows" src=""></image>
+      </view>
+    </view> -->
+
     <!-- 本地房源  -->
     <view class="housing">
       <view class="housing-bar">
-        <view class="bar-title">本地房源</view>
+        <view class="bar-title">特价折扣</view>
         <view class="bar-more" bindtap="toggleHotmore">
           <view class="more-title">更多</view>
           <image src="../../static/img/more-icon.png"></image>
@@ -89,6 +137,11 @@
         </swiper>
       </view>
     </view>
+
+
+    <!--  热门评价  -->
+    <evaluate evaluateList="{{evaluateList}}" />
+
   </view>
   
 

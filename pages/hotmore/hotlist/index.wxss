@@ -1,0 +1,61 @@
+/* pages/hotmore/hotlist/index.wxss */
+.list{
+  margin: 0 auto;
+  width: 700rpx;
+  height: 550rpx;
+  background: orange;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.list-shows{
+  position: relative;
+}
+.shows-master{
+  width: 100%;
+  height: 400rpx;
+}
+.shows-collect{
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.shows-collect image{
+  width: 100%;
+  height: 100%;
+}
+.shows-price{
+  position: absolute;
+  left: 30rpx;
+  top: 280rpx;
+  width: 100rpx;
+  height: 90rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15rpx;
+  text-align: center;
+}
+.shows-price .price-money{
+  margin-top: 10rpx;
+  color: #ef5473;
+  font-size: 20rpx;
+}
+.shows-price .price-money span{
+  font-size: 34rpx;
+  font-weight: 500;
+}
+.shows-price .price-title{
+  color: #999999;
+  font-size: 20rpx;
+}
+
+.list-content{
+  overflow: hidden;
+}
+.list-content-warp{
+  width: 95%;
+  margin: 10rpx auto;
+}
+.list-content-title{
+
+}

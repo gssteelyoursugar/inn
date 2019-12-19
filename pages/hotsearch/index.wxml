@@ -5,7 +5,7 @@
   <view class="search">
     <view class="search-warp" bindtap="hotSearch">
       <image src="../../static/img/seek-icon.png"></image>
-      <input class="weui-input"  maxlength="20" bindinput="bindKeyInput" placeholder="位置、地标、房源标题"/>
+      <input class="weui-input" value="{{inputValue}}"  maxlength="20" bindinput="bindKeyInput" placeholder="位置、地标、房源标题"/>
     </view>
   </view>
 

@@ -66,6 +66,19 @@
 					"pathName": "pages/order/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页热门搜索",
+					"pathName": "pages/hotsearch/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "本地更多房源",
+					"pathName": "pages/hotmore/index",
+					"scene": null
 				}
 			]
 		}
