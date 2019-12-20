@@ -107,17 +107,20 @@ page{
   display: flex;
   align-items: center;
 }
-.screenbao-time image{
+/* .screenbao-time image{
   width: 45rpx;
   height: 45rpx;
   margin-left: 15rpx;
-}
+} */
 .screenbao-time-name{
   margin-left: 10rpx;
-  color: #333333;
-  font-size: 27rpx;
+  color: #000000;
+  font-size: 28rpx;
+  font-weight: bold;
 }
-
+.screenbao-time-day{
+  color: #ff9645;
+}
 /*内容区域*/
 .res-hot{
   margin-top: 160rpx;

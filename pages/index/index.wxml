@@ -34,7 +34,7 @@
             <view class="begin-time">{{homeruzhuTime === str ? '请选择时间':homeruzhuTime+'日'}}</view>
           </view>
           <view class="chtime-num">
-            共<span>{{wan}}</span>晚
+            共<span>{{wan === str? '0':wan}}</span>晚
           </view>
           <view class="chtime-begin">
             <view class="begin-title">离开时间</view>

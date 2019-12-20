@@ -234,8 +234,6 @@ Component({
       wx.navigateBack({
         delta: 1
       })
-      //关闭弹窗
-      // this.triggerEvent('addtime', { show: false })//通过triggerEvent将参数传给父组件
     },
     //保存跳转
     seavs() {
@@ -270,7 +268,6 @@ Component({
           key: 'wan',
           data: wan
         })
-        // this.triggerEvent('addtime', { show: false })//通过triggerEvent将参数传给父组件
         wx.navigateBack({
           delta: 1
         })

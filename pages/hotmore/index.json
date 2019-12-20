@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "hotlist": "../hotlist/index",
-    "datatime":"../../component/datatime/index"
+    "screen": "../screen/index",
+    "van-popup": "../../vant-weapp/dist/popup/index"
   }
 }

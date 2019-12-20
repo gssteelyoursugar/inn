@@ -126,14 +126,6 @@ Page({
       url: "/pages/component/datatime/index"
     })
   },
-  //获取日期组件传递的值，关闭日期弹出层
-  // getDatatime(e) {
-  //   console.log(e.detail)
-  //   let { show } = e.detail
-  //   this.setData({
-  //     dataTime: show
-  //   })
-  // },
   //跳转热门搜索
   hotSearch: function() {
     wx.navigateTo({
@@ -223,17 +215,12 @@ Page({
     var homeruzhuTime = wx.getStorageSync('homeruzhuTime')
     var homelikaiTime = wx.getStorageSync('homelikaiTime')
     var wan = wx.getStorageSync('wan')
-    console.log(homeruzhuTime,"11111")
     if (homeruzhuTime !== that.str || homelikaiTime !== that.str ) {
       that.setData({
         homeruzhuTime,
         homelikaiTime,
         wan
       });
-      console.log(typeof (homeruzhuTime));
-      console.log(wan, "晚")
-      console.log(homeruzhuTime, "打印入住时间")
-      console.log(homelikaiTime, "打印离开时间")
     }
   },
 

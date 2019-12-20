@@ -23,19 +23,16 @@
       <view class="hotbar-screen">
         <view class="screenbao">
           <view class="screenbao-time" bindtap="showData">
-            <!-- <image src="../../static/img/time-icon.png"></image> -->
-            <view class="screenbao-time-name">日期</view>
+            <!-- <view class="screenbao-time-name">入离日期</view> -->
+            <view class="screenbao-time-name {{homelikaiTime !== str? 'screenbao-time-day':''}}">{{homelikaiTime === str ? '入离日期':homeruzhuTime+'日'+'-'+homelikaiTime+'日'}}</view>
           </view>
-          <view class="screenbao-time">
-            <!-- <image src="../../static/img/sort-icon.png"></image> -->
-            <view class="screenbao-time-name">排序</view>
+          <view class="screenbao-time" bindtap="cilckSotr">
+            <view class="screenbao-time-name {{stor ===2? 'screenbao-time-day':''}}">排序</view>
           </view>
-          <view class="screenbao-time">
-            <!-- <image src="../../static/img/location-icon.png"></image> -->
+          <!-- <view class="screenbao-time">
             <view class="screenbao-time-name">位置</view>
-          </view>
-          <view class="screenbao-time">
-            <!-- <image src="../../static/img/screen-icon.png"></image> -->
+          </view> -->
+          <view class="screenbao-time" bindtap="showPopup">
             <view class="screenbao-time-name">筛选</view>
           </view>
         </view>
@@ -57,8 +54,9 @@
         </view>
     </view>
 
-    <!--  弹出时间选择  -->
-    <!-- <view wx:if="{{dataTime}}" class="dataTimeShow"  catchtouchmove="return">
-      <datatime bind:addtime="getDatatime" />
-    </view> -->
+    <!--  弹出筛选  -->
+    <van-popup show="{{ show }}" position="top" custom-style="height: 100%;">
+      <screen />
+    </van-popup>
+    
 </view>

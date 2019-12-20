@@ -86,6 +86,13 @@
 					"id": -1,
 					"name": "本地更多房源",
 					"pathName": "pages/hotmore/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "历史记录",
+					"pathName": "pages/hotsearch/index",
 					"scene": null
 				}
 			]
