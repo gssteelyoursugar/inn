@@ -53,7 +53,7 @@ Page({
 
     var userinfo = wx.getStorageSync('userInfo')
     var contact={
-      phone:this.data.phone,
+      mobile:this.data.phone,
       nameID: this.data.nameID,
       name: this.data.name,
       user_id: userinfo.id

@@ -12,10 +12,10 @@
     </view>
   </view>
   <view class="header-avatar">
-    <image src="../../static/img/avatar.jpg"></image>
+    <image src="{{userinfo.avatarUrl}}"></image>
   </view>
-  <view class="user-name">狗剩哥哥</view>
-  <view class="real-name">已实名认证</view>
+  <view class="user-name">{{userinfo.nickName}}</view>
+  <view class="real-name" >已实名认证</view>
   <view class="my-category">
     <view class="cate-item" wx:for="{{iconList}}" wx:key="{{item.id}}">
       <image src="{{item.url}}"></image>

@@ -1,4 +1,8 @@
 // pages/order/index.js
+
+// 这是该页面对应的 “路径前缀”
+import { OrderModel } from '../../api/order.js';
+let list = new OrderModel();
 Page({
 
   /**
@@ -90,7 +94,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that=this;
+    var userinfo = wx.getStorageSync('userInfo')
+    var temp = {};
+    temp.user_id = userinfo.id; //获取到用户的id
+    
+    temp.mobile = userinfo.realname.mobile; //获取到用户的id
 
+    // if (type === 1) {
+    //   temp.mobile = mobile
+    // }
+    list.postOrderall(temp, res => {
+      console.log(res)
+      // that.setData({
+      //   orderList: res
+      // })
+    })
   },
 
   /**
