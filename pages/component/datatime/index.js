@@ -250,6 +250,18 @@ Component({
           console.log(res)
         }
       })
+      wx.removeStorage({
+        key: 'dataRuzhu',
+        success(res) {
+          console.log(res)
+        }
+      })
+      wx.removeStorage({
+        key: 'dataLikai',
+        success(res) {
+          console.log(res)
+        }
+      })
       wx.setStorage({
         key: 'wan',
         data: 0
