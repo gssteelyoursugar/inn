@@ -33,7 +33,7 @@
             <view class="screenbao-time-name">位置</view>
           </view> -->
           <view class="screenbao-time" bindtap="showPopup">
-            <view class="screenbao-time-name">筛选</view>
+            <view class="screenbao-time-name {{temp.length!==0?'screenbao-time-day':''}}">筛选</view>
           </view>
         </view>
       </view>
@@ -56,7 +56,7 @@
 
     <!--  弹出筛选  -->
     <van-popup show="{{ show }}" position="top" custom-style="height: 100%;">
-      <screen />
+      <screen bind:screenCon="getAddscreen"  />
     </van-popup>
     
 </view>

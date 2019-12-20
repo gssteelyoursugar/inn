@@ -6,10 +6,12 @@ Page({
    */
   data: {
     str:'',
-    homeruzhuTime: '',//入住时间
-    homelikaiTime: '',//离店时间
+    homeruzhuTime: '',//展示入住时间     格式  12月21
+    homelikaiTime: '',//展示离店时间
+    dataLikai:'', //存入数据库的入住时间   格式 2019-12-21
+    dataLikai:'',//存入数据库的离开时间
     stor:1,//排序
-    show: true, //筛选弹框
+    show: false, //筛选弹框
     showMenu:true,
     resource:['1'],
     hotlist: [
@@ -61,7 +63,8 @@ Page({
           '连住优惠'
         ]
       }
-    ]
+    ],
+    temp:[] //筛选条件
   },
   showData() {
     wx.navigateTo({
@@ -85,11 +88,21 @@ Page({
         }
       }
     }
-    console.log(hotlist);
       //数组重新赋值
       this.setData({
         hotlist
       })
+  },
+
+  //获取筛选子组件的值
+  getAddscreen(e) {
+    let that = this;
+    let { show,temp } = e.detail
+    console.log(e.detail)
+    that.setData({
+      show,
+      temp
+    })
   },
 
   btnShowmenu: function () {
@@ -141,10 +154,14 @@ Page({
     let str = this.data.str
     let homeruzhuTime = wx.getStorageSync('homeruzhuTime')
     let homelikaiTime = wx.getStorageSync('homelikaiTime')
+    let dataRuzhu = wx.getStorageSync('dataRuzhu')
+    let dataLikai = wx.getStorageSync('dataLikai')
     if (homeruzhuTime !== that.str || homelikaiTime !== that.str) {
       that.setData({
         homeruzhuTime,
-        homelikaiTime
+        homelikaiTime,
+        dataRuzhu,
+        dataLikai
       });
     }
   },

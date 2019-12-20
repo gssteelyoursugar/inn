@@ -93,6 +93,13 @@
 					"id": -1,
 					"name": "历史记录",
 					"pathName": "pages/hotsearch/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "时间组件",
+					"pathName": "pages/component/datatime/index",
 					"scene": null
 				}
 			]

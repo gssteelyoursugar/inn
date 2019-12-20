@@ -23,7 +23,7 @@ page{
   bottom: 0;
   top: 0;
   z-index: 10;
-  height: 140rpx;
+  height: 160rpx;
 }
 .hotbar .hotbar-sou{
   margin: 0 auto;
@@ -93,11 +93,11 @@ page{
   height: 100%;
 }
 .hotbar-screen{
-  height: 70rpx;
+  height: 90rpx;
 }
 .screenbao{
   width: 650rpx;
-  height: 70rpx;
+  height: 90rpx;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -123,7 +123,7 @@ page{
 }
 /*内容区域*/
 .res-hot{
-  margin-top: 160rpx;
+  margin-top: 180rpx;
   overflow: hidden;
 }
 .resource{

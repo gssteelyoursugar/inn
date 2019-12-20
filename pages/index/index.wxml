@@ -49,7 +49,7 @@
         </view>
 
         <!--  预定框按钮   -->
-        <view class="res-button">
+        <view class="res-button" bindtap="toggleHotmore">
           搜索房源
         </view>
       </view>
