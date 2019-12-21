@@ -1,7 +1,7 @@
 <!--pages/detail/index.wxml-->
 
 <view class="detail-container">
-
+  <wxs src="../../utils/common/filter.wxs" module="filter" />
   <view class="detail-swiper">
     <!-- 轮播 -->
     <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
@@ -36,19 +36,19 @@
           <text>整套普通公寓</text>
         </view>
       </view>
-      <view class="order-date">
+      <view class="order-date" catchtap="clickToPickTime">
         <view class="start-time">
           <text>入住</text>
           <view class="date-item">
-            <text>12-19</text> 星期四</view>
+            <text>{{homeruzhuTime === str ? '请选择时间':homeruzhuTime}}</text> {{filter.getWeek(inWeek)}}</view>
         </view>
         <view class="mid-text">
-          <text>共一晚</text>
+          <text>共 {{wan}} 晚</text>
         </view>
         <view class="end-time">
           <text>离店</text>
           <view class="date-item">
-            <text>12-20</text> 星期五</view>
+            <text>{{homelikaiTime === str ? '请选择时间':homelikaiTime}}</text> {{filter.getWeek(outWeek)}}</view>
         </view>
       </view>
     </view>

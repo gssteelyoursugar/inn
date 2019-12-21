@@ -92,8 +92,8 @@
            previous-margin="{{previousMargin2}}" next-margin="{{nextMargin2}}"   interval="{{interval2}}" duration="{{duration2}}">
           <block wx:for="{{housing}}" wx:key="*this">
             <swiper-item>
-              <view class="swiper-item2" catchtap="toggleDetails" data-id="{{item.id}}">
-                <view class="item2-imgs">
+              <view class="swiper-item2" catchtap="clickToDetail">
+                <view class="item2-imgs" >
                   <image class="item2-imgs-url" src="{{item.img_Url}}"></image>
                   <image wx:if="{{item.status === 1}}"  data-index="{{index}}" data-show_id="{{item.id}}" catchtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
                   <image wx:else class="item2-imgs-sc" data-index="{{index}}" data-show_id="{{item.id}}" catchtap="btnCancel" src="../../static/img/collect.png"></image>

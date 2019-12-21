@@ -96,15 +96,15 @@
 				},
 				{
 					"id": -1,
-					"name": "时间组件",
-					"pathName": "pages/component/datatime/index",
+					"name": "商品详情",
+					"pathName": "pages/detail/index",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "城市",
-					"pathName": "pages/city/index",
+					"name": "order",
+					"pathName": "pages/order/index",
 					"query": "",
 					"scene": null
 				}

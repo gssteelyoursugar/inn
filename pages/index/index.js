@@ -127,6 +127,11 @@ Page({
       }
     ]
   },
+  clickToDetail() {
+    wx.navigateTo({
+      url: '/pages/detail/index',
+    })
+  },
   showData() {
     wx.navigateTo({
       url: "/pages/component/datatime/index"
