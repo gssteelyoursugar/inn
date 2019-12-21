@@ -1,0 +1,60 @@
+<!--  房源筛选  -->
+<view class="screen">
+  <view class="screenWarp">
+    <!-- 热门  -->
+    <view class="sc-hot">
+      <view class="hot-title">热门</view>
+      <text class="hot-content" wx:for="{{hot}}" wx:key="*this">{{item}}</text>
+    </view>
+
+    <!--  价格选择 -->
+    <view class="sc-price">
+      <view class="price-title">价格选择</view>
+      <view>
+        <!-- 滑动  -->
+        <view class='sliderHCon'>
+          <view class='twoSlider'>
+            <view class='select-construct'>
+              <view class='select-area'>
+                <view class='slider-container'>
+                  <view class='leftSliderPrice sliderPrice' style='left:{{leftSliderPriceWidthX}};'>
+                    <view class='sliderView'>
+                      <text>￥</text>{{slider1Value*scale}}
+                    </view>
+                  </view>
+                  <slider style='width:{{slider1W+"%"}}'  class='slider-left' min='{{min}}' max='{{slider1Max}}' color='#FFAC30'
+                  selected-color='#e5e5e5' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1'></slider>
+                  <view class='rightSliderPrice sliderPrice' style='right:{{rightSliderPriceWidthX}};'>
+                    <view class='sliderView'>
+                      <text>￥</text>{{slider2Value*scale}}
+                    </view>
+                  </view>
+                  <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' min='{{slider2Min}}' max='{{max}}' color='#e5e5e5'
+                  selected-color='#FFAC30' bindchanging='changing'catchtouchstart='changeStart'  bindchange='changed' data-idx='2'></slider>
+                </view>
+              </view>
+            </view>
+          </view>
+
+          <view class='showMoney'>
+            <text class='MoneyValue'>￥{{min}}</text>
+            <text class='MoneyValue'>￥{{max}}</text>
+          </view>
+        </view>
+        <!-- 滑动结束 -->
+      </view>
+    </view>
+
+    <!--  居室  -->
+    <view class='wrap'>
+      <view class='checkbox-con'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class="{{item.checked?'checkbox checked':'checkbox'}}" wx:for="{{checkboxArr}}" bindtap='checkbox' data-index="{{index}}" wx:key="item.name">
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.name}}
+        </label>
+      </checkbox-group>
+        <button type='primary' bindtap='confirm'>提交</button>
+      </view>
+    </view>
+  </view>
+</view>

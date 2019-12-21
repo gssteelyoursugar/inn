@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dataTime: false, //时间弹出框
+    str:'',
+    homeruzhuTime: '',//入住时间
+    homelikaiTime: '',//离店时间
+    stor:1,//排序
+    show: true, //筛选弹框
     showMenu:true,
     resource:['1'],
     hotlist: [
@@ -59,11 +63,33 @@ Page({
       }
     ]
   },
-
   showData() {
-    this.setData({
-      dataTime: !this.data.dataTime
+    wx.navigateTo({
+      url: "/pages/component/datatime/index"
     })
+  },
+  //获取子组件的值，更改收藏状态
+  getAddInfo(e) {
+    let { index} = e.detail
+    //data中获取列表
+    let hotlist = this.data.hotlist
+    for (let i in hotlist) {
+      //遍历列表数据      
+      if (i == index) {
+        //根据下标找到目标,改变状态  
+        if (hotlist[i].status === 1) {
+          hotlist[i].status = parseInt(hotlist[i].status) + 1
+        }
+        else{
+          hotlist[i].status = parseInt(hotlist[i].status) - 1
+        }
+      }
+    }
+    console.log(hotlist);
+      //数组重新赋值
+      this.setData({
+        hotlist
+      })
   },
 
   btnShowmenu: function () {
@@ -72,7 +98,27 @@ Page({
       showMenu
     })
   },
-
+  //排序
+  cilckSotr() {
+    if (this.data.stor===1){
+      let stor = 2;
+      this.setData({
+        stor
+      })
+    }
+    else{
+      let stor = 1;
+      this.setData({
+        stor
+      })
+    }
+  },
+  //筛选弹窗
+  showPopup() {
+    this.setData({
+      show:!this.data.show
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -91,7 +137,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that = this
+    let str = this.data.str
+    let homeruzhuTime = wx.getStorageSync('homeruzhuTime')
+    let homelikaiTime = wx.getStorageSync('homelikaiTime')
+    if (homeruzhuTime !== that.str || homelikaiTime !== that.str) {
+      that.setData({
+        homeruzhuTime,
+        homelikaiTime
+      });
+    }
   },
 
   /**

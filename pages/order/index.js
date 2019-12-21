@@ -3,8 +3,9 @@
 // 这是该页面对应的 “路径前缀”
 import { OrderModel } from '../../api/order.js';
 let list = new OrderModel();
-Page({
+import Toast from '../../vant-weapp/dist/toast/toast';
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -58,13 +59,15 @@ Page({
   },
   // 删除订单
   clickToDelOrder(e) {
-    let { id } = e.currentTarget.dataset
+    let { id,index } = e.currentTarget.dataset
     let temp = {
       order_id: id,
       user_id: 1
     }
-    console.log(temp)
-
+    let list = this.data.orderList
+    list.splice(index, 1)
+    this.setData({ orderList: list })
+    Toast('删除成功')
   },
   // 查看订单
   clickToCheckOrder(e) {

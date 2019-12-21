@@ -1,0 +1,158 @@
+/* pages/hotmore/screen/index.wxss */
+.screen{
+  width: 100%;
+  height: auto;
+}
+.screenWarp{
+  width: 680rpx;
+  margin: 50rpx auto;
+}
+.sc-hot{
+  margin-bottom: 50rpx;
+}
+.hot-title{
+  color: #333;
+  font-size: 35rpx;
+  margin-bottom: 30rpx;
+  font-weight: 500;
+}
+.hot-content{
+  display: inline-block;
+  padding: 10rpx 30rpx;
+  background: #f7f8f8;
+  border-radius: 25rpx;
+  font-size: 30rpx;
+  color: #333;
+  margin-right: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+/*价格选择*/
+.price-title{
+  color: #333;
+  font-size: 35rpx;
+  margin-bottom: 50rpx;
+  font-weight: 500;
+}
+
+
+/* 滑动块 */
+.sliderHCon {
+  margin: 0 auto;
+}
+.showMoney {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  color: #666;
+}
+.MoneyValue {
+  text-align: center;
+  color: #666;
+  font-size: 24rpx;
+}
+.twoSlider {
+  margin: 0 auto;
+  width:92%;
+  height:70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.twoSlider .leftSliderPrice {
+  position: absolute;
+  top: -30rpx;
+  left: -90rpx;
+  width: 60rpx;
+  padding: 20rpx;
+  text-align: center;
+  color: #FFF;
+}
+.sliderPrice view {
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+  font-size: 30rpx;
+}
+/* 动态价格 */
+.twoSlider .rightSliderPrice {
+  position: absolute;
+  top: -30rpx;
+  width: 100rpx;
+  right:500rpx;
+  padding: 20rpx 70rpx;
+  text-align: center;
+}
+.sliderView {
+  color: #ef5775;
+  font-weight: bold;
+}
+.sliderView text{
+  color: #ef5775;
+  font-size: 25rpx;
+  font-weight: normal;
+}
+ 
+/* 滑动样式 */
+.select-construct{
+  width: 100%;
+}
+.select-area{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.slider-container{
+  width: 100%;
+  display: flex;
+  padding: 20px 0 10px;
+  position: relative;
+}
+.slider-left,.slider-right{
+  margin-right: -8rpx;
+}
+
+
+/*居家*/
+.wrap{
+ width: 550rpx;
+ margin: 50rpx auto
+}
+ 
+.checkbox-con{
+ margin-top: 40rpx;
+ text-align: center
+}
+.checkbox{
+ width: 260rpx;
+ height: 72rpx;
+ line-height: 72rpx;
+ font-size: 28rpx;
+ color: #888888;
+ border: 1rpx solid #CECECE;
+ border-radius: 5rpx;
+ display: inline-block;
+ margin: 0 10rpx 20rpx 0;
+ position: relative
+}
+.checked{
+ color: #1A92EC;
+ background: rgba(49,165,253,0.08);
+ border: 1rpx solid #31A5FD;
+}
+.checkbox checkbox{
+ display: none
+}
+.checked-img{
+ width: 28rpx;
+ height: 28rpx;
+ position: absolute;
+ top: 0;
+ right: 0
+}

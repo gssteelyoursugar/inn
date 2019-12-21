@@ -1,6 +1,14 @@
 /* pages/index/index.wxss */
-page{
-  /* background: #f0f3f5; */
+/*时间弹出层*/
+.dataTimeShow{
+  z-index: 100;
+  background: #ffffff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 /*顶部搜索*/
 .search{
@@ -59,17 +67,12 @@ page{
 }
 .over .over-want{
   width: 330rpx;
-  /* margin-top: 10rpx;
-  margin-bottom: 10rpx;
-  margin-left: 10rpx; */
   margin: 10rpx;
   height: 150rpx;
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  /* background: #fa24ef59; */
   border-radius: 15rpx;
-  /* border: 1rpx solid #cccccc; */
   box-shadow: 0rpx 0rpx 20rpx 0rpx #f5f5f5;
 }
 .over-want .want-icon{
@@ -88,12 +91,10 @@ page{
 }
 .want-name .name-title{
   font-size: 30rpx;
-  /* color: #ffffff; */
   color: #333333;
   font-weight: 500;
 }
 .want-name .name-desc{
-  /* color: #ffffffe1; */
   color: #999999;
   font-size: 24rpx;
 }
@@ -204,40 +205,8 @@ page{
   font-weight: bold;
 }
 
-/*我已有订单*/
-.existing{
-  width: 700rpx;
-  height: 108rpx;
-  line-height: 108rpx;
-  color: #333333;
-  text-align: center;
-  font-weight: 500;
-  font-size: 30rpx;
-  margin: 250rpx auto 30rpx;
-  background:#fff3f3;
-  border-radius: 25rpx;
-}
-.existingbox{
-  width: 600rpx;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.existing .existing-order{
-  margin-left: 30rpx;
-  width: 70rpx;
-  height: 70rpx;
-}
-.existing .existing-arrows{
-  width: 60rpx;
-  height: 60rpx;
-  margin-right: 30rpx;
-}
 
-
-
-/*本地房源*/
+/*特价折扣*/
 .housing{
   background: #ffffff;
 }
@@ -268,100 +237,21 @@ page{
   height: 25rpx;
 }
 
-/*本地房源轮播图*/
-/* .swiper2{
-  margin-left: 10rpx;
-}
-.swiper2 swiper{
-  height: 390rpx !important;
-}
-.swiper-items2{
-  height: 380rpx !important;
-}
-.swiper2 .swiper-item2{
-  height: 380rpx;
-  margin: 0 15rpx 10rpx !important;
-  border-radius: 10rpx;
-  overflow: hidden;
-  border: 2rpx solid #f5f5f5;
-}
-.item2-imgs{
-  height: 280rpx;
-  position: relative;
-}
-.item2-imgs .item2-imgs-url{
-  width: 100%;
-  height: 100%;
-}
-.item2-imgs .item2-imgs-sc{
-  position: absolute;
-  top: 30rpx;
-  right: 30rpx;
-  width: 40rpx;
-  height: 40rpx;
-}
-.item2-desc{
-  height: 90rpx;
-  overflow: hidden;
-}
-.item2-desc .desc-warp{
-  width: 95%;
-  height: 90rpx;
-  margin: 10rpx auto;
-  display: flex;
-  justify-content: space-between;
-}
-.desc-warp .warp-title{
-  margin-top: 5rpx;
-  width: 79%;
-}
-.desc-warp .warp-title .title-cont{
-  font-size: 27rpx;
-  color: #333333;
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-}
-.desc-warp .warp-title .title-detals{
-  display: flex;
-}
-.title-detals image{
-  width: 30rpx;
-  height: 30rpx;
-}
-.detals-location{
-  width: 90%;
-  font-size: 25rpx;
-  color: #999999;
-  font-weight: 400;
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-}
-
-.item2-price{
-  font-size: 32rpx;
-  color: #ef5473;
-}
-.item2-price .item2-price-un{
-  font-size: 24rpx;
-} */
+/*特价折扣轮播图*/
 .swiper2{
   margin-left: 10rpx;
   margin-bottom: 40rpx;
 }
 .swiper2 swiper{
-  height: 450rpx !important;
+  height: 490rpx !important;
 }
 .swiper-items2{
-  height: 450rpx !important;
+  height: 470rpx !important;
 }
 .swiper2 .swiper-item2{
-  height: 440rpx;
+  height: 470rpx;
   margin: 0 15rpx 10rpx !important;
   border-radius: 10rpx;
-  overflow: hidden;
   border: 2rpx solid #f5f5f5;
 }
 .item2-imgs{
@@ -380,22 +270,21 @@ page{
   height: 55rpx;
 }
 .item2-desc{
-  height: 90rpx;
-  overflow: hidden;
+
 }
 .item2-desc .desc-warp{
   width: 95%;
-  height: 90rpx;
-  margin: 10rpx auto;
+  margin: 20rpx auto;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10rpx;
 }
 .desc-warp .warp-title{
   margin-top: 5rpx;
   width: 79%;
 }
 .desc-warp .warp-title .title-cont{
-  font-size: 27rpx;
+  font-size: 29rpx;
   color: #333333;
   font-weight: bold;
   overflow: hidden;
@@ -404,34 +293,56 @@ page{
 }
 .desc-warp .warp-title .title-detals{
   display: flex;
+  margin-top: 6rpx;
 }
 .title-detals image{
-  width: 30rpx;
-  height: 30rpx;
+  margin-left: -3rpx;
+  width: 35rpx;
+  height: 35rpx;
 }
 .detals-location{
-  width: 90%;
+  width: 93%;
   font-size: 25rpx;
-  color: #999999;
+  color: #333333ee;
   font-weight: 400;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+  padding-bottom: 25rpx;
 }
 
 .item2-price{
-  font-size: 32rpx;
+  font-size: 38rpx;
   color: #ef5473;
+  font-weight: bold;
 }
 .item2-price .item2-price-un{
   font-size: 24rpx;
 }
 
+
+/*更多特价清单按钮*/
+.inventory{
+  margin: 30rpx auto 50rpx;
+  background: #f5f6f8;
+  width: 450rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+
+
 /*广告投放*/
 .advertising{
   width: 650rpx;
-  height: 100rpx;
-  margin: 30rpx auto;
+  height: 150rpx;
+  max-height: 150rpx;
+  margin: 30rpx auto 50rpx;
   border-radius: 10rpx;
   overflow: hidden;
 }

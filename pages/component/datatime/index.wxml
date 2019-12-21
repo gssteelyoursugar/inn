@@ -5,7 +5,7 @@
       <view class='time-left-ruzhu'>入住时间</view>
       <view class='time-left-name'>{{inTimeruzhu==''?'选择日期':inTimeruzhu + '日'}}</view>
     </view>
-    <view class='wanNum'>共<text>{{Wan}}</text>晚</view>
+    <view class='wanNum'>共<text>{{wan}}</text>晚</view>
     <view class='reserve-time-right'>
       <view class='time-right-likai'>离店时间</view>
       <view class='time-left-name'>{{outTimelikai==''?'选择日期':outTimelikai + '日'}}</view>

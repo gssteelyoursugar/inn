@@ -7,7 +7,33 @@ Page({
   data: {
     inputValue: '',
     btns:['广州塔','北京路','珠江新城','白云桥','广州南站','上下九','从化温泉','骑楼','白云广场'],
-    history: ['海珠广场', '楚河汉街']
+    searchRecord: []
+  },
+  //键盘回车确定
+  searchBtn() {
+    var inputVal = this.data.inputValue
+    var searchRecord = this.data.searchRecord
+    console.log(inputVal);
+    //将搜索值放入历史记录中,只能放前五条
+    if (searchRecord.length < 5) {
+      searchRecord.unshift(
+        {
+          value: inputVal,
+          id: searchRecord.length
+        }
+      )
+    }
+    else {
+      searchRecord.pop()//删掉旧的时间最早的第一条
+      searchRecord.unshift(
+        {
+          value: inputVal,
+          id: searchRecord.length
+        }
+      )
+    }
+    //将历史记录数组整体储存到缓存中
+    wx.setStorageSync('searchRecord', searchRecord)
   },
   bindKeyInput: function (e) {
     this.setData({
@@ -29,8 +55,9 @@ Page({
       content: '确定删除历史记录？',
       success(res) {
         if (res.confirm) {
+          wx.clearStorageSync('searhRecord')
           that.setData({
-            history: ''
+            searchRecord: []
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -38,12 +65,16 @@ Page({
       }
     })
   },
-
+  openHistorySearch: function () {
+    this.setData({
+      searchRecord: wx.getStorageSync('searchRecord') || [], //若无储存则为空
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.openHistorySearch();
   },
 
   /**
@@ -57,7 +88,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // let history = this.data.history;
+    // let path = wx.getStorageSync('history');
+    // history.push(path);
+    // this.setData({
+    //   history
+    // })
   },
 
   /**

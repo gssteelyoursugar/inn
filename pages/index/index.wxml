@@ -17,7 +17,7 @@
   <view class="index-main">
     
 
-    <!-- 预定框  -->
+    <!-- 搜索房源  -->
     <view class="reserve">
       <view class="reservebox">
         <view class="reserve-city">
@@ -28,17 +28,17 @@
           </view>
         </view>
         <!-- 入住时间  -->
-        <view class="checkin-time">
+        <view class="checkin-time" bindtap="showData">
           <view class="chtime-begin">
             <view class="begin-title">入住时间</view>
-            <view class="begin-time">12月18日</view>
+            <view class="begin-time">{{homeruzhuTime === str ? '请选择时间':homeruzhuTime+'日'}}</view>
           </view>
           <view class="chtime-num">
-            共<span>1</span>晚
+            共<span>{{wan === str? '0':wan}}</span>晚
           </view>
           <view class="chtime-begin">
             <view class="begin-title">离开时间</view>
-            <view class="begin-time">12月19日</view>
+            <view class="begin-time">{{homelikaiTime === str ? '请选择时间':homelikaiTime+'日'}}</view>
           </view>
         </view>
 
@@ -55,7 +55,7 @@
       </view>
     </view>
 
-    <!--  预定   -->
+    <!--  我要预定，我已预定   -->
     <view class="over">
       <view class="over-want" bindtap="ToOrder">
         <view class="want-icon">
@@ -78,34 +78,34 @@
     </view>
 
 
-    <!-- 本地房源  -->
+    <!-- 特价折扣  -->
     <view class="housing">
       <view class="housing-bar">
         <view class="bar-title">特价折扣</view>
-        <view class="bar-more" bindtap="toggleHotmore">
+        <!-- <view class="bar-more">
           <view class="more-title">更多</view>
           <image src="../../static/img/more-icon.png"></image>
-        </view>
+        </view> -->
       </view>
 
       <!--  房源列表轮播  -->
       <view class="swiper2">
         <swiper 
-           previous-margin="{{previousMargin2}}" next-margin="{{nextMargin2}}"  circular="true" interval="{{interval2}}" duration="{{duration2}}">
+           previous-margin="{{previousMargin2}}" next-margin="{{nextMargin2}}"   interval="{{interval2}}" duration="{{duration2}}">
           <block wx:for="{{housing}}" wx:key="*this">
             <swiper-item>
               <view class="swiper-item2">
                 <view class="item2-imgs">
                   <image class="item2-imgs-url" src="{{item.img_Url}}"></image>
-                  <image wx:if="{{item.showCollect === 2}}" bindtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
-                  <image wx:else class="item2-imgs-sc" bindtap="btnCancel" src="../../static/img/collect.png"></image>
+                  <image wx:if="{{item.status === 1}}"  data-index="{{index}}" data-show_id="{{item.id}}" bindtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
+                  <image wx:else class="item2-imgs-sc" data-index="{{index}}" data-show_id="{{item.id}}" bindtap="btnCancel" src="../../static/img/collect.png"></image>
                 </view>
                 <view class="item2-desc">
                   <view class="desc-warp">
                     <view class="warp-title">
                       <view class="title-cont">{{item.title}}</view>
                       <view class="title-detals">
-                        <image src="../../static/img/location-icon.png"></image>
+                        <image src="../../static/img/index-location.png"></image>
                         <view class="detals-location">{{item.loading}}</view>
                       </view>
                     </view>
@@ -122,10 +122,13 @@
       </view>
     </view>
 
+    <!--  更多特价清单  -->
+    <view class="inventory" bindtap="toggleHotmore">更多特价清单</view>
+
 
     <!-- 广告投放  -->
     <view class="advertising">
-      <image mode="aspectFill" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=413453052,2602347248&fm=15&gp=0.jpg"></image>
+      <image  src="https://img.zcool.cn/community/013e755b46f0eea8012036be27b21f.jpg@1280w_1l_2o_100sh.jpg"></image>
     </view>
 
 
@@ -133,6 +136,11 @@
     <evaluate evaluateList="{{evaluateList}}" />
 
   </view>
+
+  <!--  弹出时间选择  -->
+  <!-- <view wx:if="{{dataTime}}" class="dataTimeShow"  catchtouchmove="return">
+    <datatime bind:addtime="getDatatime" />
+  </view> -->
   
 
 </view>

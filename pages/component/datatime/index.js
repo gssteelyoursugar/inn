@@ -5,9 +5,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    
+
   },
-  ready(){
+  ready() {
     //当前时间 格式2019-04-03
     var date = new Date();
     var Y = date.getFullYear() + '-';
@@ -34,7 +34,7 @@ Component({
     outTimelikai: '', //离店时间 格式 04月03
     homeruzhuTime: '',  //返回给首页的显示时间 04.03
     homelikaiTime: '', //返回给首页的显示时间 04.03
-    Wan: 0, //默认几晚
+    wan: 0, //默认几晚
     noDate: '', //当前时间 格式：2019-04-03
     year: '',
     mouth: ''
@@ -129,17 +129,17 @@ Component({
         var end_date = new Date(outTime.replace(/-/g, "/"));
         //转成毫秒数，两个日期相减
         var days = end_date.getTime() - start_date.getTime();
-        console.log(days)
+        // console.log(days)
         //转换成天数
         var day = parseInt(days / (1000 * 60 * 60 * 24));
         console.log(day)
         that.setData({
-          Wan: day
+          wan: day
         })
       }
       else {
         that.setData({
-          Wan: 0
+          wan: 0
         })
       }
     },
@@ -167,7 +167,6 @@ Component({
         year: year,
         mouth: mouth
       });
-      console.log(this.data.calendar)
     },
     //用户点击增加月份
     plusMouth() {
@@ -186,10 +185,14 @@ Component({
       var Y = nowTime.getFullYear(); //当前年
       var M = nowTime.getMonth() + 1;  //当前月
       var yms = parseInt(Y.toString() + M.toString());
-
       var year = this.data.year//当前年
       var mouth = this.data.mouth //当前月
-      var ym = parseInt(year.toString() + mouth.toString());
+      var dataMouth = mouth
+      //如果当前月份只有单月，给单月加成01的格式
+      if (dataMouth < 10) {
+        dataMouth = '0' + dataMouth
+      }
+      var ym = parseInt(year.toString() + dataMouth.toString());
       if (yms < ym) {
         mouth--
         if (mouth < 1) {
@@ -203,13 +206,31 @@ Component({
     //清空返回
     empty() {
       this.setData({
-        homeruzhuTime: '',
-        homeruzhuTime: '',
-        Wan: 0
+        inTime: '',
+        outTime: '',
+        inTimeruzhu: '',
+        outTimelikai: '',
+        // homeruzhuTime: '',
+        // homeruzhuTime: '',
+        wan: 0
       })
-      app.globalData.homeruzhuTime = '';
-      app.globalData.homelikaiTime = '';
-      //关闭弹窗
+      wx.removeStorage({
+        key: 'homeruzhuTime',
+        success(res) {
+          console.log(res)
+        }
+      })
+      wx.removeStorage({
+        key: 'homelikaiTime',
+        success(res) {
+          console.log(res)
+        }
+      })
+      wx.setStorage({
+        key: 'wan',
+        data: 0
+      })
+      //返回上一页
       wx.navigateBack({
         delta: 1
       })
@@ -217,8 +238,40 @@ Component({
     //保存跳转
     seavs() {
       var that = this;
-      app.globalData.homeruzhuTime = that.data.homeruzhuTime;
-      app.globalData.homelikaiTime = that.data.homelikaiTime;
+      if (that.data.homeruzhuTime === '') {
+        wx.showToast({
+          title: '请选择入住时间',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+      else if (that.data.homelikaiTime === '') {
+        wx.showToast({
+          title: '请选择离店时间',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+      else {
+        let homeruzhuTime = that.data.inTimeruzhu;
+        let homelikaiTime = that.data.outTimelikai;
+        let wan = that.data.wan;
+        wx.setStorage({
+          key: 'homeruzhuTime',
+          data: homeruzhuTime
+        })
+        wx.setStorage({
+          key: 'homelikaiTime',
+          data: homelikaiTime
+        })
+        wx.setStorage({
+          key: 'wan',
+          data: wan
+        })
+        wx.navigateBack({
+          delta: 1
+        })
+      }
     }
   }
 })

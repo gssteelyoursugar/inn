@@ -6,8 +6,8 @@ App({
 
   globalData:{
     day: '',//日期
-    intimestamps: '',//入住时间参数
-    outtimestamps: '',//离开时间参数
+    // intimestamps: '',//入住时间参数
+    // outtimestamps: '',//离开时间参数
   },
   onLaunch: function () {
     // 登录
@@ -64,8 +64,6 @@ App({
     })
   },
   globalData: {
-    userInfo: null,
-    homeruzhuTime: '',//入住时间
-    homelikaiTime: ''//离店时间
+    userInfo: null
   }
 })
