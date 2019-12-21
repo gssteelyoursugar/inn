@@ -6,6 +6,8 @@ Page({
    */
   data: {
     str:'',
+    nameCity:'北海',
+    value:'',
     homeruzhuTime: '',//展示入住时间     格式  12月21
     homelikaiTime: '',//展示离店时间
     dataLikai:'', //存入数据库的入住时间   格式 2019-12-21
@@ -71,6 +73,11 @@ Page({
       url: "/pages/component/datatime/index"
     })
   },
+  toggleCity() {
+    wx.navigateTo({
+      url: "/pages/city/index"
+    })
+  },
   //获取子组件的值，更改收藏状态
   getAddInfo(e) {
     let { index} = e.detail
@@ -111,6 +118,14 @@ Page({
       showMenu
     })
   },
+  //输入框点击完成时获取的值
+  bindConfirm(e) {
+    let that = this
+    let value = e.detail.value;
+    that.setData({
+      value
+    })
+  },
   //排序
   cilckSotr() {
     if (this.data.stor===1){
@@ -136,7 +151,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      value:options.names
+    })
   },
 
   /**
@@ -163,6 +180,17 @@ Page({
         dataRuzhu,
         dataLikai
       });
+    }
+    let nameCity = wx.getStorageSync('nameCity')
+    if (nameCity !== '') {
+      that.setData({
+        nameCity
+      })
+    }
+    else{
+      that.setData({
+        nameCity:'北海'
+      })
     }
   },
 

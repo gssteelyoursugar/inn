@@ -2,7 +2,7 @@
 <!-- 房源列表  -->
 <view>
   <view class="list" wx:for="{{hotlist}}" wx:key="*this">
-    <view class="list-shows">
+    <view class="list-shows" catchtap="toggleDetails" data-id="{{item.id}}">
       <image class="shows-master" src="{{item.img_Url}}"></image>
       <view class="shows-collect">
         <image wx:if="{{item.status === 1}}" data-index="{{index}}" data-nums="1" data-show_id="{{item.id}}" src="../../../static/img/collect-not.png" bindtap="btnSucceed"></image>

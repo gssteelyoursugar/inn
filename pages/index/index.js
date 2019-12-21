@@ -8,12 +8,19 @@ Page({
     is_realname:false,//是否实名注册
     homeruzhuTime: '',//入住时间
     homelikaiTime: '',//离店时间
+    nameCity:'北海',
     wan: 0,// 默认0晚
     str: '', //用来判断页面数据
     // dataTime: false, //时间弹出框
     background: [
-       'https://z1.muscache.cn/im/pictures/38d92da5-8971-432a-83c6-43964e608fa4.jpg?aki_policy=xx_large',
-       'https://z1.muscache.cn/im/pictures/47a08be7-d55d-4017-aeb4-a6f60cbac664.jpg?aki_policy=xx_large'
+      {
+        id:1,
+        img_Url:'https://z1.muscache.cn/im/pictures/38d92da5-8971-432a-83c6-43964e608fa4.jpg?aki_policy=xx_large'
+      },
+      {
+        id:2,
+        img_Url:'https://z1.muscache.cn/im/pictures/47a08be7-d55d-4017-aeb4-a6f60cbac664.jpg?aki_policy=xx_large'
+      }
       ],
     vertical: false,
     autoplay: true,
@@ -120,10 +127,15 @@ Page({
       }
     ]
   },
-
   showData() {
     wx.navigateTo({
       url: "/pages/component/datatime/index"
+    })
+  },
+  //选择城市
+  toggleCity() {
+    wx.navigateTo({
+      url: "/pages/city/index"
     })
   },
   //跳转热门搜索
@@ -134,7 +146,6 @@ Page({
   },
   //收藏房源成功
   btnSucceed: function (e) {
-    console.log(e.currentTarget.dataset.show_id)
     let { show_id,index } = e.currentTarget.dataset
     //data中获取列表
     let housing = this.data.housing
@@ -147,7 +158,6 @@ Page({
         }
       }
     }
-    console.log(housing);
     //数组重新赋值
     this.setData({
       housing
@@ -189,6 +199,13 @@ Page({
       url: '/pages/hotmore/index'
     })
   },
+  //点击查看房源
+  toggleDetails(e) {
+    let details_id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/detail/index'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -211,16 +228,27 @@ Page({
         is_realname: true
       })
     }
-    var that = this;
-    var homeruzhuTime = wx.getStorageSync('homeruzhuTime')
-    var homelikaiTime = wx.getStorageSync('homelikaiTime')
-    var wan = wx.getStorageSync('wan')
+    let that = this;
+    let homeruzhuTime = wx.getStorageSync('homeruzhuTime')
+    let homelikaiTime = wx.getStorageSync('homelikaiTime')
+    let wan = wx.getStorageSync('wan')
     if (homeruzhuTime !== that.str || homelikaiTime !== that.str ) {
       that.setData({
         homeruzhuTime,
         homelikaiTime,
         wan
       });
+    }
+    let nameCity = wx.getStorageSync('nameCity')
+    console.log(nameCity,"城市");
+    if (nameCity !== '') {
+      that.setData({
+        nameCity
+      })
+    }else{
+      that.setData({
+        nameCity:'北海'
+      })
     }
   },
 

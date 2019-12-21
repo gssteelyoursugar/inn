@@ -1,0 +1,53 @@
+/* pages/city/index.wxss */
+.city{
+  width: 680rpx;
+  margin: 30rpx auto;
+}
+.city-title{
+  color: #333;
+  font-weight: bold;
+  font-size: 35rpx;
+  margin-bottom: 40rpx;
+}
+.city-wrap{
+  float: left;
+  flex-wrap: wrap;
+  width: 210rpx;
+  height: 300rpx;
+  border: 1rpx solid #eeeeee;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 0rpx 15rpx 0rpx #cccccc;
+  margin-bottom: 30rpx;
+  margin-right: 20rpx;
+}
+.city-list .city-wrap:nth-child(3n+3){
+  margin-right:  0;
+}
+.city-wrap .wrapbox{
+  width: 190rpx;
+  height: 280rpx;
+  margin: 10rpx auto;
+  border-radius: 15rpx;
+  overflow: hidden;
+  position: relative;
+}
+.wrapbox-he{
+  position: absolute;
+  width: 190rpx;
+  height: 280rpx;
+  background: rgba(0, 0, 0, 0.4);
+}
+.wrapbox-title{
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.wrapbox-en{
+  color: #ffffff;
+  font-size: 35rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15rpx;
+}

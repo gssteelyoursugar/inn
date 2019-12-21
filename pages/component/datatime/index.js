@@ -120,14 +120,11 @@ Component({
         outTimelikai = '';
         outTime = ''; //时间为空
         dataRuzhu = eTime;
-        console.log("入住时间获取222", dataRuzhu);
-        
       } else {
         app.globalData.outtimestamps = eTime
         outTime = eTime; //离开时间等于当前选择时间
         outTimelikai = sTime;
         dataLikai = eTime;
-        console.log("离开时间获取222", dataLikai);
       };
       that.setData({
         inTime,
@@ -293,8 +290,6 @@ Component({
         let homelikaiTime = that.data.outTimelikai;  //展示离开的的数据  格式 12月21
         let dataRuzhu = that.data.dataRuzhu;  //存储数据库的入住时间  格式 2019-12-21
         let dataLikai = that.data.dataLikai;  //存储数据库的离开时间  格式 2019-12-21
-        console.log(homeruzhuTime,'测试1')
-        console.log(homelikaiTime, '测试2')
         let wan = that.data.wan;
         wx.setStorage({
           key: 'homeruzhuTime',

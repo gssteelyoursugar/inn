@@ -5,13 +5,13 @@
     <view class="hotbar">
       <view class="hotbar-sou">
         <view class="hotsou-inpus">
-          <view class="inpus-name">
-            <view class="name-citi">广州</view>
+          <view class="inpus-name" bindtap="toggleCity">
+            <view class="name-citi">{{nameCity}}</view>
             <image src="../../static/img/downward-icon.png"></image>
           </view>
           <view class="inpus-frame">
             <image src="../../static/img/seek-icon.png"></image>
-            <input class="weui-input"  maxlength="20" bindinput="bindKeyInput" placeholder="位置、地标、房源标题"/>
+            <input class="weui-input" value="{{value}}"  maxlength="20" bindconfirm="bindConfirm" placeholder="位置、地标、房源标题"/>
           </view>
         </view>
         <view class="hotsou-icon">

@@ -39,6 +39,13 @@ Component({
         })
       }
       
+    },
+    //点击查看房源
+    toggleDetails(e) {
+      let details_id = e.currentTarget.dataset.id;
+      wx.navigateTo({
+        url: '/pages/detail/index'
+      })
     }
   }
 })

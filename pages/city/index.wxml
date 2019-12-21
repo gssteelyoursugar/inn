@@ -1,0 +1,14 @@
+<!--  选择城市  -->
+<view class="city">
+  <view class="city-title">热门城市</view>
+  <view class="city-list">
+    <view class="city-wrap" wx:for="{{cityList}}" bindtap="toggleCity" data-name="{{item.name}}">
+      <view class="wrapbox" style="background-image: url('{{item.img_Url}}'); background-size: cover;">
+        <view class="wrapbox-he">
+            <view class="wrapbox-title">{{item.name}}</view>
+            <view class="wrapbox-en">{{item.en}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

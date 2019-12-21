@@ -13,7 +13,6 @@ Page({
   searchBtn() {
     var inputVal = this.data.inputValue
     var searchRecord = this.data.searchRecord
-    console.log(inputVal);
     //将搜索值放入历史记录中,只能放前五条
     if (searchRecord.length < 5) {
       searchRecord.unshift(
@@ -32,19 +31,27 @@ Page({
         }
       )
     }
-    //将历史记录数组整体储存到缓存中
-    wx.setStorageSync('searchRecord', searchRecord)
+    if (inputVal !== ''){
+      //将历史记录数组整体储存到缓存中
+      wx.setStorageSync('searchRecord', searchRecord)
+    }
+    wx.navigateTo({
+      url: '/pages/hotmore/index?names=' + inputVal,
+    })
   },
   bindKeyInput: function (e) {
     this.setData({
       inputValue: e.detail.value
     })
   },
+  //点击热门记录获取值跳转页面
   btnHontvalue: function (e) {
-    let name = e.currentTarget.dataset.name;
-    console.log(e.currentTarget.dataset.name);
+    let names = e.currentTarget.dataset.name;
     this.setData({
-      inputValue: name
+      inputValue: names
+    })
+    wx.navigateTo({
+      url: '/pages/hotmore/index?names=' + names,
     })
   },
   //删除历史记录

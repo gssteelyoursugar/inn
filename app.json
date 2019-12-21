@@ -7,7 +7,8 @@
     "pages/hotsearch/index",
     "pages/hotmore/index",
     "pages/login/index",
-    "pages/detail/index"
+    "pages/detail/index",
+    "pages/city/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

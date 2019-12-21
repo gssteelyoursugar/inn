@@ -27,13 +27,13 @@ page{
 }
 .hotbar .hotbar-sou{
   margin: 0 auto;
-  width: 700rpx;
+  width: 680rpx;
   display: flex;
   justify-content: space-between;
   height: 70rpx;
 }
 .hotbar-sou .hotsou-inpus{
-  margin-left: 50rpx;
+  margin-left: 30rpx;
   width: 570rpx;
   display: flex;
   border-radius: 40rpx;
@@ -85,8 +85,8 @@ page{
 }
 .hotsou-icon{
   margin-top: 10rpx;
-  width: 60rpx;
-  height: 60rpx;
+  width: 55rpx;
+  height: 55rpx;
 }
 .hotsou-icon image{
   width: 100%;

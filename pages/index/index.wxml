@@ -7,7 +7,7 @@
       autoplay="{{autoplay}}"  circular="true" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{background}}" wx:key="*this">
         <swiper-item class="swiper-items">
-          <view class="swiper-item"><image src="{{item}}"></image></view>
+          <view class="swiper-item" catchtap="toggleDetails" data-id="{{item.id}}" ><image src="{{item.img_Url}}"></image></view>
         </swiper-item>
       </block>
     </swiper>
@@ -20,8 +20,10 @@
     <!-- 搜索房源  -->
     <view class="reserve">
       <view class="reservebox">
-        <view class="reserve-city">
-          <view class="city-title">南宁</view>
+
+        <!--  城市  -->
+        <view class="reserve-city" bindtap="toggleCity">
+          <view class="city-title">{{nameCity}}</view>
           <view class="city-select">
             <view class="name">选择城市</view>
             <image src="../../static/img/index-location.png"></image>
@@ -82,10 +84,6 @@
     <view class="housing">
       <view class="housing-bar">
         <view class="bar-title">特价折扣</view>
-        <!-- <view class="bar-more">
-          <view class="more-title">更多</view>
-          <image src="../../static/img/more-icon.png"></image>
-        </view> -->
       </view>
 
       <!--  房源列表轮播  -->
@@ -94,11 +92,11 @@
            previous-margin="{{previousMargin2}}" next-margin="{{nextMargin2}}"   interval="{{interval2}}" duration="{{duration2}}">
           <block wx:for="{{housing}}" wx:key="*this">
             <swiper-item>
-              <view class="swiper-item2">
+              <view class="swiper-item2" catchtap="toggleDetails" data-id="{{item.id}}">
                 <view class="item2-imgs">
                   <image class="item2-imgs-url" src="{{item.img_Url}}"></image>
-                  <image wx:if="{{item.status === 1}}"  data-index="{{index}}" data-show_id="{{item.id}}" bindtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
-                  <image wx:else class="item2-imgs-sc" data-index="{{index}}" data-show_id="{{item.id}}" bindtap="btnCancel" src="../../static/img/collect.png"></image>
+                  <image wx:if="{{item.status === 1}}"  data-index="{{index}}" data-show_id="{{item.id}}" catchtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
+                  <image wx:else class="item2-imgs-sc" data-index="{{index}}" data-show_id="{{item.id}}" catchtap="btnCancel" src="../../static/img/collect.png"></image>
                 </view>
                 <view class="item2-desc">
                   <view class="desc-warp">
