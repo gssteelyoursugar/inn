@@ -1,53 +1,59 @@
 <view class="data_time">
   <view class="page">
-  <view class="reserve-time">
-    <view class='reserve-time-left'>
-      <view class='time-left-ruzhu'>入住时间</view>
-      <view class='time-left-name'>{{inTimeruzhu==''?'选择日期':inTimeruzhu + '日'}}</view>
+    <view class="reserve-time">
+      <view class='reserve-time-left'>
+        <view class='time-left-ruzhu'>入住时间</view>
+        <view class='time-left-name'>{{inTimeruzhu==''?'选择日期':inTimeruzhu + '日'}}</view>
+      </view>
+      <view class='wanNum'>共
+        <text>{{wan}}</text>晚</view>
+      <view class='reserve-time-right'>
+        <view class='time-right-likai'>离店时间</view>
+        <view class='time-left-name'>{{outTimelikai==''?'选择日期':outTimelikai + '日'}}</view>
+      </view>
     </view>
-    <view class='wanNum'>共<text>{{wan}}</text>晚</view>
-    <view class='reserve-time-right'>
-      <view class='time-right-likai'>离店时间</view>
-      <view class='time-left-name'>{{outTimelikai==''?'选择日期':outTimelikai + '日'}}</view>
+    <!-- 左右点击 -->
+    <view class='Orse'>
+      <view class='Orse-left' bindtap='minusMouth'>
+        <view class='Orse-left-image'>
+          <image src='../../../static/img/left.png' />
+        </view>
+      </view>
+      <view class='Orse-time' wx:for='{{calendar}}' wx:for-item='calendarItem' wx:for-index='idx' wx:key="calendarItem">
+        <view class="title">{{idx}}</view>
+      </view>
+      <view class='Orse-right' bindtap='plusMouth'>
+        <view class='Orse-right-image'>
+          <image src='../../../static/img/right.png' />
+        </view>
+      </view>
     </view>
-  </view>
-  <!-- 左右点击 -->
-  <view class='Orse'>
-    <view class='Orse-left' bindtap='minusMouth'>
-      <view class='Orse-left-image'><image src='../../../static/img/left.png' /></view>
+    <!-- 星期 -->
+    <view class='header'>
+      <view wx:for='{{date}}' class='{{item == "周六" || item == "周日" ? "weekMark" : ""}}' wx:key="index">{{item}}</view>
     </view>
-    <view class='Orse-time' wx:for='{{calendar}}' wx:for-item='calendarItem' wx:for-index='idx' wx:key="calendarItem">
-      <view class="title">{{idx}}</view>
-    </view>
-    <view class='Orse-right' bindtap='plusMouth'>
-      <view class='Orse-right-image'><image src='../../../static/img/right.png' /></view>
-    </view>
-  </view>
-  <!-- 星期 -->
-  <view class='header'>
-    <view wx:for='{{date}}' class='{{item == "周六" || item == "周日" ? "weekMark" : ""}}' wx:key="index">{{item}}</view>
-  </view>
-  <!-- 日期 -->  
-  <view class="date-content">
-    <view class='date-box' wx:for='{{calendar}}' wx:for-item='calendarItem' wx:for-index='idx' wx:key="calendarItem">
-      <view class="content">
-      <!--  如果当前时间大于入住时间并且当前时间小于离开时间 或者 当前时间等于入住时间 或者当前时间等于入住时间 -->
-        <view wx:for='{{calendarItem}}' wx:key="index" class='days {{ item.isToday == inTime || item.isToday == outTime ||  item.isToday == dataRuzhu || item.isToday == dataLikai ? "day-select" : ""}}{{item.isToday > inTime && item.isToday < outTime || item.isToday >dataRuzhu && item.isToday < dataLikai ? "day-sect" : ""}}{{item.isToday<noDate?"huise":""}}' data-id='{{item.dateNum}}' data-day='{{item.isToday}}' data-danum='{{item.isTo}}' bindtap='{{item.isToday>=noDate?"dayClick":""}}'>
-          <view class='dateNum'>
+    <!-- 日期 -->
+    <view class="date-content">
+      <view class='date-box' wx:for='{{calendar}}' wx:for-item='calendarItem' wx:for-index='idx' wx:key="calendarItem">
+        <view class="content">
+          <!--  如果当前时间大于入住时间并且当前时间小于离开时间 或者 当前时间等于入住时间 或者当前时间等于入住时间 -->
+          <view wx:for='{{calendarItem}}' wx:key="index" class='days {{ item.isToday == inTime || item.isToday == outTime ||  item.isToday == dataRuzhu || item.isToday == dataLikai ? "day-select" : ""}}{{item.isToday > inTime && item.isToday < outTime || item.isToday >dataRuzhu && item.isToday < dataLikai ? "day-sect" : ""}}{{item.isToday<noDate?"huise":""}}'
+            data-id='{{item.dateNum}}' data-day='{{item.isToday}}' data-danum='{{item.isTo}}' bindtap='{{item.isToday>=noDate?"dayClick":""}}'>
+            <view class='dateNum'>
               <text class='{{item.isToday==noDate ?"lanse":""}}{{item.isToday==inTime || item.isToday ==dataRuzhu ?"baise":""}}'>{{item.dateNum}}</text>
               <view class='jintian' wx:if="{{item.isToday == noDate}}">今天</view>
               <view class='ruzhu' wx:if="{{item.isToday == inTime || item.isToday == dataRuzhu}}">入住</view>
               <view class='likai' wx:if="{{item.isToday == outTime || item.isToday == dataLikai}}">离店</view>
+            </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
 
-  <!-- 清空确定 -->
-  <view class='determine'>
-    <view class='determine-empty' bindtap='empty'>清空</view>
-    <view class='determine-save' bindtap='seavs'>保存</view>
+    <!-- 清空确定 -->
+    <view class='determine'>
+      <view class='determine-empty' bindtap='empty'>清空</view>
+      <view class='determine-save' bindtap='seavs'>保存</view>
+    </view>
   </view>
-</view>
 </view>

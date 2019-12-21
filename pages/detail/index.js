@@ -1,10 +1,18 @@
 // pages/detail/index.js
-Page({
+import { getWeek } from '../../api/user.js'
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
+    is_realname: false,//是否实名注册
+    homeruzhuTime: '',//入住时间
+    homelikaiTime: '',//离店时间
+    wan: 0,// 默认0晚
+    inWeek: '',
+    outWeek: '',
+    str: '', //用来判断页面数据
     star: 5,
     swiperList: [
       {
@@ -34,7 +42,6 @@ Page({
     user_star: 5,
   },
 
-
   clickTabs(e){
     let {index} = e.currentTarget.dataset
     this.setData({ curIndex: index})
@@ -48,7 +55,11 @@ Page({
     return;
   },
 
-
+  clickToPickTime() {
+    wx.navigateTo({
+      url: '/pages/component/datatime/index',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -69,13 +80,34 @@ Page({
   onShow: function() {
     let query = wx.createSelectorQuery();
     query.select('.more-detail-bar').boundingClientRect(res => { //获取元素1距离页面顶部高度
-      console.log(res)
-    }).exec() 
-    wx.getSystemInfo({ //获取屏幕高度
-      success: (res => {
-        console.log(res)
+    }).exec()
+
+    var userInfo = wx.getStorageSync('userInfo')
+    if (userInfo.realname === null) {
+      this.setData({
+        is_realname: false
       })
-    })
+    } else {
+      this.setData({
+        is_realname: true
+      })
+    }
+    let that = this;
+    let homeruzhuTime = wx.getStorageSync('dataRuzhu')
+    let homelikaiTime = wx.getStorageSync('dataLikai')
+    let wan = wx.getStorageSync('wan')
+    let inWeek = new Date(homeruzhuTime).getDay()
+    let outWeek = new Date(homelikaiTime).getDay()
+    if (homeruzhuTime !== that.str || homelikaiTime !== that.str) {
+      console.log(inWeek, outWeek) 
+      that.setData({
+        homeruzhuTime: homeruzhuTime.substring(5),
+        homelikaiTime: homelikaiTime.substring(5),
+        wan,
+        inWeek,
+        outWeek
+      });
+    }
   },
 
   /**
