@@ -1,6 +1,6 @@
 /* pages/hotmore/screen/index.wxss */
 .screen{
-  width: 100%;
+  /* width: 100%; */
   height: auto;
 }
 .screenWarp{
@@ -28,131 +28,126 @@
 }
 
 /*价格选择*/
+.sc-price{
+  padding: 40rpx 0;
+  clear: both;
+}
 .price-title{
   color: #333;
   font-size: 35rpx;
-  margin-bottom: 50rpx;
+  margin-bottom: 30rpx;
   font-weight: 500;
 }
-
-
-/* 滑动块 */
-.sliderHCon {
-  margin: 0 auto;
+.slider-title{
+  margin: 20rpx 0;
+  padding-bottom: 20rpx;
+  display: flex;
 }
-.showMoney {
+.slider-title text{
+  padding-right: 10rpx;
+  display: block;
+  color: #333;
+}
+.slider-title .sl-title-un{
+  color: #999;
+  font-size: 25rpx;
+  margin-top: 10rpx;
+}
+.slider-title .sl-title-nums{
+  color: #ef5473;
+  font-weight: bold;
+  font-size: 45rpx;
+  margin-top: -10rpx;
+}
+.slider-title .sl-title-yn{
+  color: #333;
+  font-size: 30rpx;
+  margin-top: 5rpx;
+}
+.price-slider{
   margin: 0 auto;
+  width: 600rpx;
+}
+.slider-seoncti{
+  padding-top: 30rpx;
   display: flex;
   justify-content: space-between;
-  width: 88%;
   color: #666;
+  font-size: 26rpx;
 }
-.MoneyValue {
-  text-align: center;
-  color: #666;
-  font-size: 24rpx;
-}
-.twoSlider {
-  margin: 0 auto;
-  width:92%;
-  height:70px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-.twoSlider .leftSliderPrice {
-  position: absolute;
-  top: -30rpx;
-  left: -90rpx;
-  width: 60rpx;
-  padding: 20rpx;
-  text-align: center;
-  color: #FFF;
-}
-.sliderPrice view {
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-  font-size: 30rpx;
-}
-/* 动态价格 */
-.twoSlider .rightSliderPrice {
-  position: absolute;
-  top: -30rpx;
-  width: 100rpx;
-  right:500rpx;
-  padding: 20rpx 70rpx;
-  text-align: center;
-}
-.sliderView {
-  color: #ef5775;
-  font-weight: bold;
-}
-.sliderView text{
-  color: #ef5775;
-  font-size: 25rpx;
-  font-weight: normal;
-}
- 
-/* 滑动样式 */
-.select-construct{
-  width: 100%;
-}
-.select-area{
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.slider-container{
-  width: 100%;
-  display: flex;
-  padding: 20px 0 10px;
-  position: relative;
-}
-.slider-left,.slider-right{
-  margin-right: -8rpx;
-}
+
 
 
 /*居家*/
-.wrap{
- width: 550rpx;
- margin: 50rpx auto
+.buddhist{
+  margin: 30rpx auto;
+  width: 680rpx;
 }
- 
+.buddhist-title{
+  color: #333;
+  font-size: 35rpx;
+  margin-bottom: 30rpx;
+  font-weight: 500;
+}
+.wrap{
+ width: 680rpx;
+}
 .checkbox-con{
  margin-top: 40rpx;
  text-align: center
 }
 .checkbox{
- width: 260rpx;
- height: 72rpx;
- line-height: 72rpx;
+ padding: 0 35rpx;
+ min-width: 80rpx;
+ height: 65rpx;
+ line-height: 65rpx;
  font-size: 28rpx;
- color: #888888;
- border: 1rpx solid #CECECE;
- border-radius: 5rpx;
- display: inline-block;
- margin: 0 10rpx 20rpx 0;
- position: relative
+ color: #333;
+ background: #f7f8f8;
+ border-radius: 15rpx;
+ display: block;
+ float: left;
+ flex-wrap: wrap;
+ margin-right: 20rpx;
+ margin-bottom: 30rpx;
 }
 .checked{
- color: #1A92EC;
- background: rgba(49,165,253,0.08);
- border: 1rpx solid #31A5FD;
+ color: #fc8830;
+ background: #fff7f0;
 }
 .checkbox checkbox{
- display: none
+  display: none;
 }
-.checked-img{
- width: 28rpx;
- height: 28rpx;
- position: absolute;
- top: 0;
- right: 0
+.types{
+  clear: both;
+  padding-top: 40rpx;
+}
+
+.submit{
+  padding-top: 30rpx;
+  padding-bottom: 20rpx;
+  clear: both;
+  width: 650rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.submit-empty{
+  width: 250rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 30rpx;
+  background: #f3f4f6;
+  color: #000;
+  text-align: center;
+}
+.submit-confirm{
+  width: 350rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  color: #ffffff;
+  font-weight: 600;
+  background-image: linear-gradient(to right,#f9922c,#feae09);
 }

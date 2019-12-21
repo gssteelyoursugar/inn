@@ -32,12 +32,12 @@
     <view class='date-box' wx:for='{{calendar}}' wx:for-item='calendarItem' wx:for-index='idx' wx:key="calendarItem">
       <view class="content">
       <!--  如果当前时间大于入住时间并且当前时间小于离开时间 或者 当前时间等于入住时间 或者当前时间等于入住时间 -->
-        <view wx:for='{{calendarItem}}' wx:key="index" class='days {{ item.isToday == inTime || item.isToday == outTime ? "day-select" : ""}}{{item.isToday > inTime && item.isToday < outTime ? "day-sect" : ""}}{{item.isToday<noDate?"huise":""}}' data-id='{{item.dateNum}}' data-day='{{item.isToday}}' data-danum='{{item.isTo}}' bindtap='{{item.isToday>=noDate?"dayClick":""}}'>
+        <view wx:for='{{calendarItem}}' wx:key="index" class='days {{ item.isToday == inTime || item.isToday == outTime ||  item.isToday == dataRuzhu || item.isToday == dataLikai ? "day-select" : ""}}{{item.isToday > inTime && item.isToday < outTime || item.isToday >dataRuzhu && item.isToday < dataLikai ? "day-sect" : ""}}{{item.isToday<noDate?"huise":""}}' data-id='{{item.dateNum}}' data-day='{{item.isToday}}' data-danum='{{item.isTo}}' bindtap='{{item.isToday>=noDate?"dayClick":""}}'>
           <view class='dateNum'>
-              <text class='{{item.isToday==noDate ?"lanse":""}}{{item.isToday==inTime?"baise":""}}'>{{item.dateNum}}</text>
+              <text class='{{item.isToday==noDate ?"lanse":""}}{{item.isToday==inTime || item.isToday ==dataRuzhu ?"baise":""}}'>{{item.dateNum}}</text>
               <view class='jintian' wx:if="{{item.isToday == noDate}}">今天</view>
-              <view class='ruzhu' wx:if="{{item.isToday == inTime}}">入住</view>
-              <view class='likai' wx:if="{{item.isToday == outTime}}">离店</view>
+              <view class='ruzhu' wx:if="{{item.isToday == inTime || item.isToday == dataRuzhu}}">入住</view>
+              <view class='likai' wx:if="{{item.isToday == outTime || item.isToday == dataLikai}}">离店</view>
           </view>
         </view>
       </view>

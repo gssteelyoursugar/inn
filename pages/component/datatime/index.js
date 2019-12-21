@@ -8,6 +8,11 @@ Component({
 
   },
   ready() {
+    var inTimeruzhu = wx.getStorageSync('homeruzhuTime')
+    var outTimelikai = wx.getStorageSync('homelikaiTime')
+    var dataRuzhu = wx.getStorageSync('dataRuzhu')
+    var dataLikai = wx.getStorageSync('dataLikai')
+    var wan = wx.getStorageSync('wan')
     //当前时间 格式2019-04-03
     var date = new Date();
     var Y = date.getFullYear() + '-';
@@ -16,7 +21,12 @@ Component({
     var noDate = (Y + M + D);
     console.log("时间戳:" + noDate)
     this.setData({
-      noDate: noDate
+      noDate,
+      inTimeruzhu,
+      outTimelikai,
+      wan,
+      dataRuzhu,
+      dataLikai
     })
     this.dateData();
   },
@@ -37,7 +47,9 @@ Component({
     wan: 0, //默认几晚
     noDate: '', //当前时间 格式：2019-04-03
     year: '',
-    mouth: ''
+    mouth: '',
+    dataRuzhu:'',
+    dataLikai:''
   },
 
   /**
@@ -96,6 +108,10 @@ Component({
       var outTime = that.data.outTime; //当前离开日期
       var inTimeruzhu = that.data.inTimeruzhu; //当前入住日期-显示出来给首页的 04月03
       var outTimelikai = that.data.outTimelikai; //当前离开日期-显示出来给首页的
+      var dataRuzhu = this.data.dataRuzhu;
+      console.log(inTime,"测测测");
+      console.log(this.data.calendar,"出来");
+      var dataLikai = '';
       if (inTime == '' || (new Date(eTime) <= new Date(inTime)) || outTime != '') {
         // 如果入住时间为空或选择的时间小于等于入住时间，则选择的时间为入住时间
         app.globalData.intimestamps = eTime
@@ -103,16 +119,24 @@ Component({
         inTimeruzhu = sTime;
         outTimelikai = '';
         outTime = ''; //时间为空
+        dataRuzhu = eTime;
+        console.log("入住时间获取222", dataRuzhu);
+        
       } else {
         app.globalData.outtimestamps = eTime
         outTime = eTime; //离开时间等于当前选择时间
         outTimelikai = sTime;
+        dataLikai = eTime;
+        console.log("离开时间获取222", dataLikai);
       };
       that.setData({
         inTime,
         outTime,
         inTimeruzhu,
-        outTimelikai
+        outTimelikai,
+        dataLikai,
+        dataRuzhu,
+        
       })
       //入住离开时间选择
       if (inTime != "") {
@@ -210,8 +234,8 @@ Component({
         outTime: '',
         inTimeruzhu: '',
         outTimelikai: '',
-        // homeruzhuTime: '',
-        // homeruzhuTime: '',
+        homeruzhuTime: '',
+        homeruzhuTime: '',
         wan: 0
       })
       wx.removeStorage({
@@ -222,6 +246,18 @@ Component({
       })
       wx.removeStorage({
         key: 'homelikaiTime',
+        success(res) {
+          console.log(res)
+        }
+      })
+      wx.removeStorage({
+        key: 'dataRuzhu',
+        success(res) {
+          console.log(res)
+        }
+      })
+      wx.removeStorage({
+        key: 'dataLikai',
         success(res) {
           console.log(res)
         }
@@ -238,14 +274,14 @@ Component({
     //保存跳转
     seavs() {
       var that = this;
-      if (that.data.homeruzhuTime === '') {
+      if (that.data.inTimeruzhu === '') {
         wx.showToast({
           title: '请选择入住时间',
           icon: 'none',
           duration: 2000
         })
       }
-      else if (that.data.homelikaiTime === '') {
+      else if (that.data.outTimelikai === '') {
         wx.showToast({
           title: '请选择离店时间',
           icon: 'none',
@@ -253,8 +289,12 @@ Component({
         })
       }
       else {
-        let homeruzhuTime = that.data.inTimeruzhu;
-        let homelikaiTime = that.data.outTimelikai;
+        let homeruzhuTime = that.data.inTimeruzhu;   //展示入住的的数据  格式 12月21
+        let homelikaiTime = that.data.outTimelikai;  //展示离开的的数据  格式 12月21
+        let dataRuzhu = that.data.dataRuzhu;  //存储数据库的入住时间  格式 2019-12-21
+        let dataLikai = that.data.dataLikai;  //存储数据库的离开时间  格式 2019-12-21
+        console.log(homeruzhuTime,'测试1')
+        console.log(homelikaiTime, '测试2')
         let wan = that.data.wan;
         wx.setStorage({
           key: 'homeruzhuTime',
@@ -263,6 +303,14 @@ Component({
         wx.setStorage({
           key: 'homelikaiTime',
           data: homelikaiTime
+        })
+        wx.setStorage({
+          key: 'dataRuzhu',
+          data: dataRuzhu
+        })
+        wx.setStorage({
+          key: 'dataLikai',
+          data: dataLikai
         })
         wx.setStorage({
           key: 'wan',

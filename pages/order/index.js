@@ -10,12 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    img: [
-      'https://image.xiaozhustatic3.com/00,800,533/51,0,59,48397,1800,1201,28c427c6.jpg',
-      'https://image.xiaozhustatic3.com/00,800,533/9,0,3,5096,1800,1200,25afc714.jpg'
-    ],
-    orderList: [
-      {
+    orderList: [{
         id: 1,
         name: '【木离】侨港银滩海景中式简约风格一居室',
         start_date: '11月03日',
@@ -40,8 +35,10 @@ Page({
     ]
   },
   // 再次预订
-  clickToOrderAgain (e) {
-    let {id} = e.currentTarget.dataset
+  clickToOrderAgain(e) {
+    let {
+      id
+    } = e.currentTarget.dataset
     let temp = {
       order_id: id,
       user_id: 1
@@ -50,7 +47,9 @@ Page({
   },
   // 查看评论 
   clickToCheckComment(e) {
-    let { id } = e.currentTarget.dataset
+    let {
+      id
+    } = e.currentTarget.dataset
     let temp = {
       order_id: id,
       user_id: 1
@@ -59,19 +58,26 @@ Page({
   },
   // 删除订单
   clickToDelOrder(e) {
-    let { id,index } = e.currentTarget.dataset
+    let {
+      id,
+      index
+    } = e.currentTarget.dataset
     let temp = {
       order_id: id,
       user_id: 1
     }
     let list = this.data.orderList
     list.splice(index, 1)
-    this.setData({ orderList: list })
+    this.setData({
+      orderList: list
+    })
     Toast('删除成功')
   },
   // 查看订单
   clickToCheckOrder(e) {
-    let { id } = e.currentTarget.dataset
+    let {
+      id
+    } = e.currentTarget.dataset
     let temp = {
       order_id: id,
       user_id: 1

@@ -1,0 +1,191 @@
+<!--pages/detail/index.wxml-->
+
+<view class="detail-container">
+
+  <view class="detail-swiper">
+    <!-- 轮播 -->
+    <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+      <block wx:for="{{swiperList}}" wx:key="item.id">
+        <swiper-item>
+          <image src="{{item.images_url}}" class="swiper-img"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="detail-wrap">
+    <!-- 入住信息卡片 -->
+    <view class="control-bar" wx:if="{{showBox}}">
+      <view class="coll-info">
+        <view class="tag">优选·精品</view>
+        <view class="coll">899人收藏</view>
+      </view>
+      <view class="title-rate">
+        <view class="title">【海派】5分钟到银滩、侨港海景2居多套</view>
+        <view class="rate">
+          <view class="score">5
+            <text>分</text>
+          </view>
+          <view class="score-icon">
+            <van-rate value="{{ star }}" size="{{ 7 }}" allow-half readonly/>
+          </view>
+        </view>
+      </view>
+      <view class="info-box">
+        <view class="info-item" wx:for="{{5}}">
+          <van-icon name="bag-o" />
+          <text>整套普通公寓</text>
+        </view>
+      </view>
+      <view class="order-date">
+        <view class="start-time">
+          <text>入住</text>
+          <view class="date-item">
+            <text>12-19</text> 星期四</view>
+        </view>
+        <view class="mid-text">
+          <text>共一晚</text>
+        </view>
+        <view class="end-time">
+          <text>离店</text>
+          <view class="date-item">
+            <text>12-20</text> 星期五</view>
+        </view>
+      </view>
+    </view>
+    <!-- 详情 -->
+    <view class="more-detail-bar">
+      <view class="tabs">
+        <view class="tab-item" catchtap="clickTabs" wx:for="{{tabs}}" data-index="{{index}}" wx:key="*this">
+          <text class="{{curIndex === index?'active':''}}">{{item}}</text>
+        </view>
+      </view>
+      <block wx:if="{{showMoreText}}">
+        <view class="text-mask" catchtouchmove="preventPop">
+          <view class="mask-title">房屋详情</view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view class="close-btn" catchtap="toggleMoreText">
+            <van-icon name="cross" />
+          </view>
+        </view>
+      </block>
+      <scroll-view scroll-y="true" style="height: 1000rpx;" bindscroll="scroll" scroll-into-view="{{toView}}">
+        <view class="more-detai-container">
+          <view class="desc-wrap">
+            <!-- 房屋介绍 -->
+            <block wx:if="{{!showMoreText}}">
+              <view class="desc-text">
+                *该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。
+              </view>
+              <view class="more-text" catchtap="toggleMoreText">查看更多</view>
+            </block>
+            <!-- 房屋亮点 -->
+            <view class="spot-light">
+              <view class="light-title">房屋亮点</view>
+              <scroll-view class="light-box" scroll-x="true" bindscroll="scroll" style="width: 100%">
+                <view class="nowrap-box">
+                  <view class="box-item" wx:for="{{4}}">
+                    <image src="../../static/img/detail-icon.png"></image>
+                    <view class="item-title">洗漱用品齐全</view>
+                    <view class="item-desc">提供牙具、香皂等</view>
+                  </view>
+                </view>
+              </scroll-view>
+            </view>
+            <!-- 房屋位置 -->
+            <view class="locate">
+              <view class="light-title">房屋位置</view>
+              <view class="locate-text">
+                <van-icon name="location" class="locate-icon" />银滩·阳光里
+              </view>
+              <view class="locate-map">
+                <image src="../../static/img/locate-img.png"></image>
+              </view>
+            </view>
+            <!-- 服务设施 -->
+            <view class="service-box">
+              <view class="light-title">服务设施</view>
+              <scroll-view class="light-box" scroll-x="true" bindscroll="scroll" style="width: 100%">
+                <view class="nowrap-box">
+                  <view class="service-item" wx:for="{{4}}">
+                    <image src="../../static/img/service-icon.png"></image>
+                    <view class="item-title">洗漱用品</view>
+                  </view>
+                </view>
+              </scroll-view>
+              <view class="service-list">
+                <view class="list-item" wx:for="{{3}}">
+                  <view class="list-title">基础设施</view>
+                  <view class="list-content">
+                    <view class="content-box">
+                      <van-icon name="success" />无线网络</view>
+                    <view class="content-box">
+                      <van-icon name="success" />无线网络</view>
+                    <view class="content-box">
+                      <van-icon name="success" />无线网络</view>
+                    <view class="content-box">
+                      <van-icon name="success" />无线网络</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="comment-wrap">
+            <!-- 房客点评 -->
+            <view class="comment-container">
+              <view class="light-title">房客点评</view>
+              <view class="score-box">
+                <view class="score-info">
+                  <view class="score">5.0</view>
+                  <view class="rate">
+                    <van-rate value="{{ star }}" size="{{ 14 }}" readonly allow-half/>
+                  </view>
+                  <view class="comment-num">
+                    <text>66</text>条评论</view>
+                </view>
+                <view class="score-desc">
+                  <view class="desc-item" wx:for="{{4}}">
+                    <text>卫生</text>5.0</view>
+                </view>
+              </view>
+            </view>
+            <!-- 评论预览 -->
+            <view class="part-comment">
+              <view class="user-comment">
+                <view class="user-top">
+                  <view class="avatar">
+                    <image src="../../static/img/avatar.jpg"></image>
+                  </view>
+                  <view class="name-date">
+                    <view class="user-name">狗剩哥哥</view>
+                    <view class="post-date">2019-11-24 入住</view>
+                  </view>
+                  <view class="user-rate">
+                    <text>5.0</text>
+                    <van-rate value="{{ user_star }}" size="{{10}}" readonly allow-half/>
+                  </view>
+                </view>
+                <view class="user-text">一来到北海就觉得这里的冬天咋这么热！在海边看日落真的很美、没白来这一次、主要房东姐姐给我介绍的房间还很漂亮！很开心！下次还来这家！</view>
+              </view>
+              <view class="user-img">
+                <image src="../../static/img/avatar.jpg"></image>
+                <image src="../../static/img/avatar.jpg"></image>
+                <image src="../../static/img/avatar.jpg"></image>
+                <image src="../../static/img/avatar.jpg"></image>
+              </view>
+              <view class="more-text" catchtap="toggleMoreText">查看更多</view>
+            </view>
+
+
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

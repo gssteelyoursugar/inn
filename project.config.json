@@ -91,8 +91,20 @@
 				},
 				{
 					"id": -1,
+<<<<<<< HEAD
 					"name": "历史记录",
 					"pathName": "pages/hotsearch/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "时间组件",
+					"pathName": "pages/component/datatime/index",
+=======
+					"name": "商品详情",
+					"pathName": "pages/detail/index",
+>>>>>>> 更新商品详情页面
 					"scene": null
 				}
 			]
