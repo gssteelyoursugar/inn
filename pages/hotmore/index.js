@@ -15,7 +15,7 @@ Page({
     stor:1,//排序
     show: false, //筛选弹框
     showMenu:true,
-    resource:['1'],
+    // resource:['1'],
     hotlist: [
       {
         id:1,
