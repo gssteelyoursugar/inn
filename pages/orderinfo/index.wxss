@@ -1,0 +1,218 @@
+/* pages/orderinfo/index.wxss */
+
+page {
+  background: #f3f5f7;
+}
+
+.order-info-container {
+  padding: 20rpx;
+}
+
+.order-date {
+  display: flex;
+  background: #fff;
+  padding: 30rpx 40rpx;
+  border-radius: 10rpx;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
+.start-date-wrap, .end-date-wrap {
+  width: 28%;
+  text-align: center;
+}
+
+.divider {
+  width: 50%;
+}
+
+.divider view {
+  width: 15%;
+  height: 2rpx;
+  background: #e5e5e5;
+  margin: 0 auto;
+  line-height: 120rpx;
+  margin-top: 50rpx;
+}
+
+.start-date-wrap .start-text, .end-date-wrap .end-text {
+  font-size: 24rpx;
+  color: #6c6c6c;
+}
+
+.start-date-wrap .start-date, .end-date-wrap .end-date {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #333;
+}
+
+.start-date-wrap .start-day, .end-date-wrap .end-day {
+  font-size: 24rpx;
+  color: #9c9c9c;
+}
+
+.order-info-wrap {
+  background: #fff;
+  padding: 30rpx 40rpx;
+  border-radius: 10rpx;
+}
+
+.order-info-title {
+  display: flex;
+}
+
+.info-title-left {
+  width: 90%;
+}
+
+.info-title-left .title-name {
+  width: 560rpx;
+  font-size: 32rpx;
+  color: #333;
+  margin-bottom: 4rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.info-title-left .title-desc {
+  font-size: 24rpx;
+  color: #9c9c9c;
+}
+
+.info-title-right {
+  width: 10%;
+  text-align: center;
+  line-height: 80rpx;
+  color: #666;
+}
+
+.order-map {
+  margin: 30rpx 0;
+}
+
+.order-map image {
+  width: 100%;
+  height: 260rpx;
+}
+
+.locate-text {
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.locate-left {
+  width: 90%;
+  font-size: 28rpx;
+  color: #3c3c3c;
+  line-height: 80rpx;
+}
+
+.locate-right {
+  width: 10%;
+  text-align: center;
+}
+
+.locate-right image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.locate-right .right-text {
+  font-size: 22rpx;
+  color: #f39557;
+}
+
+.shop-info {
+  margin: 30rpx 0 0;
+  background: #fff;
+  display: flex;
+}
+
+.shop-info-left {
+  width: 80%;
+}
+
+.shop-name {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.shop-tag {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.shop-info-right {
+  width: 30%;
+  display: flex;
+}
+
+.shop-info-right .chat, .shop-info-right .phone {
+  width: 50%;
+  text-align: center;
+}
+
+.shop-info-right .chat image, .shop-info-right .phone image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.shop-info-right .chat .chat-text, .shop-info-right .phone .phone-text {
+  font-size: 24rpx;
+  color: #f39557;
+  line-height: 20rpx;
+  font-weight: 400;
+}
+
+.user-info {
+  padding: 40rpx 40rpx;
+  background: #fff;
+  margin: 30rpx 0;
+  border-radius: 10rpx;
+}
+
+.item-left {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.item-right {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.pay-way {
+  margin: 30rpx 0;
+  border-radius: 10rpx;
+}
+
+.btn-group {
+  padding: 30rpx 40rpx;
+  display: flex;
+  background: #fff;
+}
+
+.btn-group view {
+  border: 1px solid #e5e5e5;
+  font-size: 26rpx;
+  color: #3c3c3c;
+  padding: 10rpx 6rpx;
+  text-align: center;
+  width: 120rpx;
+  border-radius: 4rpx;
+  margin: 0 20rpx;
+}
+
+.btn-group .share {
+  border-color: #f39557;
+  color: #f39557;
+}
+
+.btn-group .order-again {
+  border-color: #f39557;
+  color: #fff;
+  background: #f39557;
+
+}

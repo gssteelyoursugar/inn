@@ -29,6 +29,8 @@
 		"hidedInDevtools": []
 	},
 	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -106,6 +108,12 @@
 					"name": "order",
 					"pathName": "pages/order/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/orderinfo/index",
 					"scene": null
 				}
 			]
