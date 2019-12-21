@@ -53,7 +53,7 @@
       </view>
       <view class="no-order-text">
         <view>没有更多订单啦～</view>
-        <view>去逛逛</view>
+        <view bindtap="toggleHot">去逛逛</view>
       </view>
     </view>
   </block>

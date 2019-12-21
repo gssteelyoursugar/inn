@@ -85,6 +85,12 @@ Page({
     }
     console.log(temp)
   },
+  //去逛逛
+  toggleHot() {
+    wx.navigateTo({
+      url: '/pages/hotmore/index'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

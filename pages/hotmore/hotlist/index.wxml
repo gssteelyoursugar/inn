@@ -5,8 +5,8 @@
     <view class="list-shows" catchtap="toggleDetails" data-id="{{item.id}}">
       <image class="shows-master" src="{{item.img_Url}}"></image>
       <view class="shows-collect">
-        <image wx:if="{{item.status === 1}}" data-index="{{index}}" data-nums="1" data-show_id="{{item.id}}" src="../../../static/img/collect-not.png" bindtap="btnSucceed"></image>
-        <image wx:else src="../../../static/img/collect.png" data-index="{{index}}" data-nums="2"  data-show_id="{{item.id}}" bindtap="btnSucceed"></image>
+        <image wx:if="{{item.status === 1}}" data-index="{{index}}" data-nums="1" data-show_id="{{item.id}}" src="../../../static/img/collect-not.png" catchtap="btnSucceed"></image>
+        <image wx:else src="../../../static/img/collect.png" data-index="{{index}}" data-nums="2"  data-show_id="{{item.id}}" catchtap="btnSucceed"></image>
       </view>
       <view class="shows-price">
         <view class="price-money">¥<span>{{item.price}}</span></view>
