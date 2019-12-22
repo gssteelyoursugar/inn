@@ -1,0 +1,20 @@
+<view  class="list" bindtap="showPopup" data-url="{{item.manylist.video_url}}" wx:for="{{listdata}}" >
+  <view class="head">
+    <view class="title">
+      <text>{{item.manylist.name}}使用教程</text>
+    </view>
+  </view>
+    <view class="conent" >
+      点击对应标签即可查看使用教程
+    </view>
+</view>
+
+
+
+<van-popup show="{{ show }}" bind:close="onClose">
+
+
+  <video src="{{url}}"></video>
+</van-popup>
+
+

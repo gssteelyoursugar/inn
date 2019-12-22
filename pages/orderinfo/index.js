@@ -129,4 +129,19 @@ Page({
       }
     })
   },
+
+  handelElectrical() {
+    var that = this;
+    var electrical_id = that.data.myorder.get_housing.electrical_id
+    wx.navigateTo({
+      url: '/pages/orderinfo/electrical/index?electrical_id=' + electrical_id
+    })
+  },
+  handelGuide() {
+    var that = this;
+    var guide_id = that.data.myorder.get_housing.guide_id
+    wx.navigateTo({
+      url: '/pages/orderinfo/electrical/index?electrical_id=' + guide_id
+    })
+  }
 })
