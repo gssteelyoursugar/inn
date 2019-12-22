@@ -83,7 +83,7 @@
     <!-- 特价折扣  -->
     <view class="housing">
       <view class="housing-bar">
-        <view class="bar-title">特价折扣</view>
+        <view class="bar-title">推荐房源</view>
       </view>
 
       <!--  房源列表轮播  -->

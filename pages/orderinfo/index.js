@@ -18,6 +18,7 @@ Page({
     myorder:{},
     bar_url:'',
     id:'',
+    markers:[],
 
   },
 
@@ -58,7 +59,22 @@ Page({
       that.setData({
         myorder: res
       })
-      console.log(that.data.myorder)
+
+      that.setData({ // 获取返回结果，放到markers及poi中，并在地图展示
+        markers: [{
+          id: 0,
+          title: res.get_housing.title,
+          latitude: res.loca.lat,
+          longitude: res.loca.lng,
+          iconPath: '../../static/img/location2-icon.png', //图标路径
+          width: 30,
+          height: 30
+        }],
+        poi: { //根据自己data数据设置相应的地图中心坐标变量名称
+          latitude: res.loca.lat,
+          longitude: res.loca.lng,
+        }
+      });
     })
     that.setData({
       bar_url: bar_url
@@ -98,5 +114,19 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  gotohere: function () {
+    var that=this;
+    wx.openLocation({ // 打开微信内置地图，实现导航功能（在内置地图里面打开地图软件）
+      latitude: that.data.myorder.loca.lat,
+      longitude: that.data.myorder.loca.lng,
+      name: that.data.myorder.get_housing.title,
+      success: function (res) {
+        console.log(res);
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    })
+  },
 })
