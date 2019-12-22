@@ -1,21 +1,22 @@
 // pages/detail/index.js
-import { getWeek } from '../../api/user.js'
+import {
+  getWeek
+} from '../../api/user.js'
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    is_realname: false,//是否实名注册
-    homeruzhuTime: '',//入住时间
-    homelikaiTime: '',//离店时间
-    wan: 0,// 默认0晚
+    is_realname: false, //是否实名注册
+    homeruzhuTime: '', //入住时间
+    homelikaiTime: '', //离店时间
+    wan: 0, // 默认0晚
     inWeek: '',
     outWeek: '',
     str: '', //用来判断页面数据
     star: 5,
-    swiperList: [
-      {
+    swiperList: [{
         id: 1,
         images_url: 'https://pic.tujia.com/upload/landlordunit/day_191021/thumb/201910210014561336_1100_733.jpg'
       },
@@ -35,37 +36,82 @@ Page({
     interval: 1500,
     circular: true,
     showBox: true,
-    tabs:['详情','点评','须知','推荐'],
+    tabs: ['详情', '点评', '须知', '推荐'],
     curIndex: 0,
     showMoreText: false,
-    star:5,
+    star: 5,
     user_star: 5,
+    is_coll: false,
+    house_id: ''
   },
 
-  clickTabs(e){
-    let {index} = e.currentTarget.dataset
-    this.setData({ curIndex: index})
+  clickTabs(e) {
+    let {
+      index
+    } = e.currentTarget.dataset
+    this.setData({
+      curIndex: index
+    })
   },
 
   toggleMoreText() {
-    this.setData({ showMoreText: !this.data.showMoreText})
+    this.setData({
+      showMoreText: !this.data.showMoreText
+    })
   },
   // 
   preventPop() {
     return;
   },
+  // 点击收藏
+  clickToCollect() {
+    console.log(123)
+    this.setData({
+      is_coll: !this.data.is_coll
+    })
 
+  },
+  // 点击信息
+  clickToMsg() {
+    console.log(123)
+    this.setData({
+      is_coll: !this.data.is_coll
+    })
+
+  },
+  // 跳转选择时间
   clickToPickTime() {
     wx.navigateTo({
       url: '/pages/component/datatime/index',
     })
+  },
+  // 立即预定 
+  clickToComfirm() {
+    console.log(123)
+    let temp ={
+      start_time: this.data.homeruzhuTime,
+      end_time: this.data.homelikaiTime,
+      wan: this.data.wan,
+      user_id: 1,
+      house_id: 1
+    }
+    console.log(temp)
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    // let {
+    //   house_id
+    // } = options.detail
+    // this.setData({
+    //   house_id
+    // })
+    // console.log(this.data.house_id)
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -78,6 +124,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+
     let query = wx.createSelectorQuery();
     query.select('.more-detail-bar').boundingClientRect(res => { //获取元素1距离页面顶部高度
     }).exec()
@@ -99,7 +146,7 @@ Page({
     let inWeek = new Date(homeruzhuTime).getDay()
     let outWeek = new Date(homelikaiTime).getDay()
     if (homeruzhuTime !== that.str || homelikaiTime !== that.str) {
-      console.log(inWeek, outWeek) 
+      console.log(inWeek, outWeek)
       that.setData({
         homeruzhuTime: homeruzhuTime.substring(5),
         homelikaiTime: homelikaiTime.substring(5),

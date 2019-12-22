@@ -2,6 +2,15 @@
 
 <view class="detail-container">
   <wxs src="../../utils/common/filter.wxs" module="filter" />
+  <view class="top-icon-group">
+    <view class="msg" catchtap="clickToMsg">
+      <image src="../../static/img/msg.png"></image>
+    </view>
+    <view class="like" catchtap="clickToCollect">
+      <image wx:if="{{is_coll}}" src="../../static/img/collect-not.png"></image>
+      <image wx:else src="../../static/img/collect.png"></image>
+    </view>
+  </view>
   <view class="detail-swiper">
     <!-- 轮播 -->
     <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
@@ -135,6 +144,7 @@
                 </view>
               </view>
             </view>
+
           </view>
           <view class="comment-wrap">
             <!-- 房客点评 -->
@@ -182,10 +192,20 @@
               <view class="more-text" catchtap="toggleMoreText">查看更多</view>
             </view>
 
-
           </view>
         </view>
       </scroll-view>
+
     </view>
+
+  </view>
+  <!-- 立刻预定 -->
+  <view class="order-btn-wrap">
+    <view class="order-price">
+      <text>¥183</text>/晚
+      <text>¥288</text>
+    </view>
+    <view class="comfirm-btn" catchtap="clickToComfirm">
+      <van-icon name="fire" class="order-icon"/><text>立即预定</text></view>
   </view>
 </view>

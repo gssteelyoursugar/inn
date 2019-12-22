@@ -114,7 +114,14 @@
 					"id": 8,
 					"name": "订单详情",
 					"pathName": "pages/orderinfo/index",
-					"query": "id=8",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/detail/index",
+					"pathName": "pages/detail/index",
+					"query": "house_id=1",
 					"scene": null
 				}
 			]
