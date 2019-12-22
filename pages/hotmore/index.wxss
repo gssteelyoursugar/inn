@@ -87,6 +87,7 @@ page{
   margin-top: 10rpx;
   width: 55rpx;
   height: 55rpx;
+  padding-right: 10rpx;
 }
 .hotsou-icon image{
   width: 100%;
