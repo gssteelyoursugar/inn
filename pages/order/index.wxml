@@ -2,7 +2,7 @@
 <view class="order-container">
   <van-toast id="van-toast" />
   <block wx:if="{{orderList.length !== 0}}">
-    <view class="order-wrap" wx:for="{{orderList}}" wx:key="{{item.id}}">
+    <view class="order-wrap" wx:for="{{orderList}}" bindtap="toggleOrderinfo" data-id="{{item.id}}" wx:key="{{item.id}}">
       <view class="order-title">
         <view class="title-name">{{item.get_housing.title}}</view>
         <view class="title-status" wx:if="{{item.status=== '1'}}">已离店</view>

@@ -1,1 +1,26 @@
 /* pages/message/index.wxss */
+/* page{
+  background: #f0f3f5;
+} */
+.no-order {
+  padding-top: 200rpx;
+}
+
+.no-order-img {
+  text-align: center;
+}
+
+.no-order-img  image {
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.no-order-text {
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.no-order-text view:first-child {
+  font-size: 28rpx;
+  color: #666;
+}

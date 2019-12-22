@@ -44,7 +44,7 @@ Component({
     toggleDetails(e) {
       let details_id = e.currentTarget.dataset.id;
       wx.navigateTo({
-        url: '/pages/detail/index'
+        url: '/pages/detail/index?details_id=' + details_id
       })
     }
   }
