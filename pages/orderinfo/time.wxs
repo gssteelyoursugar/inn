@@ -1,0 +1,8 @@
+var timefuntion=function(d){
+if(d){
+  return d.substring(5,10)
+}
+}
+module.exports={
+  timefuntion: timefuntion
+}

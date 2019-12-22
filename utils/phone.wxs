@@ -1,0 +1,10 @@
+var phone=function(str){
+  if(str){
+    var one = str.substring(0,3)
+    var tow = str.substring(7, 12)
+    return one+'****'+tow
+  }
+}
+module.exports={
+  phone: phone
+}

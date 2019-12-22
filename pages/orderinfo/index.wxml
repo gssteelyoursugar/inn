@@ -1,20 +1,24 @@
 <!--pages/orderinfo/index.wxml-->
+<wxs src="time.wxs" module="tools" />
+
+
+<wxs src="../../utils/phone.wxs" module="tool" />
 
 <view class="order-info-container">
   <!-- 租房时间 -->
   <view class="order-date">
     <view class="start-date-wrap">
       <view class="start-text">入住时间</view>
-      <view class="start-date">11月3日</view>
-      <view class="start-day">周日 14:00</view>
+      <view class="start-date">{{tools.timefuntion(myorder.inTime) }}</view>
+      <view class="start-day">{{myorder.in_time}} 14:00</view>
     </view>
     <view class="divider">
       <view></view>
     </view>
     <view class="end-date-wrap">
       <view class="end-text">离店时间</view>
-      <view class="end-date">11月3日</view>
-      <view class="end-day">周日 14:00</view>
+      <view class="end-date">{{tools.timefuntion(myorder.outTime) }}</view>
+      <view class="end-day">{{myorder.out_time}} 12:00</view>
     </view>
   </view>
 
@@ -22,7 +26,7 @@
   <view class="order-info-wrap">
     <view class="order-info-title">
       <view class="info-title-left">
-        <view class="title-name">【木篱】近侨港银滩码头海景大一居</view>
+        <view class="title-name">{{myorder.housing.title}}</view>
         <view class="title-desc">整套出租 1室1厅1卫 80平方米 宜住2人</view>
       </view>
       <view class="info-title-right">
@@ -36,7 +40,7 @@
 
     <!-- 房屋位置 -->
     <view class="locate-text">
-      <view class="locate-left">森海豪庭(金海岸大道)(四期5栋)</view>
+      <view class="locate-left">{{myorder.housing.location}}</view>
       <view class="locate-right">
         <image src="../../static/img/locate-icon.png"></image>
         <view class="right-text">导航</view>
@@ -47,7 +51,7 @@
     <view class="shop-info">
       <view class="shop-info-left">
         <view class="shop-name">四月天民宿北海银滩店</view>
-        <view class="shop-tag">商户</view>
+        <view class="shop-tag">联系管家</view>
       </view>
       <view class="shop-info-right">
         <view class="chat">
@@ -71,7 +75,7 @@
     </view>
     <view class="user-phone">
       <text class="item-left">联系电话：</text>
-      <text class="item-right">185****5017</text>
+      <text class="item-right"> {{tool.phone(myorder.phone)}}</text>
     </view>
   </view>
 
@@ -79,8 +83,8 @@
 
   <view class="pay-way">
     <van-cell-group>
-      <van-cell title="线上支付" value="¥316.00" is-link />
-      <van-cell title="押金" value="¥200.00" is-link border="{{ false }}" />
+      <van-cell title="线上支付" value="¥{{myorder.zongprice}}" is-link />
+      <van-cell title="押金" value="¥{{myorder.yajin}}" is-link border="{{ false }}" />
     </van-cell-group>
   </view>
   <!-- 按钮 -->
