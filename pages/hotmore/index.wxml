@@ -42,7 +42,7 @@
     <!--  内容区域  -->
     <view class="res-hot">
         <!--  房源列表 -->
-        <view class="resource" wx:if="{{resource.length > 0}}">
+        <view class="resource" wx:if="{{hotlist.length > 0}}">
           <hotlist hotlist="{{hotlist}}" bind:addInfo="getAddInfo"></hotlist>
         </view>
         <!--   没有房源的情况 -->

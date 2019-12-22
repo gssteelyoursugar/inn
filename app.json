@@ -8,7 +8,8 @@
     "pages/hotmore/index",
     "pages/login/index",
     "pages/detail/index",
-    "pages/city/index"
+    "pages/city/index",
+    "pages/orderinfo/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

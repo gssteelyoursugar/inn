@@ -1,0 +1,93 @@
+<!--pages/orderinfo/index.wxml-->
+
+<view class="order-info-container">
+  <!-- 租房时间 -->
+  <view class="order-date">
+    <view class="start-date-wrap">
+      <view class="start-text">入住时间</view>
+      <view class="start-date">11月3日</view>
+      <view class="start-day">周日 14:00</view>
+    </view>
+    <view class="divider">
+      <view></view>
+    </view>
+    <view class="end-date-wrap">
+      <view class="end-text">离店时间</view>
+      <view class="end-date">11月3日</view>
+      <view class="end-day">周日 14:00</view>
+    </view>
+  </view>
+
+  <!-- 房屋信息 -->
+  <view class="order-info-wrap">
+    <view class="order-info-title">
+      <view class="info-title-left">
+        <view class="title-name">【木篱】近侨港银滩码头海景大一居</view>
+        <view class="title-desc">整套出租 1室1厅1卫 80平方米 宜住2人</view>
+      </view>
+      <view class="info-title-right">
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <!-- 地图 -->
+    <view class="order-map">
+      <image src="../../static/img/locate-img.png"></image>
+    </view>
+
+    <!-- 房屋位置 -->
+    <view class="locate-text">
+      <view class="locate-left">森海豪庭(金海岸大道)(四期5栋)</view>
+      <view class="locate-right">
+        <image src="../../static/img/locate-icon.png"></image>
+        <view class="right-text">导航</view>
+      </view>
+    </view>
+
+    <!-- 店铺 -->
+    <view class="shop-info">
+      <view class="shop-info-left">
+        <view class="shop-name">四月天民宿北海银滩店</view>
+        <view class="shop-tag">商户</view>
+      </view>
+      <view class="shop-info-right">
+        <view class="chat">
+          <image src="../../static/img/chat.png"></image>
+          <view class="chat-text">聊天</view>
+        </view>
+        <view class="phone">
+          <image src="../../static/img/phone.png"></image>
+          <view class="phone-text">电话</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 入住人信息 -->
+  <view class="user-info">
+    <view class="user-name">
+      <text class="item-left">入住人：</text>
+      <text class="item-right">狗剩哥哥</text>
+    </view>
+    <view class="user-phone">
+      <text class="item-left">联系电话：</text>
+      <text class="item-right">185****5017</text>
+    </view>
+  </view>
+
+  <!-- 支付详情 -->
+
+  <view class="pay-way">
+    <van-cell-group>
+      <van-cell title="线上支付" value="¥316.00" is-link />
+      <van-cell title="押金" value="¥200.00" is-link border="{{ false }}" />
+    </van-cell-group>
+  </view>
+  <!-- 按钮 -->
+</view>
+<view class="btn-group">
+  <view class="del">删除</view>
+  <view class="comment">查看点评</view>
+  <view class="share">分享房屋</view>
+  <view class="order-again">再次预定</view>
+</view>
