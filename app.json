@@ -9,7 +9,8 @@
     "pages/login/index",
     "pages/detail/index",
     "pages/city/index",
-    "pages/orderinfo/index"
+    "pages/orderinfo/index",
+    "pages/orderinfo/electrical/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

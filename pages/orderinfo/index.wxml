@@ -82,6 +82,16 @@
     </view>
   </view>
 
+
+
+   <view bindtap="handelGuide">
+      <text>指引</text>
+    </view>
+
+    <view bindtap="handelElectrical">
+      <text>电器使用</text>
+    </view>
+
   <!-- 支付详情 -->
 
   <view class="pay-way">
