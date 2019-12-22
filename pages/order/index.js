@@ -68,6 +68,13 @@ Page({
       url: '/pages/hotmore/index'
     })
   },
+  //查看订单详情
+  toggleOrderinfo(e) {
+    let { id } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '/pages/orderinfo/index?id=' + id,
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

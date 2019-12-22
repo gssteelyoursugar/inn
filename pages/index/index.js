@@ -127,9 +127,11 @@ Page({
       }
     ]
   },
-  clickToDetail() {
+  //跳转房源详情
+  clickToDetail(e) {
+    let { id } = e.currentTarget.dataset
     wx.navigateTo({
-      url: '/pages/detail/index',
+      url: '/pages/detail/index?hot_id=' + id,
     })
   },
   showData() {

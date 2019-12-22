@@ -1,2 +1,14 @@
-<!--pages/message/index.wxml-->
-<text>pages/message/index.wxml</text>
+
+<view class="message">
+  <view wx:if="{{messAge.length > 0}}" class="message-have">
+    对话通知
+  </view>
+  <view wx:else class="no-order">
+    <view class="no-order-img">
+      <image src="../../static/img/empty.png"></image>
+    </view>
+    <view class="no-order-text">
+      <view>暂无消息哦~</view>
+    </view>
+  </view>
+</view>
