@@ -183,6 +183,25 @@ page {
   font-weight: 500;
 }
 
+.guide-wrap {
+  display: flex;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  border-radius: 10rpx;
+}
+
+.video-container, .electric-container {
+  width: 50%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #3c3c3c;
+}
+
+.video-container image, .electric-container image {
+  width: 70rpx;
+  height: 70rpx;
+}
+
 .pay-way {
   margin: 30rpx 0;
   border-radius: 10rpx;
@@ -214,5 +233,4 @@ page {
   border-color: #f39557;
   color: #fff;
   background: #f39557;
-
 }

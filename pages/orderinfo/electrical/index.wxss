@@ -1,9 +1,10 @@
 /* pages/sales/myorder/electrical/index.wxss */
 
-page{
+page {
   background: #f3f5f7;
 }
-.list{
+
+.list {
   display: flex;
   flex-direction: column;
   /* background: linear-gradient(to right, #2bc5fc, #ff6b8f); */
@@ -13,30 +14,34 @@ page{
   background: white;
   border-radius: 10rpx;
   margin-top: 30rpx;
-box-shadow: #C0C4CC 0px 0px 10px 1px;
-margin-bottom:40px;
-
+  box-shadow: #c0c4cc 0px 0px 10px 1px;
+  margin-bottom: 40px;
+  overflow: hidden;
 }
-.list .head{
-  background: linear-gradient(to right, #2bc5fc, #2bc5fc);
+
+.list .head {
+  background: linear-gradient(to right, #efad52, #f39557);
   height: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
 }
-.head .title{
+
+.head .title {
   height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   font-size: 30rpx;
-  
+  text-align: center;
 }
-.conent{
+
+.conent {
   height: 40px;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  color: #3c3c3c;
 }

@@ -37,7 +37,7 @@
     <view class="order-map">
       <!-- <image src="../../static/img/locate-img.png"></image> -->
 
-         <map id="myMap" markers="{{markers}}" data-markers='{{markers[0]}}' style="width:100%;height:450rpx;" longitude="{{poi.longitude}}" latitude="{{poi.latitude}}" scale='16' show-location bindmarkertap="gotohere">
+      <map id="myMap" markers="{{markers}}" data-markers='{{markers[0]}}' style="width:100%;height:450rpx;" longitude="{{poi.longitude}}" latitude="{{poi.latitude}}" scale='16' show-location bindmarkertap="gotohere">
       </map>
     </view>
 
@@ -46,7 +46,7 @@
       <view class="locate-left">{{myorder.get_housing.location}}</view>
       <view class="locate-right">
         <image src="../../static/img/locate-icon.png"></image>
-        <view class="right-text"  bindtap="gotohere">导航</view>
+        <view class="right-text" bindtap="gotohere">导航</view>
       </view>
     </view>
 
@@ -81,19 +81,18 @@
       <text class="item-right"> {{tool.phone(myorder.phone)}}</text>
     </view>
   </view>
-
-
-
-   <view bindtap="handelGuide">
-      <text>指引</text>
+  <view class="guide-wrap">
+    <view class="video-container" bindtap="handelGuide">
+      <image src="../../static/img/lead.png"></image>
+      <view class="lead-text">指引</view>
     </view>
-
-    <view bindtap="handelElectrical">
-      <text>电器使用</text>
+    <view class="electric-container" bindtap="handelElectrical">
+      <image src="../../static/img/tips.png"></image>
+      <view class="lead-text">电器使用</view>
     </view>
+  </view>
 
   <!-- 支付详情 -->
-
   <view class="pay-way">
     <van-cell-group>
       <van-cell title="线上支付" value="¥{{myorder.zongprice}}" is-link />

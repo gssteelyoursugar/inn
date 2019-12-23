@@ -543,7 +543,7 @@
 }
 
 .comfirm-btn {
-  background: linear-gradient(to right, #efad52, #f39557);
+  background: -webkit-linear-gradient(to right, #efad52, #f39557);
   color: #fff;
   padding: 20rpx 30rpx;
   border-radius: 10rpx;
