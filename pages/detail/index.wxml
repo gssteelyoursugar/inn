@@ -2,6 +2,22 @@
 
 <view class="detail-container">
   <wxs src="../../utils/common/filter.wxs" module="filter" />
+  <block wx:if="{{showMoreText}}">
+        <view class="text-mask" catchtouchmove="preventPop">
+          <view class="mask-title">房屋详情</view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
+          </view>
+          <view class="close-btn" catchtap="toggleMoreText">
+            <van-icon name="cross" />
+          </view>
+        </view>
+      </block>
   <view class="top-icon-group">
     <view class="msg" catchtap="clickToMsg">
       <image src="../../static/img/msg.png"></image>
@@ -68,22 +84,6 @@
           <text class="{{curIndex === index?'active':''}}">{{item}}</text>
         </view>
       </view>
-      <block wx:if="{{showMoreText}}">
-        <view class="text-mask" catchtouchmove="preventPop">
-          <view class="mask-title">房屋详情</view>
-          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
-          </view>
-          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
-          </view>
-          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
-          </view>
-          <view>*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！
-          </view>
-          <view class="close-btn" catchtap="toggleMoreText">
-            <van-icon name="cross" />
-          </view>
-        </view>
-      </block>
       <scroll-view scroll-y="true" style="height: 1000rpx;" bindscroll="scroll" scroll-into-view="{{toView}}">
         <view class="more-detai-container">
           <view class="desc-wrap">

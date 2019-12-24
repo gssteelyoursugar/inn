@@ -1,6 +1,13 @@
 // pages/hotmore/index.js
-Page({
 
+// pages/home/city/detailsCity/detailsCity.js
+const app = getApp();
+// 这是该页面对应的 “路径前缀”
+import {
+  CityModel
+} from '../../api/city.js';
+let list = new CityModel();
+Page({
   /**
    * 页面的初始数据
    */
@@ -15,57 +22,15 @@ Page({
     stor:1,//排序
     show: false, //筛选弹框
     showMenu:true,
+    user_id:undefined,
     // resource:['1'],
     hotlist: [
-      {
-        id:1,
-        img_Url: 'https://z1.muscache.cn/im/pictures/3e23e9e5-339d-44cf-b63f-f81d1c47a0ed.jpg?aki_policy=xx_large',
-        title: '客村广州塔珠江边琵琶洲',
-        price: 789,
-        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status: 1,
-        headUrl:'../../../static/img/avatar.jpg',
-        complete:'整套',
-        mattress:2,
-        nums:3,
-        bright:[
-          '超赞房东',
-          '连住优惠'
-        ]
-      },
-      {
-        id:2,
-        img_Url: 'https://z1.muscache.cn/im/pictures/5ba5fe12-8369-4ea3-9fd4-f837b6dcc6e9.jpg?aki_policy=xx_large',
-        title: '客村广州塔珠江边琵琶洲',
-        price: 589,
-        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status: 1,
-        headUrl: '../../../static/img/avatar.jpg',
-        complete: '整套',
-        mattress: 3,
-        nums: 5,
-        bright: [
-          '超赞房东',
-          '连住优惠'
-        ]
-      },
-      {
-        id:3,
-        img_Url: 'https://z1.muscache.cn/im/pictures/35018640-889e-42b7-9810-7a753a0b31d0.jpg?aki_policy=xx_large',
-        title: '客村广州塔珠江边琵琶洲',
-        price: 1029,
-        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status: 2,
-        headUrl: '../../../static/img/avatar.jpg',
-        complete: '整套',
-        mattress: 2,
-        nums: 4,
-        bright: [
-          '超赞房东',
-          '连住优惠'
-        ]
-      }
+     
     ],
+    listQuery:{
+      limit:3,
+      page:1,
+    },
     temp:[] //筛选条件
   },
   showData() {
@@ -80,18 +45,25 @@ Page({
   },
   //获取子组件的值，更改收藏状态
   getAddInfo(e) {
-    let { index} = e.detail
+    let { index,show_id} = e.detail
+    var temp={
+      user_id:1,
+      housing_id: show_id
+    }
+    list.PostDataByCollection(temp,res=>{
+      console.log(res)
+    })
     //data中获取列表
     let hotlist = this.data.hotlist
     for (let i in hotlist) {
       //遍历列表数据      
       if (i == index) {
         //根据下标找到目标,改变状态  
-        if (hotlist[i].status === 1) {
-          hotlist[i].status = parseInt(hotlist[i].status) + 1
+        if (hotlist[i].count_coll === 0) {
+          hotlist[i].count_coll = parseInt(hotlist[i].count_coll) + 1
         }
         else{
-          hotlist[i].status = parseInt(hotlist[i].status) - 1
+          hotlist[i].count_coll = parseInt(hotlist[i].count_coll) - 1
         }
       }
     }
@@ -157,13 +129,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
@@ -192,36 +157,45 @@ Page({
         nameCity:'北海'
       })
     }
+
+    var userinfo=wx.getStorageSync('userInfo')
+    this.data.user_id=userinfo.id
+    this.getData();
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
+  getData(){
+    this.data.listQuery.user_id=this.data.user_id
+    list.GetBydetailscityID(this.data.listQuery, res => {
+      var data = res.data
+      var arr = this.data.hotlist;
+      for(let i=0;i<data.length;i++){
+        console.log(i)
+        arr.push(data[i])
+      }
+      if (arr.length === res.total){
+        wx.showToast({
+          title: '已经没有更多数据啦!',
+          icon:'none'
+        })
+        return;
+      }
+      
+      this.setData({
+        hotlist: arr
+      })
+      
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function () {
-
+      this.data.listQuery.page++
+      this.getData();
   },
-
   /**
    * 用户点击右上角分享
    */

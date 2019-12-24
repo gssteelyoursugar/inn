@@ -196,7 +196,7 @@ Page({
     })
     wx.showToast({
       title: '收藏取消',
-      icon: 'success',
+      icon: 'none',
       duration: 2000
     })
   },

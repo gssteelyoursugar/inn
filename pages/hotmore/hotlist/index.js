@@ -27,14 +27,14 @@ Component({
       if(nums==='1') {
         wx.showToast({
           title: '收藏成功',
-          icon: 'success',
+          icon: 'none',
           duration: 2000
         })
       }
       else{
         wx.showToast({
           title: '收藏取消',
-          icon: 'success',
+          icon: 'none',
           duration: 2000
         })
       }
