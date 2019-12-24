@@ -5,6 +5,7 @@
   border-radius: 10rpx;
   overflow: hidden;
   background: #ffffff;
+  box-shadow: 5rpx 6rpx 20rpx 2rpx #e9e9e9;
 }
 .list-shows{
   position: relative;
