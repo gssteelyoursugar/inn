@@ -5,7 +5,6 @@
   <view class="hotbar">
     <view style="background:#ffffff">
       <van-transition show="{{ reachbottom }}" name="fade-down">
-
         <view class="hotbar-sou">
           <view class="hotsou-inpus">
             <view class="inpus-name" bindtap="toggleCity">
