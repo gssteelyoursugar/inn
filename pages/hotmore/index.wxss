@@ -20,11 +20,8 @@ page{
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
   top: 0;
   z-index: 10;
-  /* height: 160rpx; */
-  /* min-height: 60rpx; */
 }
 .hotbar .hotbar-sou{
   margin: 0 auto;
@@ -99,6 +96,8 @@ page{
 }
 .hotbar-screen{
   height: 90rpx;
+  animation:mymove 5s infinite;
+  -webkit-animation:mymove 5s infinite; /* Safari 和 Chrome */
 }
 .screenbao{
   width: 650rpx;
