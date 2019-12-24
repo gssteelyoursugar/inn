@@ -2,6 +2,7 @@
   "usingComponents": {
     "hotlist": "../hotlist/index",
     "screen": "../screen/index",
-    "van-popup": "../../vant-weapp/dist/popup/index"
+    "van-popup": "../../vant-weapp/dist/popup/index",
+    "van-transition": "../../vant-weapp/dist/transition/index"
   }
 }
