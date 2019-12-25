@@ -4,11 +4,25 @@ class HomeModel extends HTTP {
     super()
   }
   //获取首页所有数据
-  getHome(res) {
+  getHome(data,res) {
     var params = {
       url: 'getHome',//接口路径
       method: 'get', //请求方式
-      success: res
+      success: res,
+      data
+    }
+    this.request(params)
+  }
+
+
+  
+//获取收藏信息
+  GetCollectByList(data, res) {
+    var params = {
+      url: 'GetCollectByList',//接口路径
+      method: 'get', //请求方式
+      success: res,
+      data
     }
     this.request(params)
   }

@@ -1,0 +1,37 @@
+<!--pages/hotmore/hotlist/index.wxml-->
+<!-- 房源列表  -->
+<view>
+  <view class="list" wx:for="{{hotlist}}" wx:key="*this">
+    <view class="list-shows" catchtap="toggleDetails" data-id="{{item.id}}">
+      <image class="shows-master" src="{{item.images_url}}"></image>
+      <view class="shows-collect">
+        <image wx:if="{{item.count_coll === 0}}" data-index="{{index}}" data-nums="1" data-show_id="{{item.id}}" src="../../../static/img/collect-not.png" catchtap="btnSucceed"></image>
+        <image wx:else src="../../../static/img/collect.png" data-index="{{index}}" data-nums="2"  data-show_id="{{item.id}}" catchtap="btnSucceed"></image>
+      </view>
+      <view class="shows-price">
+        <view class="price-money">¥<span>{{item.price}}</span></view>
+        <view class="price-title">每晚</view>
+      </view>
+    </view>
+    <view class="list-content">
+      <view class="list-content-warp">
+        <view class="list-content-title">{{item.title}}</view>
+        <view class="list-content-num">
+          <view class="list-content-num-entire">
+          <span wx:for="{{item.tag}}" wx:for-item="items">{{items}}/</span>
+          </view>
+          <text wx:for="{{item.bright}}" wx:for-item="items">{{items}}</text>
+          
+        </view>
+        <view class="list-content-location">
+          <image src="../../../static/img/index-location.png"></image>
+          <view class="list-content-location-title">{{item.location}}</view>
+        </view>
+      </view>
+      <view class="list-content-head">
+        <image src="{{item.headUrl}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
+

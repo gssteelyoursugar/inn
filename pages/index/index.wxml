@@ -95,8 +95,8 @@
             <swiper-item>
               <view class="swiper-item2" catchtap="clickToDetail" data-id="{{item.id}}">
                 <view class="item2-imgs" >
-                  <image class="item2-imgs-url" src="{{item.img_Url}}"></image>
-                  <image wx:if="{{item.status === 1}}"  data-index="{{index}}" data-show_id="{{item.id}}" catchtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
+                  <image class="item2-imgs-url" src="{{item.images_url}}"></image>
+                  <image wx:if="{{item.count_coll === 0}}"  data-index="{{index}}" data-show_id="{{item.id}}" catchtap="btnSucceed" class="item2-imgs-sc" src="../../static/img/collect-not.png"></image>
                   <image wx:else class="item2-imgs-sc" data-index="{{index}}" data-show_id="{{item.id}}" catchtap="btnCancel" src="../../static/img/collect.png"></image>
                 </view>
                 <view class="item2-desc">
@@ -105,7 +105,7 @@
                       <view class="title-cont">{{item.title}}</view>
                       <view class="title-detals">
                         <image src="../../static/img/index-location.png"></image>
-                        <view class="detals-location">{{item.loading}}</view>
+                        <view class="detals-location">{{item.location}}</view>
                       </view>
                     </view>
                     <view class="item2-price">

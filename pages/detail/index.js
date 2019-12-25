@@ -3,11 +3,27 @@ import {
   getWeek
 } from '../../api/user.js'
 
+
+
+
+
+import { HomeModel } from '../../api/home.js';
+let homemodel = new HomeModel();
+
+
+
+
+
+import { PayModel } from '../../api/pay.js';
+let payModel = new PayModel();
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    detailslist:{},
+    details_id:'',
     is_realname: false, //是否实名注册
     homeruzhuTime: '', //入住时间
     homelikaiTime: '', //离店时间
@@ -54,6 +70,33 @@ Page({
     })
   },
 
+
+getInfo(){
+  var that=this;
+  //后台数据 详情表
+  var homeID = this.data.details_id;  //获取到的id
+  homemodel.GetBydetailsID(homeID, res => {
+    that.setData({
+      detailslist: res.data
+    })
+
+    that.setData({ // 获取返回结果，放到markers及poi中，并在地图展示
+      markers: [{
+        id: 0,
+        title: res.data.title,
+        latitude: res.msg.lat,
+        longitude: res.msg.lng,
+        iconPath: '../../../images/home/placeholder.png', //图标路径
+        width: 30,
+        height: 30
+      }],
+      poi: { //根据自己data数据设置相应的地图中心坐标变量名称
+        latitude: res.msg.lat,
+        longitude: res.msg.lng,
+      }
+    });
+  })
+},
   toggleMoreText() {
     this.setData({
       showMoreText: !this.data.showMoreText
@@ -87,14 +130,35 @@ Page({
   },
   // 立即预定 
   clickToComfirm() {
-    console.log(123)
+    var userinfo = wx.getStorageSync('userInfo')
     let temp ={
-      start_time: this.data.homeruzhuTime,
-      end_time: this.data.homelikaiTime,
-      wan: this.data.wan,
-      user_id: 1,
-      house_id: 1
+      openid: userinfo.openid
     }
+
+
+    payModel.toPay(temp, dres => {
+      wx.requestPayment({
+        timeStamp: dres.timeStamp,
+        nonceStr: dres.nonceStr,
+        package: dres.package,
+        signType: 'MD5',
+        paySign: dres.paySign,
+        success(res) {
+            console.log(res)
+
+        },
+        fail(res) {
+          temp.order.status = 1
+          ordermodel.PostOrderByData(temp, res => {
+            wx.redirectTo({
+              url: '/pages/home/order/index',
+            })
+            wx.setStorageSync('cart', [])
+          })
+        }
+      })
+      return;
+    })
     console.log(temp)
 
   },
@@ -103,6 +167,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.data.details_id = options.details_id
     // let {
     //   house_id
     // } = options.detail
@@ -155,6 +220,7 @@ Page({
         outWeek
       });
     }
+    this.getInfo();
   },
 
   /**

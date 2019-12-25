@@ -122,6 +122,7 @@ page{
 .screenbao-time-day{
   color: #ff9645;
 }
+
 /*内容区域*/
 .res-hot{
   margin-top: 180rpx;

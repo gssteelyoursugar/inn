@@ -97,10 +97,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "商品详情",
 					"pathName": "pages/detail/index",
-					"query": "",
+					"query": "details_id=12",
 					"scene": null
 				},
 				{
@@ -122,6 +122,13 @@
 					"name": "pages/detail/index",
 					"pathName": "pages/detail/index",
 					"query": "house_id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏",
+					"pathName": "pages/coll/index",
+					"query": "",
 					"scene": null
 				}
 			]

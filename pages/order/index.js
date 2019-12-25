@@ -60,7 +60,6 @@ Page({
       order_id: id,
       user_id: 1
     }
-    console.log(temp)
   },
   //去逛逛
   toggleHot() {
@@ -116,7 +115,6 @@ Page({
         d[i]['in_time'] = date[0].week
         let out_date = util.getDates(1, util.formatDate(new Date          (res[i].outTime * 1000)));
         d[i]['out_time'] = out_date[0].week
-        console.log(res[i].outTime)
 
         d[i]['inTime'] = util.formatDate(new Date(res[i].inTime * 1000))
         d[i]['outTime'] = util.formatDate(new Date(res[i].outTime * 1000))

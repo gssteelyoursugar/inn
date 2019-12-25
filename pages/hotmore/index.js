@@ -51,7 +51,6 @@ Page({
       housing_id: show_id
     }
     list.PostDataByCollection(temp,res=>{
-      console.log(res)
     })
     //data中获取列表
     let hotlist = this.data.hotlist

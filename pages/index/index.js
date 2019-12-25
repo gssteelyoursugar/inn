@@ -1,4 +1,13 @@
 // pages/index/index.js
+
+import { HomeModel } from '../../api/home.js';
+let homemodel = new HomeModel();
+
+import {
+  CityModel
+} from '../../api/city.js';
+let list = new CityModel();
+
 const app = getApp();
 Page({
   /**
@@ -27,51 +36,9 @@ Page({
     interval: 3000,
     duration: 500,
     housing:[
-      {
-        id:1,
-        img_Url:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576581601820&di=1829c356b00b0b9bd63121e2dddca558&imgtype=0&src=http%3A%2F%2F7q5evw.com1.z0.glb.clouddn.com%2Fimages%2Farticle%2FFupRisSnP5NcI6L4SKBeIUiLH3KK.jpg%3FimageView2%2F1%2Fw%2F1556%2Fh%2F914',
-        title:'客村广州塔珠江边琵琶洲',
-        price:789,
-        loading:'珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status:1
-      },
-      {
-        id: 2,
-        img_Url: 'https://z1.muscache.cn/im/pictures/5ba5fe12-8369-4ea3-9fd4-f837b6dcc6e9.jpg?aki_policy=xx_large',
-        title: '客村广州塔珠江边琵琶洲',
-        price: 589,
-        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status: 1
-
-      },
-      {
-        id: 3,
-        img_Url: 'https://z1.muscache.cn/im/pictures/35018640-889e-42b7-9810-7a753a0b31d0.jpg?aki_policy=xx_large',
-        title: '客村广州塔珠江边琵琶洲',
-        price: 1029,
-        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status: 1
-
-      },
-      {
-        id: 4,
-        img_Url: 'https://z1.muscache.cn/im/pictures/e279f149-a4e3-44e7-b6ef-a66e8572e461.jpg?aki_policy=xx_large',
-        title: '客村广州塔珠江边琵琶洲',
-        price: 1029,
-        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status: 1
-
-      },
-      {
-        id: 5,
-        img_Url: 'https://z1.muscache.cn/im/pictures/e60ffd61-2e27-4688-80be-d32e0457fbe0.jpg?aki_policy=xx_large',
-        title: '客村广州塔珠江边琵琶洲',
-        price: 1029,
-        loading: '珠海区滨江东路1024-1012号珠海区滨江东路1024-1012号',
-        status: 1
-
-      }
+    
     ],
+    userInfo:{},
     vertical2: false,
     interval2: 2000,
     duration2: 500,
@@ -131,9 +98,10 @@ Page({
   clickToDetail(e) {
     let { id } = e.currentTarget.dataset
     wx.navigateTo({
-      url: '/pages/detail/index?hot_id=' + id,
+      url: '/pages/detail/index?details_id=' + id,
     })
   },
+  
   showData() {
     wx.navigateTo({
       url: "/pages/component/datatime/index"
@@ -154,14 +122,21 @@ Page({
   //收藏房源成功
   btnSucceed: function (e) {
     let { show_id,index } = e.currentTarget.dataset
+
+    var temp = {
+      user_id: this.data.userInfo.id,
+      housing_id: show_id
+    }
+    list.PostDataByCollection(temp, res => {
+    })
     //data中获取列表
     let housing = this.data.housing
     for (let i in housing){
       //遍历列表数据      
       if (i == index) {
         //根据下标找到目标,改变状态  
-        if (housing[i].status === 1) {
-          housing[i].status = parseInt(housing[i].status) + 1
+        if (housing[i].count_coll === 0) {
+          housing[i].count_coll = parseInt(housing[i].count_coll) + 1
         }
       }
     }
@@ -171,21 +146,28 @@ Page({
     })
     wx.showToast({
       title: '收藏成功',
-      icon: 'success',
+      icon: 'none',
       duration: 2000
     })
   },
   //收藏房源成功
   btnCancel: function (e) {
     let { show_id, index } = e.currentTarget.dataset
+
+    var temp = {
+      user_id: this.data.userInfo.id,
+      housing_id: show_id
+    }
+    list.PostDataByCollection(temp, res => {
+    })
     //data中获取列表
     let housing = this.data.housing
     for (let i in housing) {
       //遍历列表数据      
       if (i == index) {
         //根据下标找到目标,改变状态  
-        if (housing[i].status === 2) {
-          housing[i].status = parseInt(housing[i].status) - 1
+        if (housing[i].count_coll === 1) {
+          housing[i].count_coll = parseInt(housing[i].count_coll) - 1
         }
       }
     }
@@ -235,7 +217,18 @@ Page({
         is_realname: true
       })
     }
+
+
     let that = this;
+    var temp={
+      user_id: userInfo.id
+    }
+      homemodel.getHome(temp,res=>{
+      that.setData({
+        housing:res.home,
+        userInfo,
+      })
+    })
     let homeruzhuTime = wx.getStorageSync('homeruzhuTime')
     let homelikaiTime = wx.getStorageSync('homelikaiTime')
     let wan = wx.getStorageSync('wan')

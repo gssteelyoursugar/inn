@@ -10,7 +10,8 @@ Page({
       {
         id: 1,
         url: '../../static/img/icon1.png',
-        name: '收藏'
+        name: '收藏',
+        tourl:'/pages/coll/index'
       },
       {
         id: 2,
@@ -90,6 +91,27 @@ Page({
    */
   onReachBottom: function () {
 
+  },
+
+  toUrl(e){
+    let url = e.currentTarget.dataset.url
+    if (url === undefined){
+      wx.showToast({
+        title: '暂未开放,敬请期待',
+        icon: 'none'
+      });
+      return;
+    }
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url,
+    })
+    
+  },
+  onFd(){
+    wx.showToast({
+      title: '暂未开放,敬请期待',
+      icon:'none'
+    })
   },
 
   /**

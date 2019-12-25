@@ -1,0 +1,13 @@
+ <view class="res-hot">
+        <!--  房源列表 -->
+        <view class="resource" wx:if="{{hotlist.length > 0}}">
+          <hotlist hotlist="{{hotlist}}" bind:addInfo="getAddInfo"></hotlist>
+        </view>
+        <!--   没有房源的情况 -->
+        <view class="resource-not" wx:else>
+          <view class="resource-not-box">
+            <view class="not-box-img"><image src="../../static/img/empty.png"></image></view>
+            <view class="not-box-title">暂无房源哦~</view>
+          </view>
+        </view>
+    </view>

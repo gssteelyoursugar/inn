@@ -1,0 +1,121 @@
+/* pages/hotmore/hotlist/index.wxss */
+.list{
+  margin: 0 auto 50rpx;
+  width: 700rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #ffffff;
+}
+.list-shows{
+  position: relative;
+}
+.shows-master{
+  width: 100%;
+  height: 400rpx;
+  vertical-align:top;
+}
+.shows-collect{
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.shows-collect image{
+  width: 100%;
+  height: 100%;
+}
+.shows-price{
+  position: absolute;
+  left: 30rpx;
+  top: 280rpx;
+  width: 120rpx;
+  height: 90rpx;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15rpx;
+  text-align: center;
+}
+.shows-price .price-money{
+  margin-top: 10rpx;
+  color: #ef5473;
+  font-size: 20rpx;
+}
+.shows-price .price-money span{
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.shows-price .price-title{
+  color: #999999;
+  font-size: 20rpx;
+}
+
+.list-content{
+  position: relative;
+}
+.list-content-warp{
+  width: 95%;
+  margin: 10rpx auto;
+}
+.list-content-title{
+  color: #000;
+  font-size: 35rpx;
+  font-weight: bold;
+  width: 500rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  padding-bottom: 6rpx;
+}
+.list-content-num{
+  margin:5rpx 0;
+  font-size: 26rpx;
+  color: #343434;
+  display: flex;
+}
+.list-content-num-entire{
+  margin-right: 15rpx;
+}
+.list-content-num text{
+  display: inline-block;
+  color: #ffc95c;
+  padding: 0rpx 10rpx;
+  border: 1rpx solid #ffc95c;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  border-radius: 6rpx;
+  margin: 0 10rpx;
+}
+.list-content-location{
+  display: flex;
+  font-size: 26rpx;
+  color: #333333;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.list-content-location image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 2rpx;
+  margin-right: 2rpx;
+  margin-left: -3rpx;
+}
+.list-content-location-title{
+  width: 555rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list-content-head{
+  position: absolute;
+  right: 30rpx;
+  top: -60rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border: 6rpx solid #ffffff;
+  border-radius: 50%;
+}
+.list-content-head image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
