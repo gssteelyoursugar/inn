@@ -1,0 +1,11 @@
+<!--pages/orderinfo/category/index.wxml-->
+
+<view class="category-container">
+  
+  <view class="cate-wrap">
+    <view class="cate-item" wx:for="{{cateList}}" wx:key="{{item.id}}" catchtap="clickToVideo" data-cate_id="{{item.id}}">
+      <image src="{{item.logo}}"></image>
+      <view class="item-name">{{item.name}}</view>
+    </view>
+  </view>
+</view>
