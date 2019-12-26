@@ -12,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    reachbottom:true,
     str:'',
     nameCity:'北海',
     value:'',
@@ -32,6 +33,18 @@ Page({
       page:1,
     },
     temp:[] //筛选条件
+  },
+  //获取滑动距离，隐藏搜索框
+  onPageScroll: function (res) {
+    if (res.scrollTop > 100) {
+      this.setData({
+        reachbottom:false
+      })
+    } else {
+      this.setData({ 
+        reachbottom: true 
+      })
+    }
   },
   showData() {
     wx.navigateTo({

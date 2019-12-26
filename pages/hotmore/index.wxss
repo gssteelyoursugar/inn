@@ -15,26 +15,25 @@ page{
 }
 /*顶部内容*/
 .hotbar{
-  background: #fff;
+  /* background: #fff; */
   overflow: hidden;
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 0;
   top: 0;
   z-index: 10;
-  height: 160rpx;
 }
 .hotbar .hotbar-sou{
   margin: 0 auto;
-  width: 680rpx;
+  width: 700rpx;
   display: flex;
   justify-content: space-between;
   height: 70rpx;
+  transition: display 100s;
 }
 .hotbar-sou .hotsou-inpus{
-  margin-left: 30rpx;
-  width: 570rpx;
+  /* margin-left: 30rpx; */
+  width: 700rpx;
   display: flex;
   border-radius: 40rpx;
   height: 70rpx;
@@ -47,7 +46,7 @@ page{
   margin-left: 20rpx;
   position: relative;
 }
-.hotsou-inpus .inpus-name::before{
+/* .hotsou-inpus .inpus-name::before{
   content: '';
   position: absolute;
   right: 0;
@@ -55,26 +54,28 @@ page{
   width: 1rpx;
   height: 40rpx;
   background: #cccccc;
-}
+} */
 .hotsou-inpus .inpus-name .name-citi{
-  color: #999999;
-  width: 60rpx;
+  padding-left: 10rpx;
+  color: #303030;
+  width: 65rpx;
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
 }
 .hotsou-inpus .inpus-name image{
-  width: 40rpx;
-  height: 40rpx;
+  margin-top: 10rpx;
+  width: 18rpx;
+  height: 18rpx;
 }
 .hotsou-inpus .inpus-frame{
   display: flex;
   margin-left: 15rpx;
 }
 .hotsou-inpus .inpus-frame image{
-  width: 48rpx;
-  height: 48rpx;
-  margin-top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 15rpx;
   margin-right: 10rpx;
 }
 .hotsou-inpus .inpus-frame .weui-input{
@@ -95,6 +96,8 @@ page{
 }
 .hotbar-screen{
   height: 90rpx;
+  animation:mymove 5s infinite;
+  -webkit-animation:mymove 5s infinite; /* Safari 和 Chrome */
 }
 .screenbao{
   width: 650rpx;
@@ -115,9 +118,9 @@ page{
 } */
 .screenbao-time-name{
   margin-left: 10rpx;
-  color: #000000;
+  color: #333333;
   font-size: 28rpx;
-  font-weight: bold;
+  font-weight: 500;
 }
 .screenbao-time-day{
   color: #ff9645;

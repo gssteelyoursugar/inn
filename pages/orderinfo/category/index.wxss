@@ -1,0 +1,38 @@
+/* pages/orderinfo/category/index.wxss */
+
+page {
+  background: #f3f5f7;
+}
+
+.cate-title {
+  padding: 20rpx 0;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.cate-wrap {
+  display: flex;
+  padding: 100rpx 8%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cate-item {
+  width: 45%;
+  background: #fff;
+  border-radius: 14rpx;
+  text-align: center;
+  margin: 20rpx 0;
+  padding: 70rpx 0;
+}
+
+.cate-item image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.cate-item .item-name {
+  font-size: 28rpx;
+  color: #333;
+}
