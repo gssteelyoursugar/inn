@@ -1,0 +1,15 @@
+<!--pages/component/comment-bar/index.wxml-->
+<view class="score-box">
+  <view class="score-info">
+    <view class="score">5.0</view>
+    <view class="rate">
+      <van-rate value="{{ star }}" size="{{ 14 }}" readonly allow-half/>
+    </view>
+    <view class="comment-num">
+      <text>66</text>条评论</view>
+  </view>
+  <view class="score-desc">
+    <view class="desc-item" wx:for="{{4}}">
+      <text>卫生</text>5.0</view>
+  </view>
+</view>
