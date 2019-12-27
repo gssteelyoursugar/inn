@@ -1,0 +1,55 @@
+/* pages/detail/comment/index.wxss */
+
+.comment-top {
+  padding: 20rpx;
+  height: 190rpx;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.comment-top .comment-score-box {
+  position: absolute;
+  margin-top: 40rpx;
+  left: 20rpx;
+  right: 20rpx;
+  top: 70rpx;
+}
+
+.comment-top .comment-score-box .score-box {
+  box-shadow: unset;
+}
+
+.select-wrap {
+  margin-top: 150rpx;
+  padding: 0 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.select-item {
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  border-radius: 40rpx;
+  padding: 4rpx 20rpx;
+  font-size: 26rpx;
+  color: #666;
+  margin: 10rpx 20rpx;
+  min-width: 20%;
+}
+
+.select-wrap .active {
+  border: 1px solid #f39557;
+  color: #f39557;
+}
+
+.comment-content {
+  margin-bottom: 150rpx;
+}
+
+.no-more-content {
+  text-align: center;
+  margin-top: 50rpx;
+  font-size: 24rpx;
+  color: #666;
+}
