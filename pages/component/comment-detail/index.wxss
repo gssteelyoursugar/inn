@@ -1,0 +1,81 @@
+/* pages/component/comment-detail/index.wxss */
+
+.user-comment {
+  padding: 0 20rpx;
+  margin: 40rpx 0;
+}
+
+.user-top {
+  display: flex;
+  padding: 0 20rpx;
+}
+
+.user-top .avatar {
+  width: 12%;
+}
+
+.user-top .avatar image {
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 50%;
+}
+
+.user-top .name-date {
+  margin: 0 10rpx;
+  width: 50%;
+}
+
+.user-top .name-date .user-name {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333;
+  margin: 0 0 6rpx;
+}
+
+.user-top .name-date .post-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.user-top .user-rate {
+  width: 38%;
+  text-align: right;
+  font-size: 26rpx;
+  line-height: 26rpx;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20rpx;
+}
+
+.user-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 20rpx 0;
+  font-size: 24rpx;
+  color: #4d4d4d;
+  line-height: 36rpx;
+  letter-spacing: 1rpx;
+  padding: 0 20rpx;
+}
+
+.user-img {
+  padding: 0 20rpx;
+}
+
+.user-img image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+  margin: 0 10rpx;
+}
+
+.part-comment .more-text {
+  padding: 0 30rpx;
+  color: #f09b56;
+  font-size: 26rpx;
+  margin-top: 14rpx;
+  font-weight: 500;
+}

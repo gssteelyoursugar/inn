@@ -1,0 +1,19 @@
+<!--pages/detail/comment/index.wxml-->
+
+<view class="comment-container">
+  <view class="comment-top" style="background:url(https://img.zcool.cn/community/016dc65b582013a801206a35f85ff0.jpg@1280w_1l_2o_100sh.jpg)">
+    <score-box class="comment-score-box"></score-box>
+  </view>
+
+  <view class="select-wrap">
+    <view class="select-item {{curItem === index ?'active':''}}" wx:for="{{selectItem}}" catchtap="clickToSelect" data-index="{{index}}" wx:key="{{item.id}}">{{item.name}}({{item.count}})</view>
+  </view>
+
+  <view class="comment-content">
+    <comment-detail is_more="{{is_more}}"></comment-detail>
+    <view class="no-more-content">没有内容啦～</view>
+  </view>
+
+  <confirm-box></confirm-box>
+
+</view>

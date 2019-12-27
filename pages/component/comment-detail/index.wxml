@@ -1,0 +1,24 @@
+<!--pages/component/comment-detail/index.wxml-->
+
+<view class="part-comment" wx:for="{{commentList}}" wx:key="{{item.id}}" wx:if="{{is_more ?index<1: index< commentList.length}}">
+  <view class="user-comment">
+    <view class="user-top" wx:for="{{item.user}}" wx:for-item="user" wx:key="{{user.id}}">
+      <view class="avatar">
+        <image src="{{user.avatarUrl}}"></image>
+      </view>
+      <view class="name-date">
+        <view class="user-name">{{user.username}}</view>
+        <view class="post-date">{{item.create_time}} 入住</view>
+      </view>
+      <view class="user-rate">
+        <text>{{item.user_star}}</text>
+        <van-rate value="{{ item.user_star }}" size="{{10}}" readonly allow-half/>
+      </view>
+    </view>
+    <view class="user-text">{{item.content}}</view>
+  </view>
+  <view class="user-img">
+    <image src="{{photo.image_url}}" wx:for="{{item.photo}}" wx:for-item="photo" wx:key="{{photo.id}}"></image>
+  </view>
+  <view class="more-text" wx:if="{{is_more}}" catchtap="toggleMoreComment">查看更多</view>
+</view>

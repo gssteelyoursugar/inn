@@ -1,0 +1,49 @@
+/* pages/component/confirm-box/index.wxss */
+
+.order-btn-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  display: flex;
+  border-top: 1px solid #e5e5e5;
+}
+
+.order-price {
+  width: 64%;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.order-price text:first-child {
+  color: #f39557;
+  font-size: 42rpx;
+}
+
+.order-price text:last-child {
+  color: #999;
+  font-size: 26rpx;
+  text-decoration: line-through;
+}
+
+.comfirm-btn {
+  background: linear-gradient(to right, #efad52, #f39557);
+  color: #fff;
+  padding: 20rpx 30rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  position: relative;
+}
+
+.order-icon {
+  position: absolute;
+  top: 24rpx;
+}
+
+.comfirm-btn text {
+  margin-left: 36rpx;
+}
