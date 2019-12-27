@@ -30,13 +30,14 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    list.GetVideoByList(options.electrical_id, res => {
+    var temp={
+      electrical_id:options.electrical_id,
+      type:options.type
+    }
+    list.GetVideoByList(temp, res => {
       that.setData({
         listdata: res
       })
-
-
-
     })
   },
 

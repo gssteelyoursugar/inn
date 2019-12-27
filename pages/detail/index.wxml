@@ -55,12 +55,12 @@
           </view>
         </view>
       </view>
-      <view class="info-box">
+      <!-- <view class="info-box">
         <view class="info-item" wx:for="{{5}}">
           <van-icon name="bag-o" />
           <text>整套普通公寓</text>
         </view>
-      </view>
+      </view> -->
       <view class="order-date" catchtap="clickToPickTime">
         <view class="start-time">
           <text>入住</text>
@@ -88,25 +88,14 @@
         <view class="more-detai-container">
           <view class="desc-wrap">
             <!-- 房屋介绍 -->
-            <block wx:if="{{!showMoreText}}">
+            <!-- <block wx:if="{{!showMoreText}}">
               <view class="desc-text">
                 *该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。*该房屋有多套、以实际入住为准！*房屋位于银滩旅游景区，步行不到10分钟就能到海边，是目前银滩景区里离海边最近的小区。
               </view>
               <view class="more-text" catchtap="toggleMoreText">查看更多</view>
-            </block>
+            </block> -->
             <!-- 房屋亮点 -->
-            <view class="spot-light">
-              <view class="light-title">房屋亮点</view>
-              <scroll-view class="light-box" scroll-x="true" bindscroll="scroll" style="width: 100%">
-                <view class="nowrap-box">
-                  <view class="box-item" wx:for="{{4}}">
-                    <image src="../../static/img/detail-icon.png"></image>
-                    <view class="item-title">洗漱用品齐全</view>
-                    <view class="item-desc">提供牙具、香皂等</view>
-                  </view>
-                </view>
-              </scroll-view>
-            </view>
+         
             <!-- 房屋位置 -->
             <view class="locate">
               <view class="light-title">房屋位置</view>
@@ -118,7 +107,7 @@
               </view>
             </view>
             <!-- 服务设施 -->
-            <view class="service-box">
+            <!-- <view class="service-box">
               <view class="light-title">服务设施</view>
               <scroll-view class="light-box" scroll-x="true" bindscroll="scroll" style="width: 100%">
                 <view class="nowrap-box">
@@ -143,12 +132,12 @@
                   </view>
                 </view>
               </view>
-            </view>
+            </view> -->
 
           </view>
           <view class="comment-wrap">
             <!-- 房客点评 -->
-            <view class="comment-container">
+            <!-- <view class="comment-container">
               <view class="light-title">房客点评</view>
               <view class="score-box">
                 <view class="score-info">
@@ -164,9 +153,9 @@
                     <text>卫生</text>5.0</view>
                 </view>
               </view>
-            </view>
+            </view> -->
             <!-- 评论预览 -->
-            <view class="part-comment">
+            <!-- <view class="part-comment">
               <view class="user-comment">
                 <view class="user-top">
                   <view class="avatar">
@@ -190,7 +179,7 @@
                 <image src="../../static/img/avatar.jpg"></image>
               </view>
               <view class="more-text" catchtap="toggleMoreText">查看更多</view>
-            </view>
+            </view> -->
 
           </view>
         </view>

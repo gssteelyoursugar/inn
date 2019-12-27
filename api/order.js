@@ -64,16 +64,14 @@ class OrderModel extends HTTP {
   }
 
   //查看订单详情（根据订单返回ID）
-  GetVideoByList(electrical_id, res) {
+  GetVideoByList(data, res) {
     var params = {
       url: 'order/GetVideoByList',//接口路径
       method: 'get', //请求方式
       header: {
         'content-type': 'application/x-www-form-urlencoded'  //这里注意POST请求content-type是小写，大写会报错  
       },
-      data: {
-        electrical_id
-      },
+      data,
       success: res
     }
     this.request(params)

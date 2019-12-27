@@ -130,6 +130,13 @@
 					"pathName": "pages/coll/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品分类",
+					"pathName": "pages/orderinfo/category/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

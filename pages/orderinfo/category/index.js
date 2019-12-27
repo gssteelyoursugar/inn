@@ -1,4 +1,10 @@
 // pages/orderinfo/category/index.js
+
+
+import {
+  OrderModel
+} from '../../../api/order.js';
+let list = new OrderModel();
 Page({
 
   /**
@@ -35,7 +41,8 @@ Page({
         name: '其他',
         logo: '../../../static/img/else.png'
       },
-    ]
+    ],
+    electrical_id:undefined,
   },
 
   // 点击分类
@@ -43,17 +50,16 @@ Page({
     let {
       cate_id
     } = e.currentTarget.dataset
-    console.log(cate_id)
-    // wx.navigateTo({
-    //   url: 'pages/orderinfo/electrical/index?cate_id='cate_id,
-    // })
+    wx.navigateTo({
+      url: '/pages/orderinfo/electrical/index?electrical_id=' + this.data.electrical_id + '&type=' + cate_id,
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.data.electrical_id = options.electrical_id
   },
 
   /**

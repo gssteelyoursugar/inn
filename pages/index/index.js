@@ -1,5 +1,5 @@
 // pages/index/index.js
-
+  
 import { HomeModel } from '../../api/home.js';
 let homemodel = new HomeModel();
 

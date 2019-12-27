@@ -134,7 +134,7 @@ Page({
     var that = this;
     var electrical_id = that.data.myorder.get_housing.electrical_id
     wx.navigateTo({
-      url: '/pages/orderinfo/electrical/index?electrical_id=' + electrical_id
+      url: '/pages/orderinfo/category/index?electrical_id=' + electrical_id
     })
   },
   handelGuide() {

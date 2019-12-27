@@ -52,7 +52,7 @@ Page({
     interval: 1500,
     circular: true,
     showBox: true,
-    tabs: ['详情', '点评', '须知', '推荐'],
+    tabs: ['详情'],
     curIndex: 0,
     showMoreText: false,
     star: 5,
