@@ -139,47 +139,10 @@
             <!-- 房客点评 -->
             <!-- <view class="comment-container">
               <view class="light-title">房客点评</view>
-              <view class="score-box">
-                <view class="score-info">
-                  <view class="score">5.0</view>
-                  <view class="rate">
-                    <van-rate value="{{ star }}" size="{{ 14 }}" readonly allow-half/>
-                  </view>
-                  <view class="comment-num">
-                    <text>66</text>条评论</view>
-                </view>
-                <view class="score-desc">
-                  <view class="desc-item" wx:for="{{4}}">
-                    <text>卫生</text>5.0</view>
-                </view>
-              </view>
-            </view> -->
+              <score-box></score-box>
+            </view>
             <!-- 评论预览 -->
-            <!-- <view class="part-comment">
-              <view class="user-comment">
-                <view class="user-top">
-                  <view class="avatar">
-                    <image src="../../static/img/avatar.jpg"></image>
-                  </view>
-                  <view class="name-date">
-                    <view class="user-name">狗剩哥哥</view>
-                    <view class="post-date">2019-11-24 入住</view>
-                  </view>
-                  <view class="user-rate">
-                    <text>5.0</text>
-                    <van-rate value="{{ user_star }}" size="{{10}}" readonly allow-half/>
-                  </view>
-                </view>
-                <view class="user-text">一来到北海就觉得这里的冬天咋这么热！在海边看日落真的很美、没白来这一次、主要房东姐姐给我介绍的房间还很漂亮！很开心！下次还来这家！</view>
-              </view>
-              <view class="user-img">
-                <image src="../../static/img/avatar.jpg"></image>
-                <image src="../../static/img/avatar.jpg"></image>
-                <image src="../../static/img/avatar.jpg"></image>
-                <image src="../../static/img/avatar.jpg"></image>
-              </view>
-              <view class="more-text" catchtap="toggleMoreText">查看更多</view>
-            </view> -->
+            <comment-detail is_more="{{is_more}}"></comment-detail>
 
           </view>
         </view>
@@ -189,12 +152,5 @@
 
   </view>
   <!-- 立刻预定 -->
-  <view class="order-btn-wrap">
-    <view class="order-price">
-      <text>¥183</text>/晚
-      <text>¥288</text>
-    </view>
-    <view class="comfirm-btn" catchtap="clickToComfirm">
-      <van-icon name="fire" class="order-icon"/><text>立即预定</text></view>
-  </view>
+  <confirm-box></confirm-box>
 </view>

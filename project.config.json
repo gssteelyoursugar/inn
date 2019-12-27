@@ -126,16 +126,8 @@
 				},
 				{
 					"id": -1,
-					"name": "收藏",
-					"pathName": "pages/coll/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商品分类",
-					"pathName": "pages/orderinfo/category/index",
-					"query": "",
+					"name": "评论详情",
+					"pathName": "pages/detail/comment/index",
 					"scene": null
 				}
 			]

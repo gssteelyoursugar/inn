@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "van-rate": "../../vant-weapp/dist/rate/index",
-    "van-icon": "../../vant-weapp/dist/icon/index"
+    "van-icon": "../../vant-weapp/dist/icon/index",
+    "score-box": "../../component/comment-bar/index",
+    "comment-detail": "../../component/comment-detail/index",
+    "confirm-box": "../../component/confirm-box/index"
   }
 }

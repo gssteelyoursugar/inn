@@ -55,10 +55,12 @@ Page({
     tabs: ['详情'],
     curIndex: 0,
     showMoreText: false,
+    showMoreComment: false,
     star: 5,
     user_star: 5,
     is_coll: false,
-    house_id: ''
+    house_id: '',
+    is_more: true
   },
 
   clickTabs(e) {
@@ -100,6 +102,11 @@ getInfo(){
   toggleMoreText() {
     this.setData({
       showMoreText: !this.data.showMoreText
+    })
+  },
+  toggleMoreComment() {
+    wx.navigateTo({
+      url: '/pages/detail/comment/index',
     })
   },
   // 
