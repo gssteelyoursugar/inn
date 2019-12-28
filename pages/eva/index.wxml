@@ -1,0 +1,32 @@
+<!--服务评价-->
+<view class="service">
+  <!--评分-->
+  <view class='score'>
+    <view class='left'>
+      评分
+    </view>
+    <view class='right'>
+   <van-rate value="{{ value }}" bind:change="onChange" />
+
+      <text class='rtxt'>{{value}}.0分</text>
+    </view>
+  </view>
+  <!--图片-->
+  <view class='picture'>
+    <view class='left'>
+      图片
+    </view>
+    <view class='right'>
+   <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+
+    </view>
+  </view>
+</view>
+<!--textarea-->
+<view class="conts">
+    <textarea class="areas" placeholder='更多评价请写在这里（最多300字）' minlength="{{min}}" maxlength="{{max}}" bindinput="inputs"> 
+        <!-- <text class="currentWordNumber">{{currentWordNumber|0}}/{{max}}</text> -->
+    </textarea>
+</view>
+<!--提交评价-->
+<button class='btn' bindtap="onPost">提交评价</button>

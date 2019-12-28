@@ -142,7 +142,7 @@
               <score-box></score-box>
             </view>
             <!-- 评论预览 -->
-            <comment-detail is_more="{{is_more}}"></comment-detail>
+            <comment-detail list="{{detailslist.get_review}}"  is_more="{{is_more}}"></comment-detail>
 
           </view>
         </view>

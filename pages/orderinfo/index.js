@@ -143,5 +143,13 @@ Page({
     wx.navigateTo({
       url: '/pages/orderinfo/electrical/index?electrical_id=' + guide_id
     })
+  },
+  toEva(){
+    wx.navigateTo({
+      url: '/pages/eva/index?order_id=' + this.data.myorder.id + '&housing_id=' + this.data.myorder.housing_id,
+    })
+    console.log(this.data.myorder)
+    // housing_id: 0,
+    //   order_id: 0,
   }
 })

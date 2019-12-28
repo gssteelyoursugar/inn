@@ -100,7 +100,7 @@
 					"id": 6,
 					"name": "商品详情",
 					"pathName": "pages/detail/index",
-					"query": "details_id=12",
+					"query": "details_id=24",
 					"scene": null
 				},
 				{
@@ -114,7 +114,7 @@
 					"id": 8,
 					"name": "订单详情",
 					"pathName": "pages/orderinfo/index",
-					"query": "",
+					"query": "id=8",
 					"scene": null
 				},
 				{
@@ -128,6 +128,21 @@
 					"id": -1,
 					"name": "评论详情",
 					"pathName": "pages/detail/comment/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "评论",
+					"pathName": "pages/eva/index",
+					"query": "housing_id=1&order_id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "下单",
+					"pathName": "pages/detail/place/index",
+					"query": "details_id=24",
 					"scene": null
 				}
 			]

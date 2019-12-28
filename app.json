@@ -11,13 +11,11 @@
     "pages/city/index",
     "pages/orderinfo/index",
     "pages/orderinfo/electrical/index",
-<<<<<<< Updated upstream
-        "pages/orderinfo/category/index",
-        
-    "pages/coll/index"
-=======
-    "pages/detail/comment/index"
->>>>>>> Stashed changes
+    "pages/orderinfo/category/index",
+    "pages/coll/index",
+    "pages/detail/comment/index",
+    "pages/eva/index",
+    "pages/detail/place/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

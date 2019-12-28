@@ -1,0 +1,297 @@
+<!-- <wxs src="details.wxs" module="tools" /> -->
+
+<!-- 推荐房源——房源详情 -->
+<view>
+  <!-- 顶部轮播块 -->
+  <view class='Bartop'>
+    <swiper class='screen-swiper-top' duration="{{duration}}" current="{{current}}" bindchange="changeImg">
+      <block wx:for="{{detailslist.get_banner}}" wx:for-index="idimags" wx:for-item="itemimags" wx:key="index">
+        <swiper-item>
+          <image lazy-load="{{lazyLoad}}" mode="{{mode}}" src="{{itemimags.url}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class='show-image-likes'>
+      <view class='show-image-likes-box'>
+        <image src="../../../images/home/likes.png" />
+      </view>
+    </view>
+    <text class="item-num" wx:if="{{showLength}}>1">{{activeIndex+1}}/{{detailslist.get_banner.length}}</text>
+    <text class="item-num" wx:else>1/{{detailslist.get_banner.length}}</text>
+
+    <!-- 价格 -->
+    <view class='House-prices'>
+      <text class='House-prices-rate'>¥</text>
+      <text class='House-prices-money'>{{detailslist.price}}</text>
+      <text class='House-prices-unit'>/晚</text>
+    </view>
+
+    <view class='details-box'>
+      <!-- 标题景色 -->
+      <view class='details-title'>
+        <view class='title-name'>{{detailslist.title}}</view>
+        <view>
+          <text class='scenery-buttom'>{{detailslist.scene}}</text>
+        </view>
+      </view>
+      <!-- 头像昵称 -->
+
+      <!-- 户型介绍 -->
+      <view class='Door-model'>
+        <view class='Model-content'>
+          <image src='../../../images/home/fangjian.png' />
+          <view class='Model-content-details'>
+            <view class='content-details-top'>{{detailslist.room}}</view>
+          </view>
+        </view>
+        <!-- 宜住人数-->
+        <view class='Model-content'>
+          <image src='../../../images/home/rensu.png' />
+          <view class='Model-content-details'>
+            <view class='content-details-top'>宜住{{detailslist.num}}人</view>
+
+          </view>
+        </view>
+        <!-- 床数-->
+        <view class='Model-content'>
+          <image src='../../../images/home/chuang.png' />
+          <view class='Model-content-details'>
+            <view class='content-details-top'>共{{detailslist.bedNum}}床</view>
+            <view wx:for="{{item.getbednum}}" wx:for-index="idbednum" wx:for-item="itembednum" wx:key="index">
+              <view class='content-details-area'>{{itembednum.name}} （{{itembednum.width}}）共{{itembednum.num}}张</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 详情描述  -->
+      <view class='describe'>
+        <view class='describe-title'>房源介绍</view>
+        <view id="des-sh" class='{{showTotal ? "des" : "des-short1 des-short"}}' style='-webkit-line-clamp: {{lineNum}};'>{{detailslist.desc}}</view>
+        <view class='bg-white-ellipsis' bindtap='showAll' wx:if="{{showTotalBtn}}">
+          <text>{{ellipsis?"展开更多":"收起"}}</text>
+          <image class='img-ellipsis' src="{{ellipsis?'../../../images/home/xia.png':'../../../images/home/shang.png'}}"></image>
+        </view>
+      </view>
+      <!-- 配套设施 -->
+      <view class='facilities'>
+        <view class='facilities-title'>配套设施</view>
+        <view class='facilities-centens'>
+          <view class='centents-icon' wx:for="{{detailslist.get_group.get_facilities_attr}}" wx:if="{{index<6}}">
+            <view class='centents-icon-top'>
+              <view class='centents-icon-top-image'>
+                <image src="{{item.get_housing_attr[0].images_url}}"></image>
+              </view>
+            </view>
+            <view class='centents-icon-name'>{{item.get_housing_attr.name}}</view>
+          </view>
+          <view class='centents-icon' bindtap="modelHidden">
+
+            <view class='centents-icon-zongnum' wx:if="{{index>4}}">
+              <view class='centents-icon-top-zongnum'>{{detailslist.get_group.get_facilities_attr.length}}+</view>
+            </view>
+            <view class='centents-icon-name' wx:if="{{index>4}}">全部
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 房源位置 -->
+    <view class='location'>
+      <view class='location-title'>房源位置</view>
+      <map id="myMap" markers="{{markers}}" data-markers='{{markers[0]}}' style="width:100%;height:450rpx;" longitude="{{poi.longitude}}" latitude="{{poi.latitude}}" scale='16' show-location bindmarkertap="gotohere">
+      </map>
+    </view>
+
+    <!-- 房客评价 -->
+    <view class='tenant'>
+      <view class='tenant-title'>房客评价</view>
+      <view wx:if="{{detailslist.get_review.length}}">
+        <view class='tenant-review' wx:for="{{detailslist.get_review}}" wx:key="index" wx:if="{{index<4}}">
+          <view class='tenant-review-top'>
+            <view class='review-top-left'>{{item.get_user.nickName}}</view>
+            <view class='review-top-right'>{{item.create_time}}</view>
+          </view>
+          <view class='Housing-evaluation'>
+            <block wx:for="{{item.num}}" wx:key="index">
+              <view class='Housing-evaluation-image'>
+                <image src="../../../images/me/fen.png" />
+              </view>
+            </block>
+          </view>
+          <view class='tenant-review-details'>{{item.content}}</view>
+        </view>
+        <view class='tenant-quanbu' data-housing_id='{{detailslist.id}}' bindtap='evaluation'>全部评价﹥</view>
+      </view>
+      <view class='tenant-being' wx:else>暂无</view>
+    </view>
+
+    <!-- 可租日期 -->
+    <view class='rentTime'>
+      <view class='rentTime-title'>可租日期</view>
+      <view class='rentTime-kexuan'>
+        <!-- 测试开始 -->
+        <!-- 左右点击 -->
+        <view class='Orse'>
+          <view class='Orse-left' bindtap='minusMouth'>
+            <view class='Orse-left-image'>
+              <image src='../../../images/home/left.png' />
+            </view>
+          </view>
+          <view class='Orse-time' wx:for='{{calendar}}' wx:for-item='calendarItem' wx:for-index='idx' wx:key="calendarItem">
+            <view class="title">{{idx}}</view>
+          </view>
+          <view class='Orse-right' bindtap='plusMouth'>
+            <view class='Orse-right-image'>
+              <image src='../../../images/home/right.png' />
+            </view>
+          </view>
+        </view>
+        <!-- 星期 -->
+        <view class='header'>
+          <view wx:for='{{date}}' class='{{item == "周六" || item == "周日" ? "weekMark" : ""}}' wx:key="index">{{item}}</view>
+        </view>
+        <!-- 日期 -->
+        <view class="date-content">
+          <view class='date-box' wx:for='{{calendar}}' wx:for-item='calendarItem' wx:for-index='idx' wx:key="calendarItem">
+            <view class="content">
+              <!--  如果当前时间大于入住时间并且当前时间小于离开时间 或者 当前时间等于入住时间 或者当前时间等于入住时间 -->
+              <view wx:for='{{calendarItem}}' wx:key="index" class='days {{ item.isToday == inTime || item.isToday == outTime ? "day-select" : ""}}{{item.isToday > inTime && item.isToday < outTime ? "day-sect" : ""}}{{item.isToday<noDate?"huise":""}}' data-id='{{item.dateNum}}'
+                data-day='{{item.isToday}}' bindtap='{{item.isToday>=noDate?"dayClick":""}}'>
+                <view class='dateNum'>
+                  <text class='{{item.isToday==noDate ?"lanse":""}}{{item.isToday==inTime?"baise":""}}'>{{item.dateNum}}</text>
+                  <view class='jintian' wx:if="{{item.isToday == noDate}}">今天</view>
+                  <view class='ruzhu' wx:if="{{item.isToday == inTime}}">入住</view>
+                  <view class='likai' wx:if="{{item.isToday == outTime}}">离店</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 测试结束 -->
+      </view>
+    </view>
+
+    <!-- 入住须知 -->
+    <view class='instructions'>
+      <view class='instructions-title'>入住须知</view>
+      <view class='instructions-details'>
+        <view wx:for="{{item.getinstructions}}" wx:for-index="idinstion" wx:for-item="iteminstion" wx:key="index">
+          <view class='instructions-details-xq'>
+            <text>入住时间:</text>
+            <text>{{iteminstion.stay_time}}</text>
+          </view>
+          <view class='instructions-details-xq'>
+            <text>退房时间:</text>
+            <text>{{iteminstion.out_time}}</text>
+          </view>
+          <view class='instructions-details-xq'>
+            <text>接待时间:</text>
+            <text>{{iteminstion.reception_time}}</text>
+          </view>
+          <view class='instructions-details-xq'>
+            <text>入住押金:</text>
+            <text>¥{{iteminstion.deposit}}.00</text>
+          </view>
+        </view>
+      </view>
+      <view class='instructions-conduct'>
+        <view>房屋守则:</view>
+        <block wx:for="{{item.getconduct}}" wx:for-index="idconduct" wx:for-item="itemconduct" wx:key="index">
+          <text>{{itemconduct.title}}</text>
+        </block>
+      </view>
+    </view>
+
+    <!-- 退订规则  -->
+    <view class='unsubscribe'>
+      <view class='unsubscribe-title'>退订规则</view>
+      <view class='unsubscribe-x'>
+        <scroll-view class='unsub-scroll' scroll-x="true" scroll-with-animation="true">
+          <!-- 预定成功 -->
+          <view class='unsubscribe-left'>
+            <!-- 头部 -->
+            <view class='unsub-left-top'>
+              <view class='unsub-left-top-feiyong'>如取消订单,返还所有费用</view>
+            </view>
+            <view class='unsub-left-bottom'>
+              <view class='unsub-left-bottom-dian'></view>
+            </view>
+            <view class='unsub-left-bottom-success'>预定成功</view>
+          </view>
+          <!-- 入住前七天 -->
+          <view class='unsubscribe-middle'>
+            <!-- 头部 -->
+            <view class='advance-left-top'>
+              <view class='advance-left-top-feiyong'>仅返还全部押金,扣除所有房费</view>
+            </view>
+            <view class='advance-left-bottom'>
+              <view class='advance-left-bottom-dian'></view>
+            </view>
+            <view class='advance-left-bottom-success'>入住前7天14:00之前</view>
+          </view>
+          <!-- 入住当天 -->
+          <view class='unsubscribe-day'>
+            <!-- 头部 -->
+            <view class='day-left-top'>
+              <view class='day-left-top-feiyong'>如取消订单,扣除剩余房费,押金视实际情况退换</view>
+            </view>
+            <view class='day-left-bottom'>
+              <view class='day-left-bottom-dian'></view>
+            </view>
+            <view class='day-left-bottom-success'>入住当天</view>
+            <view class='day-left-right'>
+              <view class='day-left-right-dian'></view>
+            </view>
+            <view class='day-left-right-success'>租房日内提前离开</view>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+
+    <!-- 额外费用 -->
+    <view class='additional'>
+
+    </view>
+  </view>
+
+  <!-- 立刻预定 -->
+  <view class='reservation'>
+    <view class='reservation-left'>
+      <!-- <cover-view class='reservation-left-phone' bindtap="phone">
+       
+        <cover-view>联系管家</cover-view>
+      </cover-view> -->
+      <view>{{detailslist.price}}/晚</view>
+    </view>
+    <!-- <cover-view class='reservation-right' bindtap="reservation" wx:if="{{detailslist.status==1}}">立即预定</cover-view>
+    <cover-view class='reservation-no' wx:else>此房间不接受预定</cover-view> -->
+    <view class='reservation-right' bindtap="reservation">立即预定</view>
+
+  </view>
+
+  <!-- 配套设施全部弹出层 -->
+  <view hidden="{{modelHidden}}" class='pop-up' catchtouchmove="return">
+    <cover-view class='pop-up-box'>
+      <cover-view class='occupy'>
+        <cover-view class='occupy-bar'>
+          <cover-view class='occupy-bar-name'>配套设施</cover-view>
+          <cover-image class='occupy-bar-images' bindtap='colse' src='../../../images/home/facilities/guan.png'></cover-image>
+        </cover-view>
+        <cover-view class='occupy-bar-name-border'></cover-view>
+        <cover-view class='occupy-scroll'>
+          <cover-view class='scroll-centents-icon' wx:for="{{detailslist.get_group.get_facilities_attr}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <cover-view class='scroll-centents-icon-top'>
+              <cover-view class='scroll-centents-icon-top-image'>
+                <cover-image src='{{itemName.get_housing_attr.images_url}}'></cover-image>
+              </cover-view>
+            </cover-view>
+            <cover-view class='scroll-centents-icon-name'>{{itemName.get_housing_attr.name}}</cover-view>
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </cover-view>
+  </view>
+
+</view>

@@ -102,7 +102,7 @@
   <!-- 按钮 -->
 </view>
 <view class="btn-group">
-  <view class="del">我要点评</view>
+  <view class="del" bindtap="toEva">我要点评</view>
   <view class="comment">查看点评</view>
   <view class="share">分享房屋</view>
   <view class="order-again">申请退房</view>
