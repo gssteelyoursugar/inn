@@ -2,18 +2,8 @@
 import {
   getWeek
 } from '../../api/user.js'
-
-
-
-
-
 import { HomeModel } from '../../api/home.js';
 let homemodel = new HomeModel();
-
-
-
-
-
 import { PayModel } from '../../api/pay.js';
 let payModel = new PayModel();
 
