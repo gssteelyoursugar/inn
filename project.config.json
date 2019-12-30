@@ -114,7 +114,7 @@
 					"id": 8,
 					"name": "订单详情",
 					"pathName": "pages/orderinfo/index",
-					"query": "id=8",
+					"query": "id=68",
 					"scene": null
 				},
 				{

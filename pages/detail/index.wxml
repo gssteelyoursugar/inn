@@ -41,7 +41,8 @@
     <view class="control-bar" wx:if="{{showBox}}">
       <view class="coll-info">
         <view class="tag">优选·精品</view>
-        <view class="coll">899人收藏</view>
+        <view class="coll">{{detailslist.getcoll_count}}人收藏</view>
+        
       </view>
       <view class="title-rate">
         <view class="title">{{detailslist.title}}</view>
