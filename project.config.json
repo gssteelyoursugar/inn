@@ -139,10 +139,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 12,
 					"name": "下单",
 					"pathName": "pages/detail/place/index",
-					"query": "details_id=24",
+					"query": "details_id =12&price=150.00&yajin=null",
 					"scene": null
 				}
 			]

@@ -1,7 +1,5 @@
 <!--pages/orderinfo/index.wxml-->
 <wxs src="time.wxs" module="tools" />
-
-
 <wxs src="../../utils/phone.wxs" module="tool" />
 
 <view class="order-info-container">

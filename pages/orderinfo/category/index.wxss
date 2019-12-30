@@ -28,8 +28,8 @@ page {
 }
 
 .cate-item image {
-  width: 80rpx;
-  height: 80rpx;
+  width: 70rpx;
+  height: 70rpx;
 }
 
 .cate-item .item-name {

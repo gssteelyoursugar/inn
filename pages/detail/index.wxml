@@ -1,5 +1,4 @@
 <!--pages/detail/index.wxml-->
-
 <view class="detail-container">
   <wxs src="../../utils/common/filter.wxs" module="filter" />
   <block wx:if="{{showMoreText}}">
@@ -100,10 +99,13 @@
             <view class="locate">
               <view class="light-title">房屋位置</view>
               <view class="locate-text">
-                <van-icon name="location" class="locate-icon" />银滩·阳光里
+                <van-icon name="location" class="locate-icon" />
+                {{detailslist.location}}
               </view>
               <view class="locate-map">
-                <image src="../../static/img/locate-img.png"></image>
+              
+      <map id="myMap" markers="{{markers}}" data-markers='{{markers[0]}}' style="width:100%;height:450rpx;" longitude="{{poi.longitude}}" latitude="{{poi.latitude}}" scale='16' show-location bindmarkertap="gotohere">
+      </map>
               </view>
             </view>
             <!-- 服务设施 -->
@@ -152,5 +154,5 @@
 
   </view>
   <!-- 立刻预定 -->
-  <confirm-box></confirm-box>
+  <confirm-box detailslist="{{detailslist}}"></confirm-box>
 </view>

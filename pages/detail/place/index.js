@@ -1,9 +1,15 @@
 // pages/home/reservation/reservation.js
-const base_path = '../../../images/home/';
+const base_path = '../../../static/img/';
 const app = getApp();
 // 这是该页面对应的 “路径前缀”
 import { OrderModel } from '../../../api/order.js';
 let list = new OrderModel();
+
+import { PayModel } from '../../../api/pay.js';
+let payModel = new PayModel();
+
+
+
 Page({
 
   /**
@@ -56,6 +62,7 @@ Page({
       num: num
     })
   },
+
   //点击减少
   jian(e) {
     var num = this.data.num;
@@ -86,6 +93,7 @@ Page({
   },
   //支付页面
   Paybuttom(e) {
+    var userInfo = wx.getStorageSync('userInfo')
     var temp = {
       user_id: app.globalData.user_id, //用户id
       housing_id: this.data.details_id, //房源id
@@ -101,12 +109,7 @@ Page({
     }
     var name = this.data.name
     var phone = this.data.phone
-    if (name == '') {
-      wx.showToast({
-        icon: 'none',
-        title: '还没添加入住人',
-      })
-    } else if (phone == '') {
+   if (phone == '') {
       wx.showToast({
         icon: 'none',
         title: '还没添加号码',
@@ -114,18 +117,55 @@ Page({
     } else {
       //1.提交数据 2.跳转支付成功页面
       var that = this;
-      list.postOrder(temp, res => {
+
+     var paytemp={
+       openid: userInfo.openid,
+        price:this.data.zongprice
+    }
+     payModel.toPay(paytemp, dres => {
+       wx.requestPayment({
+         timeStamp: dres.timeStamp,
+         nonceStr: dres.nonceStr,
+         package: dres.package,
+         signType: 'MD5',
+         paySign: dres.paySign,
+         success(res) {
+           temp.status = 2
+           temp.out_trade_no = dres.out_trade_no
+          //  ordermodel.PostOrderByData(temp, res => {
+          //    that.data.pay = true
+          //    wx.redirectTo({
+          //      url: '/pages/home/order/index',
+          //    })
+          //    wx.setStorageSync('cart', [])
+          //  })
+
+           list.postOrder(temp, res => {
         that.setData({
           imgCity: res
         })
         if (res) {
           var id = res.id;
-          console.log("索引" + id);
           wx.navigateTo({
-            url: "/pages/home/successful/successful?id=" + id
+            url: "/pages/orderinfo/index?id=" + id
           })
         }
       })
+         },
+         fail(res) {
+           temp.order.status = 1
+           list.postOrder(temp, res => {
+             wx.redirectTo({
+               url: "/pages/orderinfo/index?id=" + id
+             })
+             wx.setStorageSync('cart', [])
+           })
+         }
+       })
+       return;
+     })
+
+     
 
     }
   },
@@ -134,20 +174,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    const userInfo = wx.getStorageSync('userInfo')
     var title = options.title;
     var price = options.price;
     var door = options.door;
     var live = options.live;
     var scenery = options.scenery;
-    var inTime = options.inTime;
-    var outTime = options.outTime;
-    var yajin = options.yajin
+    var inTime = wx.getStorageSync('dataRuzhu')
+    var outTime = wx.getStorageSync('dataLikai')
+    var yajin = options.deposit
     var image = options.image
-    var Wan = options.Wan
+    var Wan = wx.getStorageSync('wan')
     var details_id = options.details_id;
+   
+    
     var chlist = this.data.chlist
-    if (title) {
       this.setData({
         title: title,
         price: price,
@@ -159,10 +200,10 @@ Page({
         yajin: yajin,
         image: image,
         Wan: Wan,
+        phone:userInfo.realname.mobile,
         details_id: details_id,
-        charge: parseInt(price) * parseInt(Wan),
+        charge: parseInt(options.price) * parseInt(Wan),
       })
-    }
   },
 
   /**
@@ -183,7 +224,7 @@ Page({
     var chlist = this.data.chlist;
     var bar_url = app.globalData.bar_url;
     this.setData({
-      zongprice: (parseInt(price) * parseInt(Wan)) + parseInt(yajin) - parseInt(chlist)
+      zongprice: (parseInt(price) * parseInt(Wan))
     })
     that.setData({
       bar_url: bar_url

@@ -47,7 +47,7 @@
 
         <!--  试试搜索  -->
         <view class="res-give" bindtap="hotSearch">
-          <view>试试搜: 朝阳广场</view>
+          <view>试试搜: 银滩</view>
           <image src="../../static/img/more-icon.png"></image>
         </view>
 
@@ -126,13 +126,13 @@
 
 
     <!-- 广告投放  -->
-    <view class="advertising">
+    <!-- <view class="advertising">
       <image  src="https://img.zcool.cn/community/013e755b46f0eea8012036be27b21f.jpg@1280w_1l_2o_100sh.jpg"></image>
-    </view>
+    </view> -->
 
 
     <!--  热门评价  -->
-    <evaluate evaluateList="{{evaluateList}}" />
+    <!-- <evaluate evaluateList="{{evaluateList}}" /> -->
 
   </view>
 

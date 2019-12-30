@@ -1,18 +1,6 @@
 <!--房源详情 -- 预定信息 -->
 <view>
   <view class='bottom-yuding'>
-    <view class='Booking'>
-      <view class='Booking-left'>
-        <view class='Booking-left-image'>
-          <image lazy-load="{{lazyLoad}}" mode="{{mode}}" src="{{image}}" />
-        </view>
-      </view>
-      <view class='Booking-right'>
-        <view class='Booking-right-title'>{{title}}</view>
-        <view class='Booking-right-datils'>
-          <text>{{door}}</text>/宜住{{live}}人/{{scenery}}</view>
-      </view>
-    </view>
     <!-- 入住离开时间 -->
     <view class="reserve-time">
       <view class='reserve-time-left'>
@@ -46,7 +34,7 @@
     <view class='reserve-time-bottom'></view>
 
     <!-- 入住人 -->
-    <view class='person'>
+    <!-- <view class='person'>
       <view class='person-left'>入住人</view>
       <view class='person-right'>
         <view class='floatx' bindtap='person'>
@@ -56,8 +44,8 @@
           </view>
         </view>
       </view>
-    </view>
-    <view class='person-name' wx:if="{{name}}">{{name}}</view>
+    </view> -->
+    <!-- <view class='person-name' wx:if="{{name}}">{{name}}</view> -->
     <view class='reserve-time-bottom'></view>
 
     <!-- 预定电话 -->
@@ -65,7 +53,7 @@
       <view class='phone-left'>预订电话</view>
       <view>
         <view class="section">
-          <input type="number" maxlength="11" bindinput="bindKeyInput" placeholder="请输入号码" />
+          <input type="number" maxlength="11" bindinput="bindKeyInput" value="{{phone}}" placeholder="请输入号码" />
         </view>
       </view>
     </view>
@@ -154,7 +142,7 @@
       </view>
     </view>
     <view class='guanModel'>
-      <view class='guanModel-image' bindtap='detail'><image src='../../../images/home/guan.png' /></view>
+      <view class='guanModel-image' bindtap='detail'><image src='../../../static/img/guan.png' /></view>
     </view>
   </view>
 

@@ -2,8 +2,8 @@
 
 <view class="order-btn-wrap">
     <view class="order-price">
-      <text>¥183</text>/晚
-      <text>¥288</text>
+      <text>¥{{detailslist.price}}</text>/晚
+      <text> </text>
     </view>
     <view class="comfirm-btn" catchtap="clickToComfirm">
       <van-icon name="fire" class="order-icon"/><text>立即预定</text></view>

@@ -71,6 +71,7 @@ getInfo(){
     that.setData({
       detailslist: res.data
     })
+    
 
     that.setData({ // 获取返回结果，放到markers及poi中，并在地图展示
       markers: [{
@@ -78,7 +79,7 @@ getInfo(){
         title: res.data.title,
         latitude: res.msg.lat,
         longitude: res.msg.lng,
-        iconPath: '../../../images/home/placeholder.png', //图标路径
+        iconPath: '../../static/img/location2-icon.png', //图标路径,
         width: 30,
         height: 30
       }],

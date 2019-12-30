@@ -52,7 +52,7 @@
   padding: 20rpx 20rpx 30rpx;
   background: #fff;
   border-radius: 20rpx;
-  box-shadow: 0 0 4rpx 0 #e5e5e5;
+  box-shadow: 0 0 50rpx 0 #e5e5e5;
 }
 
 .coll-info {
