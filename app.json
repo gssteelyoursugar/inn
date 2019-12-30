@@ -15,7 +15,8 @@
     "pages/coll/index",
     "pages/detail/comment/index",
     "pages/eva/index",
-    "pages/detail/place/index"
+    "pages/detail/place/index",
+    "pages/orderenter/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

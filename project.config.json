@@ -144,6 +144,12 @@
 					"pathName": "pages/detail/place/index",
 					"query": "details_id =12&price=150.00&yajin=null",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "已有预定",
+					"pathName": "pages/orderenter/index",
+					"scene": null
 				}
 			]
 		}

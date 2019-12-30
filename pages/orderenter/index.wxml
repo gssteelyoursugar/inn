@@ -1,0 +1,12 @@
+<!--pages/orderenter/index.wxml-->
+
+<view class="order-enter-container">
+  <view class="shop-logo-wrap">
+    <image src="../../static/img/syt.jpg"></image>
+  </view>
+
+  <view class="btn-group">
+    <view class="ordered" catchtap="clickToCheckOrder">已有预定</view>
+    <view class="make-order" catchtap="clickToOrder">我要预定</view>
+  </view>
+</view>

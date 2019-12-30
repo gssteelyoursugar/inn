@@ -1,0 +1,7 @@
+<!--pages/comment/index.wxml-->
+
+<view class="comment-container">
+  <view class="comment-text">
+    <van-field class="text-bar" value="{{ message }}" type="textarea" placeholder="请输入留言" autosize border="{{ true }}" maxlength="120"/>
+  </view>
+</view>

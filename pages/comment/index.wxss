@@ -1,0 +1,9 @@
+/* pages/comment/index.wxss */
+
+.text-bar .field-index--van-field {
+  height: 400rpx;
+}
+
+.text-bar .van-field__body textarea {
+  height: 360rpx !important;
+}

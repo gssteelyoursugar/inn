@@ -1,0 +1,30 @@
+/* pages/orderenter/index.wxss */
+
+page {
+  background: #f3f5f7;
+}
+
+.shop-logo-wrap {
+  text-align: center;
+  padding: 80px 0 20rpx;
+}
+
+.shop-logo-wrap image {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 50%;
+  box-shadow: 0 0 4rpx 2rpx #e5e5e5;
+}
+
+
+
+.ordered, .make-order {
+  padding: 26rpx 30rpx;
+  text-align: center;
+  background: #fff;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  color: #666;
+  margin: 80rpx auto;
+  width: 60%;
+}
